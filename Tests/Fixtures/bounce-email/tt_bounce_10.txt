@@ -1,0 +1,139 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.67.102.1 with SMTP id e1cs29105ugm;
+        Sat, 15 Sep 2007 09:07:11 -0700 (PDT)
+Received: by 10.86.84.5 with SMTP id h5mr2204525fgb.1189872431018;
+        Sat, 15 Sep 2007 09:07:11 -0700 (PDT)
+Return-Path: <>
+Received: from mail.studio7.lv ([159.148.225.2])
+        by mx.google.com with ESMTP id 13si4519655fks.2007.09.15.09.07.10;
+        Sat, 15 Sep 2007 09:07:10 -0700 (PDT)
+Received-SPF: neutral (google.com: 159.148.225.2 is neither permitted nor denied by best guess record for domain of mail.studio7.lv) client-ip=159.148.225.2;
+Authentication-Results: mx.google.com; spf=neutral (google.com: 159.148.225.2 is neither permitted nor denied by best guess record for domain of mail.studio7.lv) smtp.mail=
+Received: by mail.studio7.lv (Postfix)
+	id 7079F1088055; Sat, 15 Sep 2007 19:07:08 +0300 (EEST)
+Date: Sat, 15 Sep 2007 19:07:08 +0300 (EEST)
+From: MAILER-DAEMON@mail.studio7.lv (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: agris.ameriks@gmail.com
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="8BCE21088059.1189872428/mail.studio7.lv"
+Message-Id: <20070915160708.7079F1088055@mail.studio7.lv>
+
+This is a MIME-encapsulated message.
+
+--8BCE21088059.1189872428/mail.studio7.lv
+Content-Description: Notification
+Content-Type: text/plain
+
+This is the Postfix program at host mail.studio7.lv.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to <postmaster>
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+			The Postfix program
+
+<info.rietumuradio.lv@mail.studio7.lv>: temporary failure
+
+--8BCE21088059.1189872428/mail.studio7.lv
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mail.studio7.lv
+X-Postfix-Queue-ID: 8BCE21088059
+X-Postfix-Sender: rfc822; agris.ameriks@gmail.com
+Arrival-Date: Fri, 14 Sep 2007 18:52:25 +0300 (EEST)
+
+Final-Recipient: rfc822; info.rietumuradio.lv@mail.studio7.lv
+Action: failed
+Status: 4.0.0
+Diagnostic-Code: X-Postfix; temporary failure
+
+--8BCE21088059.1189872428/mail.studio7.lv
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.studio7.lv (Postfix) with ESMTP id 8BCE21088059
+	for <info.rietumuradio.lv@mail.studio7.lv>; Fri, 14 Sep 2007 18:52:25 +0300 (EEST)
+X-Virus-Scanned: amavisd-new at studio7.lv
+Received: from mail.studio7.lv ([127.0.0.1])
+	by localhost (smtp.studio7.lv [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ptzaz7um-NBV for <info.rietumuradio.lv@mail.studio7.lv>;
+	Fri, 14 Sep 2007 18:52:23 +0300 (EEST)
+Received: from hu-out-0506.google.com (hu-out-0506.google.com [72.14.214.227])
+	by mail.studio7.lv (Postfix) with ESMTP id 9F8D2108806D
+	for <info@rietumuradio.lv>; Fri, 14 Sep 2007 18:52:22 +0300 (EEST)
+Received: by hu-out-0506.google.com with SMTP id 38so472432huc
+        for <info@rietumuradio.lv>; Fri, 14 Sep 2007 08:52:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:mime-version:content-type;
+        bh=4vXa1w6DKyZv8zm1ehZCNcwq4zu82fUl9OQIU6HbeGE=;
+        b=rswuEvzRFbiKcOsstWjGjv1coaMxHwvSVfu8tIn4I9K3C/JY6JK2zK6C2vOPc9DUgaCyFxnXsv7Vf4ESuAcMTaqP3RCabN//lJ9YGixCxvdTZhgaS9vs9Ze6WV68Mw3lCB1eg5QC7CmhHlegDpAtBWV/NLqAPa9WiSun+T5eFxE=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=received:message-id:date:from:to:subject:mime-version:content-type;
+        b=dsax+33YeZDwUJY8uMkbOIOiBLaklYI33wM+tVcxaiESRe8TbTgOvPhQyW6x45knhFvyR9PNE7lDpq3Xz00OMMT6UnM9wRA9q7U0Pd2Vr2+lCw4DcXyfCo/PhBdYydODibWr//M0WmU9eL/S9zLSMW87gZPe0v4PNFd4hQSev9w=
+Received: by 10.66.242.19 with SMTP id p19mr3910432ugh.1189785128812;
+        Fri, 14 Sep 2007 08:52:08 -0700 (PDT)
+Received: by 10.67.102.1 with HTTP; Fri, 14 Sep 2007 08:52:08 -0700 (PDT)
+Message-ID: <da9602510709140852n758da03h4c7a8c6ede38fde8@mail.gmail.com>
+Date: Fri, 14 Sep 2007 18:52:08 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: Agris.Ameriks@gmail.com
+Subject: =?ISO-8859-13?Q?prof._Ivars_L=E2cis_uzst=E2sies_ar_lekciju?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_868_30357988.1189785128799"
+
+------=_Part_868_30357988.1189785128799
+Content-Type: text/plain; charset=ISO-8859-13
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+TGFiZGllbiEKCk5vc/t0dSBwcmVzZXMgcmVs7nppIHBhciBwYXPia3VtdSAxNS5zZXB0ZW1icu4g
+RXNwbGFu4mTnLgoKLS0gCkFyIGNpZfJ1LApBZ3JpcyBBbWVyaWtzCk1vYi50ZWwuIDIgNjQ2MTEw
+MQpFLXBhc3RzOiBBZ3Jpcy5BbWVyaWtzQGdtYWlsLmNvbQo=
+------=_Part_868_30357988.1189785128799
+Content-Type: application/msword; name="relize_rektori.doc"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="relize_rektori.doc"
+X-Attachment-Id: f_f6kvbbns
+
+0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAALAAAAAAAAAAA
+EAAALgAAAAEAAAD+////AAAAACsAAAD/////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////s
+pcEAW4AJBAAA8BK/AAAAAAAAEAAAAAAACAAAEhQAAA4AYmpiaqz6rPoAAAAAAAAAAAAAAAAAAAAA
+AAAJBBYANBYAAM6QAQDOkAEApAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//w8AAAAA
+AAAAAAD//w8AAAAAAAAAAAD//w8AAAAAAAAAAAAAAAAAAAAAALcAAAAAAJIFAAAAAAAAkgUAANUS
+AAAAAAAA1RIAAAAAAADVEgAAAAAAANUSAAAAAAAA1RIAABQAAAAAAAAAAAAAAP////8AAAAA6RIA
+AAAAAADpEgAAAAAAAOkSAAAAAAAA6RIAAAwAAAD1EgAADAAAAOkSAAAAAAAArxkAADABAAABEwAA
+AAAAAAETAAAAAAAAARMAAAAAAAABEwAAAAAAAAETAAAAAAAA3BMAAAAAAADcEwAAAAAAANwTAAAA
+AAAAIhkAAAIAAAAkGQAAAAAAACQZAAAAAAAAJBkAAAAAAAAkGQAAAAAAACQZAAAAAAAAJBkAACQA
+AADfGgAAogIAAIEdAAA2AAAASBkAACEAAAAAAAAAAAAAAAAAAAAAAAAA1RIAAAAAAADcEwAAAAAA
+AAAAAAAAAAAAAAAAAAAAAADcEwAAAAAAANwTAAAAAAAA3BMAAAAAAADcEwAAAAAAAEgZAAAAAAAA
+AAAAAAAAAADVEgAAAAAAANUSAAAAAAAAARMAAAAAAAAAAAAAAAAAAAETAADbAAAAaRkAABYAAADa
+GAAAAAAAANoYAAAAAAAA2hgAAAAAAADcEwAAcgQAANUSAAAAAAAAARMAAAAAAADVEgAAAAAAAAET
+AAAAAAAAIhkAAAAAAAAAAAAAAAAAANoYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA3BMAAAAAAAAiGQAAAAAAAAAAAAAAAAAA2hgAAAAAAAAAAAAA
+AAAAANoYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2hgAAAAAAAABEwAAAAAAAP////8AAAAAEA+LEuf2
+xwEAAAAAAAAAAOkSAAAAAAAAThgAAGoAAADaGAAAAAAAAAAAAAAAAAAADhkAABQAAAB/GQAAMAAA
+AK8ZAAAAAAAA2hgAAAAAAAC3HQAAAAAAALgYAAAiAAAAtx0AAAAAAADaGAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAALcdAAAAAAAAAAAAAAAAAADVEgAAAAAAANoYAAA0AAAA3BMAAAAAAADcEwAAAAAAANoY
+AAAAAAAA3BMAAAAAAADcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3BMA
+
+--8BCE21088059.1189872428/mail.studio7.lv--

@@ -1,0 +1,92 @@
+Received: by m.sender.com (Postfix)
+	id C69251232; Sun, 22 Jan 2012 22:20:33 -0800 (PST)
+Date: Sun, 22 Jan 2012 22:20:33 -0800 (PST)
+From: MAILER-DAEMON@sender.com (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: bounces+1327299632897@sender.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="E369E7EF.1327299633/m.sender.com"
+Message-Id: <20120123062033.C69251232@m.sender.com>
+
+This is a MIME-encapsulated message.
+
+--E369E7EF.1327299633/m.sender.com
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host m.sender.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<mango3438kaskdmdfklas@yahoo.com>: host mta5.am0.yahoodns.net[67.195.103.233]
+    said: 554 delivery error: dd This user doesn't have a yahoo.com account
+    (mango3438kaskdmdfklas@yahoo.com) [0] - mta1199.mail.gq1.yahoo.com (in
+    reply to end of DATA command)
+
+--E369E7EF.1327299633/m.sender.com
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; m.sender.com
+X-Postfix-Queue-ID: E369E7EF
+X-Postfix-Sender: rfc822; bounces+1327299632897@sender.com
+Arrival-Date: Sun, 22 Jan 2012 22:20:32 -0800 (PST)
+
+Final-Recipient: rfc822; mango3438kaskdmdfklas@yahoo.com
+Original-Recipient: rfc822;mango3438kaskdmdfklas@yahoo.com
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; mta5.am0.yahoodns.net
+Diagnostic-Code: smtp; 554 delivery error: dd This user doesn't have a
+    yahoo.com account (mango3438kaskdmdfklas@yahoo.com) [0] -
+    mta1199.mail.gq1.yahoo.com
+
+--E369E7EF.1327299633/m.sender.com
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <bounces+1327299632897@sender.com>
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by m.sender.com (Postfix) with ESMTPS id E369E7EF
+	for <mango3438kaskdmdfklas@yahoo.com>; Sun, 22 Jan 2012 22:20:32 -0800 (PST)
+X-Mailer: Nodemailer (0.2.4; +http://www.nodemailer.org)
+From: dev@sender.com
+Date: Mon, 23 Jan 2012 06:20:32 GMT
+From: bounces+1327299632897@sender.com
+To: mango3438kaskdmdfklas@yahoo.com
+Subject: Sender - Mail Statistics
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+        boundary="----NODEMAILER-?=_2-1327299632898"
+Message-Id: <20120123062032.E369E7EF@m.sender.com>
+
+------NODEMAILER-?=_2-1327299632898
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Stats for Sun Jan 22 2012 22:20:32 GMT-0800 (PST)
+
+------NODEMAILER-?=_2-1327299632898
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Stats for Sun Jan 22 2012 22:20:32 GMT-0800 (PST)
+
+------NODEMAILER-?=_2-1327299632898--
+
+--E369E7EF.1327299633/m.sender.com--
+
+ ============ 
+ recipient: bounces+1327299632897@sender.com
+ ============ 
+ sender: MAILER-DAEMON

@@ -1,0 +1,40 @@
+From agris.ameriks@accenture.com  Mon Feb  9 22:17:46 2009
+Return-Path: <agris.ameriks@accenture.com>
+X-Original-To: ameriks@amerimail.lv
+Delivered-To: bounce_and_mail_handler@ameriks
+Received: from ememr1003.accenture.com (ememr1003.accenture.com [170.252.72.95])
+	by ameriks (Postfix) with ESMTPS id 237A53A08C
+	for <ameriks@amerimail.lv>; Mon,  9 Feb 2009 22:17:46 +0200 (EET)
+Received: from EMEXV1004.dir.svc.accenture.com (emexv1004.dir.svc.accenture.com [10.130.16.107])
+	by ememr1003.accenture.com (8.13.8/8.13.8) with ESMTP id n19KHQQp012745
+	for <ameriks@amerimail.lv>; Mon, 9 Feb 2009 20:17:43 GMT
+Received: from emexr1003.dir.svc.accenture.com ([10.130.16.112]) by EMEXV1004.dir.svc.accenture.com with Microsoft SMTPSVC(6.0.3790.1830); Mon, 9 Feb 2009 21:16:34 +0100
+Received: from EMEXM0302.dir.svc.accenture.com ([10.130.16.127]) by emexr1003.dir.svc.accenture.com with Microsoft SMTPSVC(6.0.3790.1830); Mon, 9 Feb 2009 21:16:38 +0100
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.3790.3168
+Content-class: urn:content-classes:message
+MIME-Version: 1.0
+Importance: normal
+Priority: normal
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Subject: Arpus biroja atrasanas automatiska atbilde: subjecting
+Date: Mon, 9 Feb 2009 21:16:32 +0100
+Message-ID: <EFC4B37552425341AFA4F2685BC76A598F1B86@EMEXM0302.dir.svc.accenture.com>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Thread-Topic: subjecting
+Thread-Index: AcmK80zS8L6DgfKxTMON80Obs/ge4QAAAAOa
+From: <agris.ameriks@accenture.com>
+To: <ameriks@amerimail.lv>
+X-OriginalArrivalTime: 09 Feb 2009 20:16:38.0386 (UTC) FILETIME=[50313D20:01C98AF3]
+
+Thank you for your email.
+
+I am out of office and will be back on Tuesday 9:00.
+
+
+This message is for the designated recipient only and may contain =
+privileged, proprietary, or otherwise private information.  If you have =
+received it in error, please notify the sender immediately and delete =
+the original.  Any other use of the email by you is prohibited.

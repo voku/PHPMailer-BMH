@@ -1,0 +1,91 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.66.225.19 with SMTP id x19cs81231ugg;
+        Mon, 4 Jun 2007 15:20:37 -0700 (PDT)
+Received: by 10.67.89.6 with SMTP id r6mr7631ugl.1180995637243;
+        Mon, 04 Jun 2007 15:20:37 -0700 (PDT)
+Return-Path: <>
+Received: from avalon.telekom.lv ([194.8.16.6])
+        by mx.google.com with ESMTP id c22si1797563ika.2007.06.04.15.20.31;
+        Mon, 04 Jun 2007 15:20:37 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of avalon.telekom.lv designates 194.8.16.6 as permitted sender)
+Subject: Undeliverable mail: =?ISO-8859-13?Q?Atbalsta_l=FBgums?=
+From: <MAILER-DAEMON@avalon.telekom.lv>
+To: <agris.ameriks@gmail.com>
+Date: Tue, 05 Jun 2007 01:20:30 +0300
+Message-ID: <receipt-38387797@avalon.telekom.lv>
+X-MAPI-Message-Class: REPORT.IPM.Note.NDR
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type="delivery-status"; boundary="_===38387797====avalon.telekom.lv===_"
+
+
+--_===38387797====avalon.telekom.lv===_
+Content-Type: text/plain; charset="utf-8"
+
+Failed to deliver to 'ilona.kalnina@citrus.lv'
+SMTP module(domain [10.2.9.112]) reports:
+ host 10.2.9.112 says:
+ 550 5.1.1 User unknown
+
+
+--_===38387797====avalon.telekom.lv===_
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; avalon.telekom.lv
+
+Original-Recipient: rfc822;<ilona.kalnina@citrus.lv>
+Final-Recipient: rfc822;<ilona.kalnina@citrus.lv>
+Action: failed
+Status: 5.0.0
+
+--_===38387797====avalon.telekom.lv===_
+Content-Type: message/rfc822
+
+Received: from ug-out-1314.google.com ([66.249.92.174] verified)
+  by avalon.telekom.lv (CommuniGate Pro SMTP 5.0.8)
+  with ESMTP id 38387776 for ilona.kalnina@citrus.lv; Tue, 05 Jun 2007 01:20:10 +0300
+Received: by ug-out-1314.google.com with SMTP id y2so152uge
+        for <ilona.kalnina@citrus.lv>; Mon, 04 Jun 2007 15:19:54 -0700 (PDT)
+DKIM-Signature: a=rsa-sha1; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:mime-version:content-type;
+        b=l10L7A+KF49Pwyz92+DFPA/wZLu/uOlsEYg0PlwTfaVpXI/OKFJXSfhw1seTSbKWTnnQK60/hVdRqvdzBuGCQaZo5fkdhRFVQ6U24aBna+4L3tRyROlpOwVVNcWvdZydaJPuRWf8XLVJjy0z/850mX9tlCk8vdFOcAMzoS+/YwU=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=received:message-id:date:from:to:subject:mime-version:content-type;
+        b=epPNHV4IgrC3VhiIdXBXrbxBObboO2zqkB9gca8ZMpQBaH6TDRIhpFzukgJdEZBQHQih2W1trVQ1qPDYJsH3vz0IN5jiGbREfmqobCtrKR36zMw4sJw11YLLSS0j7ej4dJhwg7Vt7YLSM4fXtqsNuODv1ykPcEEBuxTsWlD8XW8=
+Received: by 10.67.32.16 with SMTP id k16mr3381783ugj.1180995594284;
+        Mon, 04 Jun 2007 15:19:54 -0700 (PDT)
+Received: by 10.66.225.19 with HTTP; Mon, 4 Jun 2007 15:19:54 -0700 (PDT)
+Message-ID: <da9602510706041519u6f2d8e0escfbe816de419b434@mail.gmail.com>
+Date: Tue, 5 Jun 2007 01:19:54 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: ilona.kalnina@citrus.lv
+Subject: =?ISO-8859-13?Q?Atbalsta_l=FBgums?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_13894_24991589.1180995594034"
+
+------=_Part_13894_24991589.1180995594034
+Content-Type: text/plain; charset=ISO-8859-13; format=flowed
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+TGFiZGllbiEKCjE1LnNlcHRlbWJy7iBGaXptYXR1IGF0YmFsc3RhIGZvbmRzIHLua29zIGphdW5p
+ZfB1IGJ1cnpp8nUgIlRhdmEgcGFzYXVsZSEiLgoKUGFz4mt1bXMgbm90aWtzIFLuZ2FzIERvbWVz
+IEl6Z2zudO5iYXMsIGphdW5hdG5lcyB1biBzcG9ydGEKZGVwYXJ0YW1lbnRhIHLua290YWriIEph
+dW5pZfB1IG3nbmXwYSBpZXR2YXJvcy4gUu5nYXMgRG9tZSBwaWXw7WlyCjQnMDAwIExzIGzuZHpm
+aW5hbnPnanVtdS4KClbnbGFtaWVzIGz7Z3QgSvtzdSBwYWzuZHruYnUg8O4gcHJvamVrdGEg7nN0
+ZW5v8GFu4i4KClPua+JrcyBwcm9qZWt0YSBhcHJha3N0cyBwaWV2aWVub3RzIHBpZWxpa3Vt4i4K
+CgotLSAKQXIgY2ll8nUsCkFncmlzIEFtZXJpa3MKRml6bWF0dSBhdGJhbHN0YSBmb25kcyBwcmll
+a/Bz52TndOJqcwpNb2IudGVsLiAyIDY0NjExMDEKRS1wYXN0czogQWdyaXMuQW1lcmlrc0BnbWFp
+bC5jb20K
+------=_Part_13894_24991589.1180995594034
+Content-Type: application/pdf; name="Citrus_Solutions.pdf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="Citrus_Solutions.pdf"
+X-Attachment-Id: f_f2ji9xzu
+MzE3MiAwMDAwMCBuDQowMDAwNzI2OTE4IDAwMDAwIG4NCnRyYWlsZXINCjw8L1NpemUgMzQ2Pj4N
+CnN0YXJ0eHJlZg0KMTE2DQolJUVPRg0KAttachmentTruncated
+------=_Part_13894_24991589.1180995594034--
+
+--_===38387797====avalon.telekom.lv===_--

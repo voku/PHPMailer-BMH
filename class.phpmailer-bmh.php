@@ -2,7 +2,7 @@
 /* class.phpmailer-bmh.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer-BMH (Bounce Mail Handler)                            |
-|   Version: 5.1
+|   Version: 5.2-dev                                                        |
 |   Contact: codeworxtech@users.sourceforge.net                             |
 |      Info: http://phpmailer.codeworxtech.com                              |
 | ------------------------------------------------------------------------- |
@@ -38,7 +38,7 @@
  * @author Andy Prevost
  * @copyright 2008-2009, Andy Prevost
  * @license GPL licensed
- * @version 5.1
+ * @version 5.2-dev
  * @link http://sourceforge.net/projects/bmh
  *
  */
@@ -60,7 +60,7 @@ class BounceMailHandler {
    * Holds Bounce Mail Handler version.
    * @var string
    */
-  public $Version = "5.1";
+  public $Version = "5.2-dev";
 
   /**
    * Mail server
@@ -543,7 +543,7 @@ class BounceMailHandler {
         $this->output('Match: ' . $rule_no . ':' . $rule_cat . '; ' . $bounce_type . '; ' . $email);
         return true;
       } else {
-        $params = array($pos,$bounce_type,$email,$subject,$xheader,$remove,$rule_no,$rule_cat,$totalFetchedi,$body);
+        $params = array($pos,$bounce_type,$email,$subject,$xheader,$remove,$rule_no,$rule_cat,$totalFetched,$body);
         return call_user_func_array($this->action_function,$params);
       }
     }

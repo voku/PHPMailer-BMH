@@ -1,0 +1,14 @@
+Return-Path: <kyoto@nijo.example.jp>
+Received: from nijo.example.jp (localhost [127.0.0.1])
+	by nijo.example.jp (V8/cf) with ESMTP id p728XMdL031619
+	for <root@nijo.example.jp>; Tue, 2 Aug 2011 17:33:22 +0900
+Received: (from ak@localhost)
+	by nijo.example.jp (8.14.5/8.14.5/Submit) id p728XMw0031618
+	for root; Tue, 2 Aug 2011 17:33:22 +0900
+Date: Tue, 2 Aug 2011 17:33:22 +0900
+From: Kyoto <kyoto@example.jp>
+Message-Id: <201108020833.p728XMw0031618@nijo.example.jp>
+To: undisclosed-recipients:;
+Subject: Cannot parse
+
+.

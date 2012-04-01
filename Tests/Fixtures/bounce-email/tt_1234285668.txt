@@ -1,0 +1,78 @@
+From MAILER-DAEMON  Tue Feb 10 19:07:48 2009
+Return-Path: <>
+X-Original-To: bounces-main+agrisa=one.lv@amerimail.lv
+Delivered-To: bounce_and_mail_handler@ameriks
+Received: from Albanis-3.local (unknown [87.99.72.11])
+	by ameriks (Postfix) with ESMTP id EE9CC3A1A4
+	for <bounces-main+agrisa=one.lv@amerimail.lv>; Tue, 10 Feb 2009 19:07:47 +0200 (EET)
+Received: by Albanis-3.local (Postfix)
+	id 89FF3329E3C; Tue, 10 Feb 2009 19:07:47 +0200 (EET)
+Date: Tue, 10 Feb 2009 19:07:47 +0200 (EET)
+From: MAILER-DAEMON@Albanis-3.local (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: bounces-main+agrisa=one.lv@amerimail.lv
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="7895C329E32.1234285667/Albanis-3.local"
+Message-Id: <20090210170747.89FF3329E3C@Albanis-3.local>
+
+This is a MIME-encapsulated message.
+
+--7895C329E32.1234285667/Albanis-3.local
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host Albanis-3.local.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<agrisa@one.lv>: host mail5.one.lv[62.85.54.62] said: 552 Account(s)
+    <agrisa@one.lv> does not have enough space (in reply to end of DATA
+    command)
+
+--7895C329E32.1234285667/Albanis-3.local
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; Albanis-3.local
+X-Postfix-Queue-ID: 7895C329E32
+X-Postfix-Sender: rfc822; bounces-main@amerimail.lv
+Arrival-Date: Tue, 10 Feb 2009 19:07:47 +0200 (EET)
+
+Final-Recipient: rfc822; agrisa@one.lv
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; mail5.one.lv
+Diagnostic-Code: smtp; 552 Account(s) <agrisa@one.lv> does not have enough
+    space
+
+--7895C329E32.1234285667/Albanis-3.local
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: by Albanis-3.local (Postfix, from userid 501)
+	id 7895C329E32; Tue, 10 Feb 2009 19:07:47 +0200 (EET)
+Date: Tue, 10 Feb 2009 19:07:09 +0200
+From: ameriks@amerimail.lv
+Reply-To: ginta.amerika@ameri.lv
+To: agrisa@one.lv
+Subject: Mes loti atvainojamies, ja sanemat so epastu
+Mime-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Message-Id: <20090210170747.7895C329E32@Albanis-3.local>
+
+Labdien, mes loti atvainojamies, ja sanemat so epastu. Mes paslaik veicam jaunas sistemas izstradi, kur ir arii ieklauta epastu sutisana. Ludzu ignorejiet so e-pastu!
+Paldies par sapratni.
+
+Ja jus velaties ar mums sazinaties si epasta sakaraa, sutiet epastu uz agris.ameriks@ameri.lv.
+
+--7895C329E32.1234285667/Albanis-3.local--

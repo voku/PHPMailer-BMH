@@ -1,0 +1,73 @@
+From MAILER-DAEMON  Mon Feb  9 12:36:39 2009
+Return-Path: <>
+X-Original-To: bounces-main+agris.ameriks=amerimailzzz.lv@amerimail.lv
+Delivered-To: bounce_and_mail_handler@ameriks
+Received: from Albanis-3.local (unknown [213.175.111.87])
+	by ameriks (Postfix) with ESMTP id 7888A3A1B1
+	for <bounces-main+agris.ameriks=amerimailzzz.lv@amerimail.lv>; Mon,  9 Feb 2009 12:36:39 +0200 (EET)
+Received: by Albanis-3.local (Postfix)
+	id 4242E326BA6; Mon,  9 Feb 2009 12:36:39 +0200 (EET)
+Date: Mon,  9 Feb 2009 12:36:39 +0200 (EET)
+From: MAILER-DAEMON@Albanis-3.local (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: bounces-main+agris.ameriks=amerimailzzz.lv@amerimail.lv
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="34F80326BA4.1234175799/Albanis-3.local"
+Message-Id: <20090209103639.4242E326BA6@Albanis-3.local>
+
+This is a MIME-encapsulated message.
+
+--34F80326BA4.1234175799/Albanis-3.local
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host Albanis-3.local.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<agris.ameriks@amerimailzzz.lv>: Host or domain name not found. Name service
+    error for name=amerimailzzz.lv type=A: Host not found
+
+--34F80326BA4.1234175799/Albanis-3.local
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; Albanis-3.local
+X-Postfix-Queue-ID: 34F80326BA4
+X-Postfix-Sender: rfc822; bounces-main@amerimail.lv
+Arrival-Date: Mon,  9 Feb 2009 12:36:39 +0200 (EET)
+
+Final-Recipient: rfc822; agris.ameriks@amerimailzzz.lv
+Action: failed
+Status: 5.4.4
+Diagnostic-Code: X-Postfix; Host or domain name not found. Name service error
+    for name=amerimailzzz.lv type=A: Host not found
+
+--34F80326BA4.1234175799/Albanis-3.local
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: by Albanis-3.local (Postfix, from userid 501)
+	id 34F80326BA4; Mon,  9 Feb 2009 12:36:39 +0200 (EET)
+Date: Mon, 9 Feb 2009 12:36:33 +0200
+From: ameriks@amerimail.lv
+Reply-To: ginta.amerika@ameri.lv
+To: agris.ameriks@amerimailzzz.lv
+Subject: subjecting
+Mime-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Message-Id: <20090209103639.34F80326BA4@Albanis-3.local>
+
+Hello from mars!
+
+--34F80326BA4.1234175799/Albanis-3.local--

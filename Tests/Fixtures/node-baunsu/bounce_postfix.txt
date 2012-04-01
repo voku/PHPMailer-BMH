@@ -1,0 +1,71 @@
+Received: by m.sender.com (Postfix)
+	id 5480678F; Sun, 15 Jan 2012 23:57:50 -0800 (PST)
+Date: Sun, 15 Jan 2012 23:57:50 -0800 (PST)
+From: MAILER-DAEMON@sender.com (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: bounces+12345-mango-=#43=panda.com@sender.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="12053783.1326700670/m.sender.com"
+Message-Id: <20120116075750.5480678F@m.sender.com>
+
+This is a MIME-encapsulated message.
+
+--12053783.1326700670/m.sender.com
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host m.sender.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<mango-=#43@panda.com>: host 192.168.1.102[192.168.1.102] said: 550 5.1.1
+    <mango-=#43@panda.com>: Recipient address rejected: User unknown in local
+    recipient table (in reply to RCPT TO command)
+
+--12053783.1326700670/m.sender.com
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; m.sender.com
+X-Postfix-Queue-ID: 12053783
+X-Postfix-Sender: rfc822; bounces+12345@sender.com
+Arrival-Date: Sun, 15 Jan 2012 23:57:28 -0800 (PST)
+
+Final-Recipient: rfc822; mango-=#43@panda.com
+Original-Recipient: rfc822;mango-=#43@panda.com
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; 192.168.1.102
+Diagnostic-Code: smtp; 550 5.1.1 <mango-=#43@panda.com>: Recipient address
+    rejected: User unknown in local recipient table
+
+--12053783.1326700670/m.sender.com
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <bounces+12345@sender.com>
+Received: from localhost (localhost [127.0.0.1])
+	by m.sender.com (Postfix) with SMTP id 12053783
+	for <mango-=#43@panda.com>; Sun, 15 Jan 2012 23:57:28 -0800 (PST)
+Message-Id: <20120116075746.12053783@m.sender.com>
+Date: Sun, 15 Jan 2012 23:57:28 -0800 (PST)
+From: bounces+12345@sender.com
+
+yikes
+
+--12053783.1326700670/m.sender.com--
+
+ ============ 
+ recipient: bounces+12345-mango-=#43=panda.com@sender.com
+ ============ 
+ sender: MAILER-DAEMON

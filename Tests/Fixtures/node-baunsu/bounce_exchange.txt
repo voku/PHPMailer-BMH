@@ -1,0 +1,90 @@
+Received: by m.sender.com (Postfix)
+	id 5CD93122E; Sun, 22 Jan 2012 22:07:43 -0800 (PST)
+Date: Sun, 22 Jan 2012 22:07:43 -0800 (PST)
+From: MAILER-DAEMON@sender.com (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: bounces+1327298862897@sender.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="E7AFA77A.1327298863/m.sender.com"
+Message-Id: <20120123060743.5CD93122E@m.sender.com>
+
+This is a MIME-encapsulated message.
+
+--E7AFA77A.1327298863/m.sender.com
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host m.sender.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<mango3432dkl@skylight.com>: host cluster4.us.messagelabs.com[216.82.253.227]
+    said: 550 Invalid recipient <mango3432dkl@skylight.com> (#5.1.1) (in reply
+    to RCPT TO command)
+
+--E7AFA77A.1327298863/m.sender.com
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; m.sender.com
+X-Postfix-Queue-ID: E7AFA77A
+X-Postfix-Sender: rfc822; bounces+1327298862897@sender.com
+Arrival-Date: Sun, 22 Jan 2012 22:07:42 -0800 (PST)
+
+Final-Recipient: rfc822; mango3432dkl@skylight.com
+Original-Recipient: rfc822;mango3432dkl@skylight.com
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; cluster4.us.messagelabs.com
+Diagnostic-Code: smtp; 550 Invalid recipient <mango3432dkl@skylight.com>
+    (#5.1.1)
+
+--E7AFA77A.1327298863/m.sender.com
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <bounces+1327298862897@sender.com>
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by m.sender.com (Postfix) with ESMTPS id E7AFA77A
+	for <mango3432dkl@skylight.com>; Sun, 22 Jan 2012 22:07:42 -0800 (PST)
+X-Mailer: Nodemailer (0.2.4; +http://www.nodemailer.org)
+From: dev@sender.com
+Date: Mon, 23 Jan 2012 06:07:42 GMT
+From: bounces+1327298862897@sender.com
+To: mango3432dkl@skylight.com
+Subject: Sender - Mail Statistics
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+        boundary="----NODEMAILER-?=_2-1327298862899"
+Message-Id: <20120123060742.E7AFA77A@m.sender.com>
+
+------NODEMAILER-?=_2-1327298862899
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Stats for Sun Jan 22 2012 22:07:42 GMT-0800 (PST)
+
+------NODEMAILER-?=_2-1327298862899
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Stats for Sun Jan 22 2012 22:07:42 GMT-0800 (PST)
+
+------NODEMAILER-?=_2-1327298862899--
+
+--E7AFA77A.1327298863/m.sender.com--
+
+ ============ 
+ recipient: bounces+1327298862897@sender.com
+ ============ 
+ sender: MAILER-DAEMON

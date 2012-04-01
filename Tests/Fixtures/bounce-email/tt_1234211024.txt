@@ -1,0 +1,42 @@
+From MAILER-DAEMON  Mon Feb  9 22:23:44 2009
+Return-Path: <>
+X-Original-To: bounces-main+agris.ameriks=gmail.com@amerimail.lv
+Delivered-To: bounce_and_mail_handler@ameriks
+Received: from mail-bw0-f164.google.com (mail-bw0-f164.google.com [209.85.218.164])
+	by ameriks (Postfix) with ESMTP id 1F0A13A08C
+	for <bounces-main+agris.ameriks=gmail.com@amerimail.lv>; Mon,  9 Feb 2009 22:23:44 +0200 (EET)
+Received: by bwz8 with SMTP id 8so2417119bwz.4
+        for <bounces-main+agris.ameriks=gmail.com@amerimail.lv>; Mon, 09 Feb 2009 12:23:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=gamma;
+        h=domainkey-signature:received:message-id:date:from:to:subject
+         :mime-version:content-type:content-transfer-encoding
+         :content-disposition:precedence:x-autoreply;
+        bh=N1fY4J/R56Y76WNR/I9bQfBBxJb49OKIxsGFWNKUWVY=;
+        b=drTotfyYsI7Vhh+BvIhvVQY8uI3KoDNsYyidJ74rEYVsC/AizeWH6KkNdzbtyn4DXl
+         d9qm2tzYGTZk7oRA1IDQWG8iGFfJKtz5d9JPLD9StGsQhZ+mTne0m32hqsMKxcG+1TE7
+         DcqUJJ7lqMsoWIm9/qfrKh4M9WpYg+EsR1np0=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=gamma;
+        h=message-id:date:from:to:subject:mime-version:content-type
+         :content-transfer-encoding:content-disposition:precedence
+         :x-autoreply;
+        b=Tq6LsLhors0+QfBe4baI1UEuuMm2RwJVE1WJS6i2qaPn557zNbnRYQfrv9m2hb93Ks
+         /2GIjkIa+GT0QN9WIY9qCywiojBtznRT8hjk5C3OibuZdGMjCQn1l2lA8xgEG8jcdMGR
+         Cir8us4vyOqUQjhQ6Vl/m/6FwENpgU8/H1YIk=
+Received: by 10.181.218.14 with SMTP id v14mr357446bkq.48.1234211023205;
+        Mon, 09 Feb 2009 12:23:43 -0800 (PST)
+Message-ID: <da9602510902091223yf959676w@mail.gmail.com>
+Date: Mon, 9 Feb 2009 12:23:43 -0800
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: bounces-main+agris.ameriks=gmail.com@amerimail.lv
+Subject: =?ISO-8859-13?Q?Atvalin=E2jums_Re:_subjecting?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-13
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+Precedence: bulk
+X-Autoreply: yes
+
+RXNtdSBhdHZh72lu4mp1beIKCi0tIAotLS0tLS0tLS0tCldpdGggcmVnYXJkLApBZ3JpcyBBbWVy
+aWtzClBob25lICszNzEgMiA2NDYxMTAxCkUtbWFpbDogQWdyaXMuQW1lcmlrc0BnbWFpbC5jb20K

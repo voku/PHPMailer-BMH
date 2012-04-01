@@ -1,0 +1,133 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.66.241.15 with SMTP id o15cs81666ugh;
+        Thu, 30 Aug 2007 01:16:11 -0700 (PDT)
+Received: by 10.86.76.16 with SMTP id y16mr222358fga.1188461771140;
+        Thu, 30 Aug 2007 01:16:11 -0700 (PDT)
+Return-Path: <>
+Received: from pnew.exigengroup.lv (pnew.exigengroup.lv [80.233.156.204])
+        by mx.google.com with ESMTP id d13si451649fka.2007.08.30.01.16.09;
+        Thu, 30 Aug 2007 01:16:11 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of pnew.exigengroup.lv designates 80.233.156.204 as permitted sender) client-ip=80.233.156.204;
+Authentication-Results: mx.google.com; spf=pass (google.com: best guess record for domain of pnew.exigengroup.lv designates 80.233.156.204 as permitted sender) smtp.mail=
+Received: from localhost (localhost)
+	by pnew.exigengroup.lv (X.VV.Z/X.VV.Z) id l7U8G8X9006653;
+	Thu, 30 Aug 2007 11:16:08 +0300
+Date: Thu, 30 Aug 2007 11:16:08 +0300
+From: Mail Delivery Subsystem <MAILER-DAEMON@pnew.exigengroup.lv>
+Message-Id: <200708300816.l7U8G8X9006653@pnew.exigengroup.lv>
+To: <agris.ameriks@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="l7U8G8X9006653.1188461768/pnew.exigengroup.lv"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+
+This is a MIME-encapsulated message
+
+--l7U8G8X9006653.1188461768/pnew.exigengroup.lv
+
+The original message was received at Thu, 30 Aug 2007 11:16:05 +0300
+from lnrixm01.exigengroup.lv [192.168.0.115]
+
+   ----- The following addresses had permanent fatal errors -----
+<Rihards_Freimanis@exigengroup.com>
+    (reason: 550 Rihards_Freimanis@exigengroup.com... No such user)
+
+   ----- Transcript of session follows -----
+... while talking to lnsfoh01.exigengroup.com.:
+>>> DATA
+<<< 550 Rihards_Freimanis@exigengroup.com... No such user
+550 5.1.1 <Rihards_Freimanis@exigengroup.com>... User unknown
+<<< 503 Issue RCPT TO: command before DATA command
+
+--l7U8G8X9006653.1188461768/pnew.exigengroup.lv
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; pnew.exigengroup.lv
+Received-From-MTA: DNS; lnrixm01.exigengroup.lv
+Arrival-Date: Thu, 30 Aug 2007 11:16:05 +0300
+
+Final-Recipient: RFC822; Rihards_Freimanis@exigengroup.com
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; lnsfoh01.exigengroup.com
+Diagnostic-Code: SMTP; 550 Rihards_Freimanis@exigengroup.com... No such user
+Last-Attempt-Date: Thu, 30 Aug 2007 11:16:08 +0300
+
+--l7U8G8X9006653.1188461768/pnew.exigengroup.lv
+Content-Type: message/rfc822
+
+Return-Path: <agris.ameriks@gmail.com>
+Received: from lnrixm01.exigengroup.lv (lnrixm01.exigengroup.lv [192.168.0.115])
+	by pnew.exigengroup.lv (X.VV.Z/X.VV.Z) with ESMTP id l7U8G5X9006650
+	for <Rihards_Freimanis@exigengroup.com>; Thu, 30 Aug 2007 11:16:05 +0300
+Received: from riskynew.exigengroup.lv ([192.168.0.4])
+          by lnrixm01.exigengroup.lv (Lotus Domino Release 6.5.5FP2)
+          with ESMTP id 2007083011160393-377644 ;
+          Thu, 30 Aug 2007 11:16:03 +0300 
+Received: from nf-out-0910.google.com (nf-out-0910.google.com [64.233.182.190])
+	by riskynew.exigengroup.lv (X.VV.Z/X.VV.Z) with ESMTP id l7U8MA3M025009
+	for <rihards_freimanis@exigengroup.lv>; Thu, 30 Aug 2007 11:22:10 +0300
+Received: by nf-out-0910.google.com with SMTP id 4so1127851nfv
+        for <rihards_freimanis@exigengroup.lv>; Thu, 30 Aug 2007 01:16:01 -0700 (PDT)
+DKIM-Signature: a=rsa-sha1; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:cc:mime-version:content-type;
+        b=rAsdg7B2GKZQMXP9hebb2Ht3x+R4VFR8jCk292KnlSm0mlq+ARoT/lGZaBfxvK01Wf/8yGIJyuz049Khs3hNwGSpQyNUQs8fJNPRjgmi7DndbsSKxPylKkaKp6l68WAeEcH9KqxDuCpFiQ81X4WxapI0WUlZ2gNqnqtEnh5Fyno=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=received:message-id:date:from:to:subject:cc:mime-version:content-type;
+        b=s+jOmEvmEw7nKfTq9rj4kz6LP/oJlr4OhLO5MWWerf1EhjJ2k2RLDS1qkXKkIPpdOo5DNb2FKbWXIT/95aW7vRwmLLR9oSFCjrvS9Tnwwi7EgX2ek8VSHvbDwFxfQ3sH+dcjFEKa3uxG9Xv7bZUijYVW4WPKofFkwYeKetGXs9w=
+Received: by 10.78.134.2 with SMTP id h2mr72227hud.1188461760745;
+        Thu, 30 Aug 2007 01:16:00 -0700 (PDT)
+Received: by 10.66.241.15 with HTTP; Thu, 30 Aug 2007 01:16:00 -0700 (PDT)
+Message-ID: <da9602510708300116u2348301g6a0d9e4589fa068c@mail.gmail.com>
+Date: Thu, 30 Aug 2007 11:16:00 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: rihards_freimanis@exigengroup.lv
+Subject: =?ISO-8859-13?Q?Iel=FBgums_studentu_korpor=E2cijai?=
+Cc: "=?ISO-8859-13?Q?J=E2nis_Erts?=" <ertsjanis@gmail.com>,
+        "Edgars Gutkis" <edgars.gutkis@gmail.com>
+MIME-Version: 1.0
+X-MIMETrack: Itemize by SMTP Server on LNRIXM01/Eur/Srv/Exigen(Release 6.5.5FP2|October
+ 23, 2006) at 08/30/2007 11:16:04 AM,
+	Serialize by Router on LNRIXM01/Eur/Srv/Exigen(Release 6.5.5FP2|October 23, 2006) at
+ 08/30/2007 11:16:06 AM
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_5343_11195373.1188461760389"
+
+------=_Part_5343_11195373.1188461760389
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=ISO-8859-13
+Content-Disposition: inline
+
+TGFiZGllbiEKCkllbPtkemFtIEr7cyBwaWVkYWzudGllcyB1biBwcmV6ZW5053Qgc2V2aSBTdHVk
+ZW50IFBhcnR5IHBhc+JrdW1hCmlldHZhcm9zIDE1LnNlcHRlbWJy7iBFc3BsYW7iZOcgbm8gcGxr
+c3QuIDE1OjAwIC0gMTk6MDAuCgpQcmV6ZW5053Qgc2V2aSBK+3MgdmFy53NpZXQgSvtzdSB1enN0
+4mTudOIgdGVsdO4sIG37c3UgaWVy4mTudOIgdmlldOIuCgpM+2R6dSBpZXBheu5zdGlldGllcyBh
+ciBwcm9qZWt0dSB1biBpbmZvcm3namlldCBt+3MgcGFyIEr7c3UgZGFs7mJ1CnDnYyBpZXNw52ph
+cyDidHLiay4KCk11bXMgYvtzIG5lcGllY2ll8GFtYSBhcu4gSvtzdSB0ZWx0cyBwcm9ncmFtbWEu
+CgpUZWx0cyBq4mfiZOIgcGHwaWVtLgoKS29udGFrdOdqaWV0aWVzIGFyIEVkZ2FydSBHdXRraSBl
+ZGdhcnMuZ3V0a2lzQGdtYWlsLmNvbSAyOTg2NTA0Ni4KCgpQaWVsaWt1beI6CnByb2pla3RzCgpQ
+LlMuIEphIEr7cyB6aW7idCBr4mR1IG9yZ2FuaXriY2lqdSwga3VyYSBi+3R1IGricHJlemVudOcg
+c3R1ZGVudGllbQp1biBrdXJhLCBpZXNw52phbXMsIGL7dHUgZ2F0YXZhIHByZXplbnTndCBzZXZp
+LCBkb2RhdCB6aW7idC4KCi0tCkFyIGNpZfJ1LApBZ3JpcyBBbWVyaWtzCk1vYi50ZWwuIDIgNjQ2
+MTEwMQpFLXBhc3RzOiBBZ3Jpcy5BbWVyaWtzQGdtYWlsLmNvbQo=
+------=_Part_5343_11195373.1188461760389
+X-Attachment-Id: f_f5yza5p5
+Content-Type: application/msword; name="PROJEKTS V3_2_bez.doc"
+Content-Disposition: attachment; filename="PROJEKTS V3_2_bez.doc"; filename="PROJEKTS V3_2_bez.doc"; filename="PROJEKTS V3_2_bez.doc";
+ filename="PROJEKTS V3_2_bez.doc"
+Content-Transfer-Encoding: base64
+
+0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAAFAAAAKgIAAAAAAAAA
+EAAALQIAAAEAAAD+////AAAAACUCAAAmAgAAJwIAACgCAAApAgAA////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+AAAAAAAAAAAAAttachmentTruncated
+
+
+------=_Part_5343_11195373.1188461760389--
+
+--l7U8G8X9006653.1188461768/pnew.exigengroup.lv--
+

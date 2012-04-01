@@ -1,0 +1,49 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.181.214.19 with SMTP id r19cs228343bkq;
+        Thu, 22 Jan 2009 10:48:41 -0800 (PST)
+Received: by 10.181.36.9 with SMTP id o9mr1323719bkj.148.1232650120941;
+        Thu, 22 Jan 2009 10:48:40 -0800 (PST)
+Return-Path: <>
+Received: by 10.181.36.9 with SMTP id o9mr1741352bkj.148;
+        Thu, 22 Jan 2009 10:48:40 -0800 (PST)
+Message-ID: <001636c5b669974e1b046116b89e@googlemail.com>
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+To: agris.ameriks@gmail.com
+Subject: Delivery Status Notification (Failure)
+Date: Thu, 22 Jan 2009 10:48:40 -0800 (PST)
+
+This is an automatically generated Delivery Status Notification
+
+Delivery to the following recipient failed permanently:
+
+     flughafentransfer@loackertours.at
+
+Technical details of permanent failure: 
+Google tried to deliver your message, but it was rejected by the recipient domain. We recommend contacting the other email provider for further information about the cause of this error. The error that the other server returned was: 550 550 Address unknown (state 14).
+
+   ----- Original message -----
+
+MIME-Version: 1.0
+Received: by 10.181.36.9 with SMTP id o9mr1323494bkj.148.1232650074912; Thu, 
+	22 Jan 2009 10:47:54 -0800 (PST)
+Date: Thu, 22 Jan 2009 20:47:54 +0200
+Message-ID: <da9602510901221047s4c84ea9apadb43c62d2e1c4be@mail.gmail.com>
+Subject: Travel to Lech
+From: Agris Ameriks <agris.ameriks@gmail.com>
+To: Agris.Ameriks@gmail.com
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+Hello,
+we are going for spring holidays to Lech.
+
+We will be travelling to Zurich or to Munich by plane.
+We are going to arrive on 21th of March and we are going to travel
+back on 28th of March.
+We are 5 people.
+
+How much it will cost for us to travel from:
+x) Zurich to Lech and back
+
+   ----- Message truncated -----
+

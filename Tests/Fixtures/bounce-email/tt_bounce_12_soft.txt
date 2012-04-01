@@ -1,0 +1,46 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.67.102.1 with SMTP id e1cs22976ugm;
+        Sat, 15 Sep 2007 00:47:40 -0700 (PDT)
+Received: by 10.35.36.13 with SMTP id o13mr3311239pyj.1189842459008;
+        Sat, 15 Sep 2007 00:47:39 -0700 (PDT)
+Return-Path: <>
+Received: by 10.35.36.13 with SMTP id o13mr4245718pyj;
+        Sat, 15 Sep 2007 00:47:39 -0700 (PDT)
+Message-ID: <00163600cfda043a27c91b990c7fbc@googlemail.com>
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+To: agris.ameriks@gmail.com
+Subject: Delivery Status Notification (Delay)
+Date: Sat, 15 Sep 2007 00:47:39 -0700 (PDT)
+
+This is an automatically generated Delivery Status Notification
+
+THIS IS A WARNING MESSAGE ONLY.
+
+YOU DO NOT NEED TO RESEND YOUR MESSAGE.
+
+Delivery to the following recipient has been delayed:
+
+     info@radioliepaja.lv
+
+Message will be retried for 2 more day(s)
+
+Technical details of temporary failure: 
+TEMP_FAILURE: Could not initiate SMTP conversation with any hosts:
+[radioliepaja.lv. (50): Connection timed out]
+
+   ----- Message header follows -----
+
+Received: by 10.35.36.13 with SMTP id o13mr1865462pyj.1189751181221;
+        Thu, 13 Sep 2007 23:26:21 -0700 (PDT)
+Received: by 10.35.73.12 with HTTP; Thu, 13 Sep 2007 23:26:20 -0700 (PDT)
+Message-ID: <da9602510709132326l27c896abp48d2df677b444d1b@mail.gmail.com>
+Date: Fri, 14 Sep 2007 09:26:20 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: Agris.Ameriks@gmail.com, 
+	"=?ISO-8859-13?Q?J=E2nis_Erts?=" <ertsjanis@gmail.com>
+Subject: =?UTF-8?Q?15.septembr=C4=AB_neaizmirstams_pas=C4=81kums!?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_979_8743786.1189751181201"
+
+   ----- Message body suppressed -----

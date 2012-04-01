@@ -1,0 +1,51 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.67.102.1 with SMTP id e1cs79686ugm;
+        Mon, 17 Sep 2007 11:17:15 -0700 (PDT)
+Received: by 10.66.242.19 with SMTP id p19mr7441638ugh.1190053034458;
+        Mon, 17 Sep 2007 11:17:14 -0700 (PDT)
+Return-Path: <>
+Received: by 10.66.242.19 with SMTP id p19mr10490766ugh;
+        Mon, 17 Sep 2007 11:17:14 -0700 (PDT)
+Message-ID: <0014850b2bf1043a58d061fe5bc312@googlemail.com>
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+To: agris.ameriks@gmail.com
+Subject: Delivery Status Notification (Failure)
+Date: Mon, 17 Sep 2007 11:17:14 -0700 (PDT)
+
+This is an automatically generated Delivery Status Notification
+
+Delivery to the following recipient failed permanently:
+
+     gintsgrube@pop.ml.lv
+
+Technical details of permanent failure: 
+TEMP_FAILURE: Could not initiate SMTP conversation with any hosts:
+[pop.ml.lv (1): Connection dropped]
+
+   ----- Original message -----
+
+Received: by 10.66.242.19 with SMTP id p19mr3910432ugh.1189785128812;
+        Fri, 14 Sep 2007 08:52:08 -0700 (PDT)
+Received: by 10.67.102.1 with HTTP; Fri, 14 Sep 2007 08:52:08 -0700 (PDT)
+Message-ID: <da9602510709140852n758da03h4c7a8c6ede38fde8@mail.gmail.com>
+Date: Fri, 14 Sep 2007 18:52:08 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: Agris.Ameriks@gmail.com
+Subject: =?ISO-8859-13?Q?prof._Ivars_L=E2cis_uzst=E2sies_ar_lekciju?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_868_30357988.1189785128799"
+
+------=_Part_868_30357988.1189785128799
+Content-Type: text/plain; charset=ISO-8859-13
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+TGFiZGllbiEKCk5vc/t0dSBwcmVzZXMgcmVs7nppIHBhciBwYXPia3VtdSAxNS5zZXB0ZW1icu4g
+RXNwbGFu4mTnLgoKLS0gCkFyIGNpZfJ1LApBZ3JpcyBBbWVyaWtzCk1vYi50ZWwuIDIgNjQ2MTEw
+MQpFLXBhc3RzOiBBZ3Jpcy5BbWVyaWtzQGdtYWlsLmNvbQo=
+------=_Part_868_30357988.1189785128799
+Content-Type: application/msword; name="relize_rektori.doc"
+
+   ----- Message truncated -----
+

@@ -1,0 +1,65 @@
+X-Gmail-Received: 7725338024020c2d815c02336798897c551fc80c
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.36.109.1 with SMTP id h1cs195536nzc;
+        Tue, 7 Jun 2005 07:39:36 -0700 (PDT)
+Received: by 10.36.113.17 with SMTP id l17mr1524125nzc;
+        Tue, 07 Jun 2005 07:37:56 -0700 (PDT)
+From: Mail Delivery Subsystem <mailer-daemon@gmail.com>
+To: agris.ameriks@gmail.com
+Subject: Delivery Status Notification (Failure)
+Date: Tue, 07 Jun 2005 07:37:56 -0700 (PDT)
+
+This is an automatically generated Delivery Status Notification
+
+Delivery to the following recipient failed permanently:
+
+     kasparsramins@gmail.com
+
+   ----- Original message -----
+
+Received: by 10.36.113.17 with SMTP id l17mr1248312nzc;
+        Tue, 07 Jun 2005 07:37:56 -0700 (PDT)
+Received: by 10.36.109.1 with HTTP; Tue, 7 Jun 2005 07:37:55 -0700 (PDT)
+Message-ID: <da960251050607073764db5d20@mail.gmail.com>
+Date: Tue, 7 Jun 2005 17:37:55 +0300
+From: Agris Ameriks <agris.ameriks@gmail.com>
+Reply-To: Agris Ameriks <agris.ameriks@gmail.com>
+To: Kaspars Ramins <kasparsramins@gmail.com>
+Subject: Fwd: You have received photos from Adobe Photoshop Elements
+In-Reply-To: <20050607143108.2A7FBD96C@epsilon.bkc.lv>
+Mime-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_21730_14622897.1118155075685"
+References: <20050607143108.2A7FBD96C@epsilon.bkc.lv>
+
+------=_Part_21730_14622897.1118155075685
+Content-Type: text/plain; charset=ISO-8859-13
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+LS0tLS0tLS0tLSBGb3J3YXJkZWQgbWVzc2FnZSAtLS0tLS0tLS0tCkZyb206IEFtZXJpWCA8YWdy
+aXNhQGFwb2xsby5sdj4KRGF0ZTogSnVuIDcsIDIwMDUgNTozMSBQTQpTdWJqZWN0OiBZb3UgaGF2
+ZSByZWNlaXZlZCBwaG90b3MgZnJvbSBBZG9iZSBQaG90b3Nob3AgRWxlbWVudHMKVG86IEFncmlz
+LkFtZXJpa3NAZ21haWwuY29tCgoKIAogCgpSZWt1IGlyIGJpbGRlcyA7KSkpIAoKVGhlc2UgcGhv
+dG9zIHdlcmUgc2VudCBmcm9tIEFkb2JlKFIpIFBob3Rvc2hvcChSKSBFbGVtZW50cyAzLjAuIEZp
+bmQKb3V0IG1vcmU6IGh0dHA6Ly93d3cuYWRvYmUuY29tL3Bob3Rvc2hvcGVsZW1lbnRzd2luCgoK
+LS0gCkFyIGNpZfJ1LApBZ3JpcyBBbWVyaWtzClJTRCBLdWx0+3JhcyBrb21pdGVqYXMgdmFk7nTi
+anMKTW9iLnRlbC4gNjQ2MTEwMQpFLXBhc3RzOiBBZ3Jpcy5BbWVyaWtzQGdtYWlsLmNvbQo=
+------=_Part_21730_14622897.1118155075685
+Content-Type: image/jpeg; name=DSC04906.jpg
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="DSC04906.jpg"
+
+/9j/4UUoRXhpZgAASUkqAAgAAAAKAA8BAgAFAAAAhgAAABABAgAHAAAAjAAAABoBBQABAAAAlAAA
+ABsBBQABAAAAnAAAACgBAwABAAAAAgAAADEBAgAdAAAApAAAADIBAgAUAAAAwgAAABMCAwABAAAA
+AgAAAGmHBAABAAAA1gAAAKXEBwAcAAAAqAgAAMQIAABTT05ZAABEU0MtVDEAAOABAAAEAAAA4AEA
+AAQAAABBZG9iZSBQaG90b3Nob3AgRWxlbWVudHMgMy4wAAAyMDA1OjA2OjA3IDE3OjI5OjQyAB4A
+moIFAAEAAABEAgAAnYIFAAEAAABMAgAAIogDAAEAAAACAAAAJ4gDAAEAAABkAAAAAJAHAAQAAAAw
+MjIwA5ACABQAAABUAgAABJACABQAAABoAgAAAZEHAAQAAAABAgMAApEFAAEAAAB8AgAABJIKAAEA
+AACEAgAABZIFAAEAAACMAgAAB5IDAAEAAAAFAAAACJIDAAEAAAAAAAAACZIDAAEAAAANAAAACpIF
+AAEAAACUAgAAfJIHAO4FAACcAgAAAKAHAAQAAAAwMTAwAaADAAEAAAABAAAAAqAEAAEAAACAAgAA
+A6AEAAEAAADgAQAABaAEAAEAAACKCAAAAKMHAAEAAAADAAAAAaMHAAEAAAABAAAAAaQDAAEAAAAA
+AAAAAqQDAAEAAAAAAAAAA6QDAAEAAAAAAAAABqQDAAEAAAAAAAAACKQDAAEAAAAAAAAACaQDAAEA
+
+   ----- Message truncated -----
+

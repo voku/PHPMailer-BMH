@@ -1,0 +1,13 @@
+Corpus:
+ - tmail_bouncer (MIT)
+   https://github.com/tangofoxtrot/tmail_bouncer.git
+ - node-baunsu (MIT)
+   https://github.com/seppuku/node-baunsu.git
+ - bouncehammer (GPLv2)
+   https://github.com/azumakuniyuki/bouncehammer
+ - PHP-Bounce-Handler (BSD)
+   https://github.com/cfortune/PHP-Bounce-Handler.git
+ - bounce-email (MIT)
+   https://github.com/whatcould/bounce-email.git
+ - mail-deliverystatus-bounceparser (GPL or Artistic)
+   https://github.com/rjbs/mail-deliverystatus-bounceparser.git

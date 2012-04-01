@@ -1,0 +1,49 @@
+Return-path: <languse@sprog.auc.dk>
+Received: from abcycf1m.cf.ac.uk ([131.251.4.14])
+	by crane2.cf.ac.uk with esmtp (Exim 3.03 #1)
+	id 14KRU7-000237-00
+	for thornborrow@connect4free.net; Sun, 21 Jan 2001 20:53:11 +0000
+Received: from ABCYCF1M/SpoolDir by ABCYCF1M.CF.AC.UK (Mercury 1.48);
+    21 Jan 01 20:54:31 GMT0BST
+Received: from SpoolDir by ABCYCF1M (Mercury 1.48); 21 Jan 01 20:54:06 GMT0BST
+Received: from ABCYCF1M/SpoolDir by ABCYCF1M.CF.AC.UK (Mercury 1.48)
+  for <SENJT3.STF.ENCAP.HUMS.CF@ABCYCF1M.CF.AC.UK>;  21 Jan 01 20:54:04 GMT0BST
+Resent-from: SENJT3.STF.ENCAP.HUMS.CF@ABCYCF1M.CF.AC.UK
+Resent-to: thornborrow@connect4free.net
+Resent-Date: Sun, 21 Jan 2001 20:54:04 GMT0BST
+X-Autoforward: 1
+Received: from pigeon.cf.ac.uk (131.251.0.2) by ABCYCF1M.CF.AC.UK (Mercury 1.48) with ESMTP;
+    21 Jan 01 20:53:58 GMT0BST
+Received: from sprog.auc.dk ([130.225.58.12] ident=majordom)
+	by pigeon.cf.ac.uk with esmtp (Exim 3.03 #1)
+	id 14KRTZ-0006gv-00
+	for ThornborrowJ1@Cardiff.ac.uk; Sun, 21 Jan 2001 20:52:38 +0000
+Received: (from majordom@localhost)
+	by sprog.auc.dk (8.9.1a/8.9.1) id UAA04001
+	for languse-outgoing; Sun, 21 Jan 2001 20:20:58 +0100 (MET)
+X-Authentication-Warning: sprog.auc.dk: majordom set sender to owner-languse@sprog.auc.dk using -f
+Received: from crane2.cf.ac.uk (crane2.cf.ac.uk [131.251.0.25])
+	by sprog.auc.dk (8.9.1a/8.9.1) with ESMTP id UAA03997
+	for <languse@sprog.auc.dk>; Sun, 21 Jan 2001 20:20:56 +0100 (MET)
+Received: from exim by crane2.cf.ac.uk with local (Exim 3.03 #1)
+	id 14KQ2O-0001rj-00
+	for languse@sprog.auc.dk; Sun, 21 Jan 2001 19:20:28 +0000
+X-Failed-Recipients: thornborrow@connect4free.net
+From: Mail Delivery System <Mailer-Daemon@crane2.cf.ac.uk>
+To: languse@sprog.auc.dk
+Subject: [languse] Mail delivery failed: returning message to sender
+Message-Id: <E14KQ2O-0001rj-00@crane2.cf.ac.uk>
+Date: Sun, 21 Jan 2001 19:20:28 +0000
+Sender: owner-languse@sprog.auc.dk
+Precedence: bulk
+Reply-To: languse@sprog.auc.dk,
+        Mail Delivery System <Mailer-Daemon@crane2.cf.ac.uk>
+Resent-Message-Id: <E14KRU7-000237-00@crane2.cf.ac.uk>
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to all of its recipients. The
+following address(es) failed:
+
+  thornborrow@connect4free.net:
+    unrouteable mail domain "connect4free.net"

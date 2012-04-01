@@ -1,0 +1,96 @@
+Received: by m.sender.com (Postfix)
+	id 7A3371230; Sun, 22 Jan 2012 22:17:05 -0800 (PST)
+Date: Sun, 22 Jan 2012 22:17:05 -0800 (PST)
+From: MAILER-DAEMON@sender.com (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: bounces+1327299421778@sender.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="C9DA11226.1327299425/m.sender.com"
+Message-Id: <20120123061705.7A3371230@m.sender.com>
+
+This is a MIME-encapsulated message.
+
+--C9DA11226.1327299425/m.sender.com
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host m.sender.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<mango3432xlkdieldkl@gmail.com>: host gmail-smtp-in.l.google.com[74.125.53.27]
+    said: 550-5.1.1 The email account that you tried to reach does not exist.
+    Please try 550-5.1.1 double-checking the recipient's email address for
+    typos or 550-5.1.1 unnecessary spaces. Learn more at
+    550 5.1.1 http://support.google.com/mail/bin/answer.py?answer=6596
+    2si10866141pbd.132 (in reply to RCPT TO command)
+
+--C9DA11226.1327299425/m.sender.com
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; m.sender.com
+X-Postfix-Queue-ID: C9DA11226
+X-Postfix-Sender: rfc822; bounces+1327299421778@sender.com
+Arrival-Date: Sun, 22 Jan 2012 22:17:01 -0800 (PST)
+
+Final-Recipient: rfc822; mango3432xlkdieldkl@gmail.com
+Original-Recipient: rfc822;mango3432xlkdieldkl@gmail.com
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.1.1 The email account that you tried to reach does
+    not exist. Please try 550-5.1.1 double-checking the recipient's email
+    address for typos or 550-5.1.1 unnecessary spaces. Learn more at
+    550 5.1.1 http://support.google.com/mail/bin/answer.py?answer=6596
+    2si10866141pbd.132
+
+--C9DA11226.1327299425/m.sender.com
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <bounces+1327299421778@sender.com>
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by m.sender.com (Postfix) with ESMTPS id C9DA11226
+	for <mango3432xlkdieldkl@gmail.com>; Sun, 22 Jan 2012 22:17:01 -0800 (PST)
+X-Mailer: Nodemailer (0.2.4; +http://www.nodemailer.org)
+From: dev@sender.com
+Date: Mon, 23 Jan 2012 06:17:01 GMT
+From: bounces+1327299421778@sender.com
+To: mango3432xlkdieldkl@gmail.com
+Subject: Sender - Mail Statistics
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+        boundary="----NODEMAILER-?=_2-1327299421779"
+Message-Id: <20120123061701.C9DA11226@m.sender.com>
+
+------NODEMAILER-?=_2-1327299421779
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Stats for Sun Jan 22 2012 22:17:01 GMT-0800 (PST)
+
+------NODEMAILER-?=_2-1327299421779
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Stats for Sun Jan 22 2012 22:17:01 GMT-0800 (PST)
+
+------NODEMAILER-?=_2-1327299421779--
+
+--C9DA11226.1327299425/m.sender.com--
+
+ ============ 
+ recipient: bounces+1327299421778@sender.com
+ ============ 
+ sender: MAILER-DAEMON

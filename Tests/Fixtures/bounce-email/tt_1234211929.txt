@@ -1,0 +1,89 @@
+From MAILER-DAEMON  Mon Feb  9 22:38:49 2009
+Return-Path: <>
+X-Original-To: bounces-main+jekaterina=tv5.lv@amerimail.lv
+Delivered-To: bounce_and_mail_handler@ameriks
+Received: from blackbird.grafton.lv (blackbird.grafton.lv [159.148.13.8])
+	by ameriks (Postfix) with ESMTP id C45293A08C
+	for <bounces-main+jekaterina=tv5.lv@amerimail.lv>; Mon,  9 Feb 2009 22:38:49 +0200 (EET)
+Received: by blackbird.grafton.lv (Postfix)
+	id 89ACB620076; Mon,  9 Feb 2009 22:38:49 +0200 (EET)
+Date: Mon,  9 Feb 2009 22:38:49 +0200 (EET)
+From: MAILER-DAEMON@blackbird.grafton.lv (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: bounces-main+jekaterina=tv5.lv@amerimail.lv
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="02136620074.1234211929/blackbird.grafton.lv"
+Message-Id: <20090209203849.89ACB620076@blackbird.grafton.lv>
+
+This is a MIME-encapsulated message.
+
+--02136620074.1234211929/blackbird.grafton.lv
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host blackbird.grafton.lv.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<jekaterina@tv5.lv>: maildir delivery failed: Sorry, the user's maildir has
+    overdrawn his diskspace quota, please try again later.
+
+--02136620074.1234211929/blackbird.grafton.lv
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; blackbird.grafton.lv
+X-Postfix-Queue-ID: 02136620074
+X-Postfix-Sender: rfc822; bounces-main+jekaterina=tv5.lv@amerimail.lv
+Arrival-Date: Mon,  9 Feb 2009 22:38:48 +0200 (EET)
+
+Final-Recipient: rfc822; jekaterina@tv5.lv
+Original-Recipient: rfc822;jekaterina@tv5.lv
+Action: failed
+Status: 5.2.3
+Diagnostic-Code: X-Postfix; maildir delivery failed: Sorry, the user's maildir
+    has overdrawn his diskspace quota, please try again later.
+
+--02136620074.1234211929/blackbird.grafton.lv
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: from Albanis-3.local (unknown [87.99.72.11])
+	by blackbird.grafton.lv (Postfix) with ESMTP id C92D475C04F
+	for <jekaterina@tv5.lv>; Mon,  9 Feb 2009 22:38:48 +0200 (EET)
+Received: by Albanis-3.local (Postfix, from userid 501)
+	id 900D9328EDE; Mon,  9 Feb 2009 22:38:47 +0200 (EET)
+Date: Mon, 9 Feb 2009 22:33:44 +0200
+From: ameriks@amerimail.lv
+Reply-To: ginta.amerika@ameri.lv
+To: jekaterina@tv5.lv
+Subject: Mes loti atvainojamies, ja sanemat so epastu
+Mime-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Message-Id: <20090209203848.900D9328EDE@Albanis-3.local>
+X-GRAFTON-MailScanner-Information: Scanned by GRAFTON mailscanner service
+X-GRAFTON-MailScanner-ID: C92D475C04F.83B56
+X-GRAFTON-MailScanner: Found to be clean
+X-GRAFTON-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
+	score=1.656, required 5, BAYES_50 0.00, HTML_MESSAGE 0.00,
+	HTML_MIME_NO_HTML_TAG 0.10, MIME_HTML_ONLY 1.46, RDNS_NONE 0.10)
+X-GRAFTON-MailScanner-SpamScore: s
+X-GRAFTON-MailScanner-From: bounces-main+jekaterina=tv5.lv@amerimail.lv
+X-Spam-Status: No
+
+Labdien, mes loti atvainojamies, ja sanemat so epastu. Mes paslaik veicam jaunas sistemas izstradi, kur ir arii ieklauta epastu sutisana. Ludzu ignorejiet so e-pastu!
+Paldies par sapratni.
+
+Ja jus velaties ar mums sazinaties si epasta sakaraa, sutiet epastu uz agris.ameriks@ameri.lv.
+
+--02136620074.1234211929/blackbird.grafton.lv--

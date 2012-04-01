@@ -1,0 +1,24 @@
+Return-Path: <root@mail.example.com>
+X-Original-To: joe@example.com
+Delivered-To: postmaster_bounce@example.com
+Received: from mail.example.com (mail.example.com [8.12.160.195])
+	by mail.example.com (Postfix) with ESMTP id DE32317849E
+	for <joe@example.com>; Fri, 29 May 2009 14:33:03 -0700 (PDT)
+Received: from mail.example.com ([64.233.207.26] helo=mail.example.com)
+	by ASSP.nospam; 29 May 2009 14:33:03 -0700
+Received: from mail.example.com (localhost.localdomain [127.0.0.1])
+	by mail.example.com (8.12.8/8.12.8) with ESMTP id n4TLXDTH003035
+	for <joe@example.com>; Fri, 29 May 2009 16:33:13 -0500
+Received: (from root@localhost)
+	by mail.example.com (8.12.8/8.12.8/Submit) id n4TLXD6Y003033;
+	Fri, 29 May 2009 16:33:13 -0500
+Date: Fri, 29 May 2009 16:33:13 -0500
+Message-Id: <1234.1212@example.com>
+To: joe@example.com
+Subject: I like turtles
+References: <20090529213302.06FB11783A7@mail.example.com>
+In-Reply-To: <20090529213302.06FB11783A7@mail.example.com>
+From: <MAILER-DAEMON@somewhere.com>
+X-Assp-Received-RBL: pass
+
+Your message to fred@example.com was rejected due to the user exceeding its mailbox quota

@@ -1,0 +1,92 @@
+Received: from localhost (localhost [127.0.0.1])
+	by m.sender.com (Postfix) with ESMTP id 80A801FB
+	for <bounces+1328227930512@sender.com>; Thu,  2 Feb 2012 16:12:12 -0800 (PST)
+Content-Type: multipart/report; report-type=delivery-status;
+ boundary="----------=_1328227932-832-0"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Subject: Considered UNSOLICITED BULK EMAIL, apparently from you
+Message-ID: <SSEdcLaZ9WHxGG@sender.com>
+From: "Content-filter at sender.com" <postmaster@sender.com>
+To: <bounces+1328227930512@sender.com>
+Date: Thu,  2 Feb 2012 16:12:10 -0800 (PST)
+
+This is a multi-part message in MIME format...
+
+------------=_1328227932-832-0
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Disposition: inline
+Content-Transfer-Encoding: 7bit
+
+A message from <bounces+1328227930512@sender.com> to:
+-> dev@sender.com
+
+was considered unsolicited bulk e-mail (UBE).
+
+Our internal reference code for your message is 00832-01/EdcLaZ9WHxGG
+
+The message carried your return address, so it was either a genuine mail
+from you, or a sender address was faked and your e-mail address abused
+by third party, in which case we apologize for undesired notification.
+
+We do try to minimize backscatter for more prominent cases of UBE and
+for infected mail, but for less obvious cases of UBE some balance
+between losing genuine mail and sending undesired backscatter is sought,
+and there can be some collateral damage on both sides.
+
+First upstream SMTP client IP address: [127.0.0.1] localhost
+According to a 'Received:' trace, the message originated at: [127.0.0.1],
+  sender.com localhost [127.0.0.1]
+
+Return-Path: <bounces+1328227930512@sender.com>
+From: bounces+1328227930512@sender.com
+Subject: TESTFlower-Lovers Ezine #007: Peonies for the Yukon
+
+Duplicate header field: "From"
+
+
+Delivery of the email was stopped!
+
+------------=_1328227932-832-0
+Content-Type: message/delivery-status; name="dsn_status"
+Content-Disposition: inline; filename="dsn_status"
+Content-Transfer-Encoding: 7bit
+Content-Description: Delivery error report
+
+Reporting-MTA: dns; sender.com
+Received-From-MTA: smtp; m.sender.com ([127.0.0.1])
+Arrival-Date: Thu,  2 Feb 2012 16:12:10 -0800 (PST)
+
+Final-Recipient: rfc822;dev@sender.com
+Action: failed
+Status: 5.7.0
+Diagnostic-Code: smtp; 554 5.7.0 Reject, id=00832-01 - SPAM
+Last-Attempt-Date: Thu,  2 Feb 2012 16:12:10 -0800 (PST)
+Final-Log-ID: 00832-01/EdcLaZ9WHxGG
+
+------------=_1328227932-832-0
+Content-Type: text/rfc822-headers; name="header"
+Content-Disposition: inline; filename="header"
+Content-Transfer-Encoding: 7bit
+Content-Description: Message header section
+
+Return-Path: <bounces+1328227930512@sender.com>
+Received: from sender.com (localhost [127.0.0.1])
+	by m.sender.com (Postfix) with ESMTPS
+	for <dev@sender.com>; Thu,  2 Feb 2012 16:12:10 -0800 (PST)
+X-Mailer: Nodemailer (0.2.4; +http://www.nodemailer.org)
+From: dev@sender.com
+Date: Fri, 03 Feb 2012 00:12:10 GMT
+From: bounces+1328227930512@sender.com
+To: dev@sender.com
+Subject: TESTFlower-Lovers Ezine #007: Peonies for the Yukon
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+        boundary="----NODEMAILER-?=_2-1328227930513"
+
+------------=_1328227932-832-0--
+
+ ============ 
+ recipient: bounces+1328227930512@sender.com
+ ============ 
+ sender: MAILER-DAEMON

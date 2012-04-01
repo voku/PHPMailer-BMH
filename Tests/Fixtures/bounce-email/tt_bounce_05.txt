@@ -1,0 +1,78 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.100.94.18 with SMTP id r18cs649481anb;
+        Tue, 8 May 2007 09:35:28 -0700 (PDT)
+Received: by 10.78.145.5 with SMTP id s5mr377920hud.1178642127951;
+        Tue, 08 May 2007 09:35:27 -0700 (PDT)
+Return-Path: <>
+Received: from smtp2.apollo.lv (smtp2.apollo.lv [80.232.168.229])
+        by mx.google.com with ESMTP id 55si1194537ugq.2007.05.08.09.35.27;
+        Tue, 08 May 2007 09:35:27 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of smtp2.apollo.lv designates 80.232.168.229 as permitted sender)
+X-Cloudmark-Score: 0.000000 []
+X-Virusscan: Clamd
+Subject: Undeliverable mail: Labdien!
+From: <MAILER-DAEMON@smtp2.apollo.lv>
+To: <agris.ameriks@gmail.com>
+Date: Tue, 08 May 2007 19:35:27 +0300
+Message-ID: <receipt-92533048@smtp2.apollo.lv>
+X-MAPI-Message-Class: REPORT.IPM.Note.NDR
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type="delivery-status"; boundary="_===92533048====smtp2.apollo.lv===_"
+
+
+--_===92533048====smtp2.apollo.lv===_
+Content-Type: text/plain; charset="utf-8"
+
+Failed to deliver to 'evor@apollo.lv'
+SMTP module(domain pop.apollo.lv) reports:
+ host pop.apollo.lv says:
+ 550 evor@apollo.lv unknown user account
+
+
+--_===92533048====smtp2.apollo.lv===_
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; smtp2.apollo.lv
+
+Original-Recipient: rfc822;<evor@apollo.lv>
+Final-Recipient: rfc822;<evor@apollo.lv>
+Action: failed
+Status: 5.0.0
+
+--_===92533048====smtp2.apollo.lv===_
+Content-Type: message/rfc822
+
+Received: from wr-out-0506.google.com ([64.233.184.231] verified)
+  by smtp2.apollo.lv (CommuniGate Pro SMTP 5.0.10)
+  with ESMTP id 92533044 for evor@apollo.lv; Tue, 08 May 2007 19:35:26 +0300
+Received: by wr-out-0506.google.com with SMTP id 25so1879201wry
+        for <evor@apollo.lv>; Tue, 08 May 2007 09:35:20 -0700 (PDT)
+DKIM-Signature: a=rsa-sha1; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:mime-version:content-type:content-transfer-encoding:content-disposition;
+        b=Sa8LZ3AQtQcbyYJx8yrTBpc8FMFhKCE7Hm1Vm4QSvn+teR7CpqPcEGUSWSNklzqPAzN+VsnFUgBwnxcRNi0+YddsnmgZWmI9V6HaUniXHxvAlId36z4UjTKSrGXb3dv/xwcTRut8AFmKdACrnxpiRPp+R1uqHbR2pMFotkynuCs=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=received:message-id:date:from:to:subject:mime-version:content-type:content-transfer-encoding:content-disposition;
+        b=giHBorElbW7SdOhu+wcknrVopvrUVV9io1n7dG3HI0+bZfYRYh1MAb2fAMbWGCvG13UjU1TZHds84xZ0xvKDGcKVIhCXb7mfo3XZCQoPyup7IHrcr/TPlLEf1MpKw1oCmk5NS1u5nVVYf2FZsI4kGZvoGeJHP68orx5PmlIEQXQ=
+Received: by 10.100.230.13 with SMTP id c13mr3322842anh.1178642116550;
+        Tue, 08 May 2007 09:35:16 -0700 (PDT)
+Received: by 10.100.94.18 with HTTP; Tue, 8 May 2007 09:35:16 -0700 (PDT)
+Message-ID: <da9602510705080935y75e7b3b3if8b741acc2298fff@mail.gmail.com>
+Date: Tue, 8 May 2007 19:35:16 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: evor@apollo.lv
+Subject: Labdien!
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-13; format=flowed
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+TGFiZGllbiEKCkVzIGludGVyZXPnam9zLCBjaWsgdmFy53R1IGl6bWFrc+J0IDE1LnNlcHRlbWJy
+7iBub2Ryb/BpbuJ0IGvicnTuYnUKVudybWFuZXMgZOJyeuIgbm8gMTQ6MDAgLSAyMzowMC4gKHBh
+c+JrdW1zIG5vcml053Mgbm8gMTU6MDAgLSAyMjoyMCkuCgpNYW4gaW50ZXJlc+csIGNpayBpem1h
+a3PidHU6CjEpIDYgYXBzYXJnaS4KMikgMTAgYXBzYXJnaS4KCi0tIApBciBjaWXydSwKQWdyaXMg
+QW1lcmlrcwpNb2IudGVsLiAyIDY0NjExMDEKRS1wYXN0czogQWdyaXMuQW1lcmlrc0BnbWFpbC5j
+b20K
+
+--_===92533048====smtp2.apollo.lv===_--

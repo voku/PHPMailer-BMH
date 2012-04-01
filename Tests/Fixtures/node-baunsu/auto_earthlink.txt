@@ -1,0 +1,75 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: mango@sender.com
+Received: by 10.182.32.197 with SMTP id l5cs173163obi;
+        Wed, 23 Nov 2011 15:37:16 -0800 (PST)
+Received: by 10.236.114.227 with SMTP id c63mr37530899yhh.47.1322091434577;
+        Wed, 23 Nov 2011 15:37:14 -0800 (PST)
+Return-Path: <spamblocker-challenge@bounce.earthlink.net>
+Received: from ar-bouvier.atl.sa.earthlink.net (ar-bouvier.atl.sa.earthlink.net. [207.69.195.108])
+        by mx.google.com with ESMTPS id y6si6989200anl.112.2011.11.23.15.37.14
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Wed, 23 Nov 2011 15:37:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of spamblocker-challenge@bounce.earthlink.net designates 207.69.195.108 as permitted sender) client-ip=207.69.195.108;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of spamblocker-challenge@bounce.earthlink.net designates 207.69.195.108 as permitted sender) smtp.mail=spamblocker-challenge@bounce.earthlink.net
+Message-Id: <4ecd83aa.0660650a.0ced.ffffc415SMTPIN_ADDED@mx.google.com>
+Received: from mdl-afraid.atl.sa.earthlink.net ([207.69.195.195])
+  by ar-bouvier.atl.sa.earthlink.net with smtp (Exim 4.34)
+  id 1RTMNO-00037M-E8
+  for mango@sender.com; Wed, 23 Nov 2011 18:37:14 -0500
+From: mangoresponse@earthlink.net 
+Date: Wed, 23 Nov 2011 18:37:07 -0500 (EST)
+Subject: Re: Header and exhaust quote
+Reply-to: nobody@earthlink.net
+Errors-to: nobody@earthlink.net
+Precedence: auto_reply
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="SPMB132209142784b4f1f3afa6bbebd0b382b48d8422a1"
+To: Mango Sender <mango@sender.com>
+
+--SPMB132209142784b4f1f3afa6bbebd0b382b48d8422a1
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+
+I apologize for this automatic reply to your email.
+
+To control spam, I now allow incoming messages only from senders I
+have approved beforehand.
+
+If you would like to be added to my list of approved senders, please
+fill out the short request form (see link below). Once I approve you,
+I will receive your original message in my inbox. You do not need to
+resend your message. I apologize for this one-time inconvenience.
+
+Click the link below to fill out the request:
+
+https://webmail.pas.earthlink.net/wam/addme?a=mangoresponse@earthlink.net&id=11e1-162c-0ea62efc-9400-002128140d7c
+
+--SPMB132209142784b4f1f3afa6bbebd0b382b48d8422a1
+Content-Type: text/html;
+
+<HTML>
+<BODY>
+<DIV>I apologize for this automatic reply to your email.</DIV>
+<DIV><BR></DIV>
+<DIV>
+To control spam, I now allow incoming messages only from senders I
+have approved beforehand.
+</DIV>
+<DIV><BR></DIV>
+<DIV>
+If you would like to be added to my list of approved senders, please
+fill out the short request form (see link below). Once I approve you,
+I will receive your original message in my inbox. You do not need to
+resend your message. I apologize for this one-time inconvenience.
+</DIV>
+<DIV><BR></DIV>
+<DIV>Click the link below to fill out the request:</DIV>
+<DIV><BR></DIV>
+<DIV>
+<A HREF="https://webmail.pas.earthlink.net/wam/addme?a=mangoresponse@earthlink.net&id=11e1-162c-0ea62efc-9400-002128140d7c">
+https://webmail.pas.earthlink.net/wam/addme?a=mangoresponse@earthlink.net&id=11e1-162c-0ea62efc-9400-002128140d7c</A></DIV>
+<DIV><BR></DIV>
+</BODY>
+</HTML>
+
+--SPMB132209142784b4f1f3afa6bbebd0b382b48d8422a1--

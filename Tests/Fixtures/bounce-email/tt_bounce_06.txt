@@ -1,0 +1,48 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.100.94.18 with SMTP id r18cs650238anb;
+        Tue, 8 May 2007 09:44:00 -0700 (PDT)
+Received: by 10.100.240.19 with SMTP id n19mr5850181anh.1178642640024;
+        Tue, 08 May 2007 09:44:00 -0700 (PDT)
+Return-Path: <>
+Received: by 10.100.240.19 with SMTP id n19mr8655080anh;
+        Tue, 08 May 2007 09:44:00 -0700 (PDT)
+Message-ID: <16368e24c8042ff81fe0345a2d1c5@googlemail.com>
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+To: agris.ameriks@gmail.com
+Subject: Delivery Status Notification (Failure)
+Date: Tue, 08 May 2007 09:44:00 -0700 (PDT)
+
+This is an automatically generated Delivery Status Notification
+
+Delivery to the following recipient failed permanently:
+
+     info@koblenz.lv
+
+Technical details of permanent failure: 
+PERM_FAILURE: SMTP Error (state 9): 550 5.7.1 Your message (sent through 209.85.132.244) was blocked by ROTA DNSBL. If you are not a spammer, open http://www.rota.lv/DNSBL and follow instructions or call +371 7019029, or send an e-mail message from another address to dz@ROTA.lv with the blocked sender e-mail name.
+
+   ----- Original message -----
+
+Received: by 10.100.240.19 with SMTP id n19mr5850084anh.1178642634965;
+        Tue, 08 May 2007 09:43:54 -0700 (PDT)
+Received: by 10.100.94.18 with HTTP; Tue, 8 May 2007 09:43:54 -0700 (PDT)
+Message-ID: <da9602510705080943o7d5bc115lb1a1be029ef300be@mail.gmail.com>
+Date: Tue, 8 May 2007 19:43:54 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: agrisa@apollo.lv
+Subject: Labdien!
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-13; format=flowed
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+TGFiZGllbiEKCkVzIGludGVyZXPnam9zLCBjaWsgdmFy53R1IGl6bWFrc+J0IDE1LnNlcHRlbWJy
+7iBub2Ryb/BpbuJ0IGvicnTuYnUKVudybWFuZXMgZOJyeuIgbm8gMTQ6MDAgLSAyMzowMC4gKHBh
+c+JrdW1zIG5vcml053Mgbm8gMTU6MDAgLSAyMjoyMCkuCgpNYW4gaW50ZXJlc+csIGNpayBpem1h
+a3PidHU6CjEpIDYgYXBzYXJnaS4KMikgMTAgYXBzYXJnaS4KCi0tIApBciBjaWXydSwKQWdyaXMg
+QW1lcmlrcwpNb2IudGVsLiAyIDY0NjExMDEKRS1wYXN0czogQWdyaXMuQW1lcmlrc0BnbWFpbC5j
+b20K
+
+
+   ----- End of message -----
+

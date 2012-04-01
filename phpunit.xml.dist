@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF_8"?>
+
+<!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit
+         backupGlobals               = "false"
+         backupStaticAttributes      = "false"
+         colors                      = "true"
+         convertErrorsToExceptions   = "true"
+         convertNoticesToExceptions  = "true"
+         convertWarningsToExceptions = "true"
+         processIsolation            = "false"
+         stopOnFailure               = "false"
+         syntaxCheck                 = "false"
+        >
+
+    <testsuites>
+        <testsuite name="Project Test Suite">
+            <directory>./Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>.</directory>
+            <exclude>
+                <directory>docs</directory>
+                <directory>callback samples</directory>
+                <directory>Tests/Fixtures</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+</phpunit>

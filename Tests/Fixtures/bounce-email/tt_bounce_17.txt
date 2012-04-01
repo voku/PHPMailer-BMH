@@ -1,0 +1,61 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.67.22.18 with SMTP id z18cs119120ugi;
+        Wed, 12 Mar 2008 14:31:25 -0700 (PDT)
+Received: by 10.82.116.15 with SMTP id o15mr221186buc.11.1205357484938;
+        Wed, 12 Mar 2008 14:31:24 -0700 (PDT)
+Return-Path: <>
+Received: from mail.burusports.lv ([80.81.51.32])
+        by mx.google.com with SMTP id x6si2994337gvf.0.2008.03.12.14.31.23;
+        Wed, 12 Mar 2008 14:31:24 -0700 (PDT)
+Received-SPF: neutral (google.com: 80.81.51.32 is neither permitted nor denied by best guess record for domain of mail.burusports.lv) client-ip=80.81.51.32;
+Authentication-Results: mx.google.com; spf=neutral (google.com: 80.81.51.32 is neither permitted nor denied by best guess record for domain of mail.burusports.lv) smtp.mail=
+Message-Id: <47d84bac.06c8100a.7545.ffff934bSMTPIN_ADDED@mx.google.com>
+Received: (qmail 8085 invoked for bounce); 12 Mar 2008 21:20:16 -0000
+Date: 12 Mar 2008 21:20:16 -0000
+From: MAILER-DAEMON@mail.burusports.lv
+To: agris.ameriks@gmail.com
+Subject: failure notice
+
+Hi. This is the qmail-send program at mail.burusports.lv.
+I'm afraid I wasn't able to deliver your message to the following addresses.
+This is a permanent error; I've given up. Sorry it didn't work out.
+
+<agris.brivers@motosports.lv>:
+Sorry, no mailbox here by that name. (#5.1.1)
+
+--- Below this line is a copy of the message.
+
+Return-Path: <agris.ameriks@gmail.com>
+Received: (qmail 8078 invoked by uid 1010); 12 Mar 2008 21:20:16 -0000
+Received: from user-0c6s9jp.cable.mindspring.com (24.110.38.121)
+  by mail.burusports.lv with SMTP; 12 Mar 2008 21:20:16 -0000
+Content-Return: allowed
+X-Mailer: CME-V6.5.4.3; MSN
+Message-Id: <20080213-12430.11530.qmail@user-0c6s9jp.cable.mindspring.com>
+To: <agris.brivers@motosports.lv>
+Subject: RE: MensHealth id 347305
+From: <agris.brivers@motosports.lv>
+MIME-Version: 1.0
+Content-Type: text/html; charset="ISO-8859-1"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN\">
+				<html><head><title>Your Alert!!</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head><style><body><table style="color: black; background-color: white" width="580" cellspacing="0" cellpadding="20" border="0">
+<tr style="padding-bottom: 12pt"><td><table cellspacing="0" cellpadding="10" border="0" width="100%" style="border: #003399 1px solid"><tr><td><table cellspacing="0" cellpadding="10" width="100%" border="0"><tr><td nowrap valign="top" align="right"><img
+				src="http://www.nkym.com/ccpmweb/shared/image/nophnew.gif"
+				alt="egxg"
+				></td></tr><tr><td><table cellspacing="0" cellpadding="0" width="100%" border="0"><tr><td width="100%" style="padding-bottom: 4px" colspan="2" >
+				<font size="2" face="Verdana, Arial, Helvetica, sans-serif" >You've successfully updated your Free Alerts service!<br><br>Please click the link below to manage your Alerts or add new delivery profiles.  If the link isn't clickable, please copy the entire link, paste it 
+into your Web browser's address bar and press "Enter" on your keyboard.<br>
+<br><a style=\"color: #0033cc" href="https://www.rswe.com"\>www.wolx.com</a><br><br>If you have not activated Free Alerts and believe you might have received this message in error, please contact the Customer Center immediately at 1-877-qsubPC.<br><br>Sincerely,<br><br>Online Banking Team</font> 
+				</td></tr><tr><td width="100%" style="padding-bottom: 4px" colspan="2" > 
+				<font size="2" face="Verdana, Arial, Helvetica, sans-serif"></font > 
+				</td> </tr></table></td></tr></table></td></tr></table></td></tr><tr><td><p></style>
+<center>
+<a href="http://www.floornear.com"><img src="http://www.floornear.com/1.gif">
+<style>				<font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+				This Alert was sent according to your settings.  To update your settings, log on at <a href="https://www.zerj.com">www.jvkf.com</a>
+				</font>
+				</p><p><font size="1" face="Verdana, Arial, Helvetica, sans-serif">Please don't reply to this Alert. To send a secure message from your Inbox, log on at <a href="https://www.dotw.com">www.rdhg.com</a></font>
+				</p></td></tr></table></body></html></style>
+

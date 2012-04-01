@@ -1,0 +1,43 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.142.239.2 with SMTP id m2cs167913wfh;
+        Thu, 23 Oct 2008 10:50:12 -0700 (PDT)
+Received: by 10.142.237.20 with SMTP id k20mr480333wfh.225.1224784212074;
+        Thu, 23 Oct 2008 10:50:12 -0700 (PDT)
+Return-Path: <>
+Received: by 10.142.237.20 with SMTP id k20mr568444wfh.225;
+        Thu, 23 Oct 2008 10:50:12 -0700 (PDT)
+Message-ID: <000e0cd32e0ae31fa20459ef4b66@googlemail.com>
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+To: agris.ameriks@gmail.com
+Subject: Delivery Status Notification (Failure)
+Date: Thu, 23 Oct 2008 10:50:12 -0700 (PDT)
+
+This is an automatically generated Delivery Status Notification
+
+Delivery to the following recipient failed permanently:
+
+     26461101@sms.id.lv
+
+Technical details of permanent failure: 
+Connection was dropped by remote host (SENT_HELO)
+
+   ----- Original message -----
+
+Received: by 10.142.237.20 with SMTP id k20mr2845893wfh.225.1224483056395;
+        Sun, 19 Oct 2008 23:10:56 -0700 (PDT)
+Received: by 10.142.239.2 with HTTP; Sun, 19 Oct 2008 23:10:56 -0700 (PDT)
+Message-ID: <da9602510810192310p9e1f14bl6551b4e0a1e57874@mail.gmail.com>
+Date: Mon, 20 Oct 2008 09:10:56 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: 26461101@sms.id.lv
+Subject: test
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+Tests
+
+
+   ----- End of message -----
+

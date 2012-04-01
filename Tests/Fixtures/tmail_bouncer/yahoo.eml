@@ -1,0 +1,72 @@
+Return-Path: <>
+X-Original-To: joe@example.com
+Delivered-To: joe@example.com
+Received: by mail.example.com (Postfix)
+	id CD6DE1780F5; Thu, 28 May 2009 14:03:11 -0700 (PDT)
+Date: Thu, 28 May 2009 14:03:11 -0700 (PDT)
+From: MAILER-DAEMON@example.com (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: joe@example.com
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="A6CFB1785AB.1243544591/mail.example.com"
+Message-Id: <20090528210311.CD6DE1780F5@mail.example.com>
+
+This is a MIME-encapsulated message.
+
+--A6CFB1785AB.1243544591/mail.example.com
+Content-Description: Notification
+Content-Type: text/plain
+
+This is the Postfix program at host mail.example.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to <postmaster>
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+			The Postfix program
+
+<fred@somewhere.com>: host mail.somewhere.com[1.1.1.1] said: 554
+    delivery error: dd Sorry your message to fred@somewhere.com cannot be
+    delivered. This account has been disabled or discontinued [#102]. -
+    mail.somewhere.com (in reply to end of DATA command)
+
+--A6CFB1785AB.1243544591/mail.example.com
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mail.example.com
+X-Postfix-Queue-ID: A6CFB1785AB
+X-Postfix-Sender: rfc822; joe@example.com
+Arrival-Date: Thu, 28 May 2009 13:26:56 -0700 (PDT)
+
+Final-Recipient: rfc822; fred@somewhere.com
+Action: failed
+Status: 5.0.0
+Diagnostic-Code: X-Postfix; host mail.somewhere.com[1.1.1.1] said: 554
+    delivery error: dd Sorry your message to fred@somewhere.com cannot be
+    delivered. This account has been disabled or discontinued [#102]. -
+    mail.somewhere.com (in reply to end of DATA command)
+
+--A6CFB1785AB.1243544591/mail.example.com
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: from mail.example.com (example.com [2.2.2.2])
+	by mail.example.com (Postfix) with ESMTP id A6CFB1785AB
+	for <fred@somewhere.com>; Thu, 28 May 2009 13:26:56 -0700 (PDT)
+Date: Thu, 28 May 2009 13:26:06 -0700
+From: joe@example.com
+To: fred@somewhere.com
+Subject: I like turtles
+Mime-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Message-Id: <1234.1212@example.com>
+
+Hi
+
+--A6CFB1785AB.1243544591/mail.example.com--

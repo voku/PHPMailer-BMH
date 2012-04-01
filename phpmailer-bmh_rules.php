@@ -2,7 +2,7 @@
 /*~ phpmailer-bmh_rules.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer-BMH (Bounce Mail Handler)                            |
-|   Version: 5.0.0rc1                                                       |
+|   Version: 5.2-dev                                                        |
 |   Contact: codeworxtech@users.sourceforge.net                             |
 |      Info: http://phpmailer.codeworxtech.com                              |
 | ------------------------------------------------------------------------- |
@@ -24,7 +24,6 @@
 | - Technology Consulting                                                   |
 | - Oursourcing (highly qualified programmers and graphic designers)        |
 '---------------------------------------------------------------------------'
-Last updated: January 21 2009 13:49 EST
 
 /**
 * next rule number (BODY): 0238 <br />
@@ -481,12 +480,12 @@ function bmhDSNRules($dsn_msg,$dsn_report,$debug_mode=false) {
   // ======= parse $dsn_report ======
   // get the recipient email
   if (preg_match ("/Original-Recipient: rfc822;(.*)/i",$dsn_report,$match)) {
-    $email_arr = imap_rfc822_parse_adrlist($match[1],'default.domain.name');
+    $email_arr = @imap_rfc822_parse_adrlist($match[1],'default.domain.name');
     if (isset($email_arr[0]->host) && $email_arr[0]->host != '.SYNTAX-ERROR.' && $email_arr[0]->host != 'default.domain.name' ) {
       $result['email']       = $email_arr[0]->mailbox.'@'.$email_arr[0]->host;
     }
   } else if (preg_match ("/Final-Recipient: rfc822;(.*)/i",$dsn_report,$match)) {
-    $email_arr = imap_rfc822_parse_adrlist($match[1],'default.domain.name');
+    $email_arr = @imap_rfc822_parse_adrlist($match[1],'default.domain.name');
     if (isset($email_arr[0]->host) && $email_arr[0]->host != '.SYNTAX-ERROR.' && $email_arr[0]->host != 'default.domain.name' ) {
       $result['email']       = $email_arr[0]->mailbox.'@'.$email_arr[0]->host;
     }

@@ -1,0 +1,99 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.100.178.8 with SMTP id a8cs69023anf;
+        Thu, 8 May 2008 23:33:43 -0700 (PDT)
+Received: by 10.67.119.8 with SMTP id w8mr619138ugm.34.1210314821853;
+        Thu, 08 May 2008 23:33:41 -0700 (PDT)
+Return-Path: <>
+Received: by 10.67.119.8 with SMTP id w8mr990983ugm.34;
+        Thu, 08 May 2008 23:33:41 -0700 (PDT)
+Message-ID: <00148521085105deee044cc66165@googlemail.com>
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+To: Agris.Ameriks@gmail.com
+Subject: Delivery Status Notification (Delay)
+Date: Thu, 08 May 2008 23:33:41 -0700 (PDT)
+
+This is an automatically generated Delivery Status Notification
+
+THIS IS A WARNING MESSAGE ONLY.
+
+YOU DO NOT NEED TO RESEND YOUR MESSAGE.
+
+Delivery to the following recipient has been delayed:
+
+     welcome6_@one.lv
+
+Message will be retried for 1 more day(s)
+
+Technical details of temporary failure: 
+TEMP_FAILURE: The recipient server did not accept our requests to connect. Learn more at http://mail.google.com/support/bin/answer.py?answer=7720
+[mail2.one.lv. (10): Connection dropped]
+[mail1.one.lv. (10): Connection dropped]
+
+   ----- Message header follows -----
+
+Received: by 10.67.119.8 with SMTP id w8mr98269ugm.34.1210139655489;
+        Tue, 06 May 2008 22:54:15 -0700 (PDT)
+Return-Path: <agris.ameriks@gmail.com>
+Received: from ?10.43.176.45? ( [212.93.97.166])
+        by mx.google.com with ESMTPS id e1sm10709566ugf.71.2008.05.06.22.53.48
+        (version=TLSv1/SSLv3 cipher=RC4-MD5);
+        Tue, 06 May 2008 22:54:14 -0700 (PDT)
+References: <20080506173511.F23C57F1EA@mail.balticom.lv>
+Message-Id: <347AE19D-8217-46DB-A64C-D6043980B1C8@gmail.com>
+From: Agris Ameriks <agris.ameriks@gmail.com>
+To: Robert Zemaitis <999881@gmail.com>
+In-Reply-To: <20080506173511.F23C57F1EA@mail.balticom.lv>
+Content-Type: multipart/alternative;
+	boundary=Apple-Mail-1--95882711
+X-Mailer: iPhone Mail (4A93)
+Mime-Version: 1.0 (iPhone Mail 4A93)
+Subject: Re: www.1mie.lv
+Date: Wed, 7 May 2008 08:52:29 +0300
+Cc: "<eduards.tiltins@parex.lv>" <eduards.tiltins@parex.lv>,
+ "<arnita.rakstina@inbox.lv>" <arnita.rakstina@inbox.lv>,
+ "<mentelis@gmail.com>" <mentelis@gmail.com>,
+ "<santa.lodina@lu.lv>" <santa.lodina@lu.lv>,
+ "<intarelly@inbox.lv>" <intarelly@inbox.lv>,
+ "<marcis.jurgaitis@inbox.lv>" <marcis.jurgaitis@inbox.lv>,
+ "<zhannajc@inbox.lv>" <zhannajc@inbox.lv>,
+ "<webstayl@inbox.lv>" <webstayl@inbox.lv>,
+ "<DOTTLG@one.lv>" <DOTTLG@one.lv>,
+ "<youlo@mail.ru>" <youlo@mail.ru>,
+ "<dima666@inbox.lv>" <dima666@inbox.lv>,
+ "<kornezz@e-no.lv>" <kornezz@e-no.lv>,
+ "<welcome6_@one.lv>" <welcome6_@one.lv>,
+ "<krasowsky@inbox.lv>" <krasowsky@inbox.lv>,
+ "<OxOmHuK@inbox.lv>" <OxOmHuK@inbox.lv>,
+ "<losa220@inbox.lv>" <losa220@inbox.lv>,
+ "<latrex@inbox.lv>" <latrex@inbox.lv>,
+ "<oksana_ignatovicha@inbox.lv>" <oksana_ignatovicha@inbox.lv>,
+ "<jurisivdriss@inbox.lv>" <jurisivdriss@inbox.lv>,
+ "<olgawin@inbox.lv>" <olgawin@inbox.lv>,
+ "<raivisskrumins@inbox.lv>" <raivisskrumins@inbox.lv>,
+ "<olga_molcane@inbox.lv>" <olga_molcane@inbox.lv>,
+ "<nauris_ozols@inbox.lv>" <nauris_ozols@inbox.lv>,
+ "<glupais@glupais.lv>" <glupais@glupais.lv>,
+ "<dimants@dimants.lv>" <dimants@dimants.lv>,
+ "<dokansj@inbox.lv>" <dokansj@inbox.lv>,
+ "<eduards.rubins@inbox.lv>" <eduards.rubins@inbox.lv>,
+ "<ilze.selakova@gmail.com>" <ilze.selakova@gmail.com>,
+ "<duffy@tvnet.lv>" <duffy@tvnet.lv>,
+ "<vairistale@inbox.lv>" <vairistale@inbox.lv>,
+ "<andrens@inbox.lv>" <andrens@inbox.lv>,
+ "<ance_berzina@yahoo.com>" <ance_berzina@yahoo.com>,
+ "<zane.karpenko@saeima.lv>" <zane.karpenko@saeima.lv>,
+ "<zanuliks19@inbox.lv>" <zanuliks19@inbox.lv>,
+ "<edelveiss7@inbox.lv>" <edelveiss7@inbox.lv>,
+ "<7943@inbox.lv>" <7943@inbox.lv>,
+ "<vilkaus2@inbox.lv>" <vilkaus2@inbox.lv>,
+ "<doc.18@inbox.lv>" <doc.18@inbox.lv>,
+ "<artists@inbox.lv>" <artists@inbox.lv>,
+ "<mihails52@inbox.lv>" <mihails52@inbox.lv>,
+ "<janisgaldiks@inbox.lv>" <janisgaldiks@inbox.lv>,
+ "<toke@toke.com>" <toke@toke.com>,
+ "<sthilchuk@inbox.lv>" <sthilchuk@inbox.lv>,
+ "<zarjanska@inbox.lv>" <zarjanska@inbox.lv>,
+ "<aleksandrsvasiljevs@inbox.lv>" <aleksandrsvasiljevs@inbox.lv>,
+ "<bigwil2@inbox.lv>" <bigwil2@inbox.lv>
+
+   ----- Message body suppressed -----

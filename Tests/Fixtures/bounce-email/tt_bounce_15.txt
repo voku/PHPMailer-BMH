@@ -1,0 +1,137 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.66.241.15 with SMTP id o15cs57761ugh;
+        Wed, 29 Aug 2007 06:08:21 -0700 (PDT)
+Received: by 10.78.177.3 with SMTP id z3mr345635hue.1188392900264;
+        Wed, 29 Aug 2007 06:08:20 -0700 (PDT)
+Return-Path: <>
+Received: from mail1.rimibaltic.com (mail1.rimibaltic.com [82.135.221.93])
+        by mx.google.com with ESMTP id 35si5978420huc.2007.08.29.06.08.13;
+        Wed, 29 Aug 2007 06:08:20 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of mail1.rimibaltic.com designates 82.135.221.93 as permitted sender) client-ip=82.135.221.93;
+Authentication-Results: mx.google.com; spf=pass smtp.mail=; dkim=hardfail (test mode) header.i=@gmail.com
+Received: from LT-RELAY (LT-RELAY [127.0.0.1])
+	by LV-RELAY (Postfix) with SMTP id BB603418F
+	for <agris.ameriks@gmail.com>; Wed, 29 Aug 2007 16:08:03 +0300 (EEST)
+Received: from rimilt01.rimi.lan (unknown [10.18.0.224])
+	by mail1.rimibaltic.com (Postfix) with ESMTP id 58EE0418D
+	for <agris.ameriks@gmail.com>; Wed, 29 Aug 2007 16:08:01 +0300 (EEST)
+DKIM-Signature: a=rsa-sha1; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:mime-version:content-type;
+        b=CZ9QIO+5UC0ZclbYqmqs89IO2AWxqJeghMU783zhJTGdMEDpiIbj6737zmC4iP7ZEj+j6hLtvYrBIA+oErYDTTzYht/2B2JHLzalRxWjtqekJD/tLV4R5mUVEg9Y8H/aZSj2YKo2h+EWE1NMHyzZgCN47wKiDEFC/g+YnG93K6k=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=received:message-id:date:from:to:subject:mime-version:content-type;
+        b=N2pzQqRtteBggnskinEjcQuPTbTCoymrnmzqX7y0xuc4pQUDSd+/89buaDxOK+qbTr7YT+4hgOCzCTwkk9Tr5AXUD+6MMvlDHANDZ3UkGmrwhdAkf/67SGVhCT64aIIVXJ3BcLR71HRLabzkNgNyCp5+Zh/nkMNMnAmqwWIEuXo=
+Date: Wed, 29 Aug 2007 16:07:26 +0300
+From: Postmaster@rimibaltic.com
+To: "Agris Ameriks" <agris.ameriks@gmail.com>
+Subject: DELIVERY FAILURE: Recipient user name info (info@rimibaltic.com) not unique.  Several
+ matches found in Domino Directory.
+MIME-Version: 1.0
+X-MIMETrack: Itemize by SMTP Server on RIMILT01/RIMILT/RIMI(Release 6.5.3|September 14, 2004) at
+ 2007.08.29 16:09:02,
+	Serialize by Router on RIMILT01/RIMILT/RIMI(Release 6.5.3|September 14, 2004) at
+ 2007.08.29 16:09:03,
+	Serialize complete at 2007.08.29 16:09:03
+Message-ID: <OFE7DBB275.2E3CF354-ONC2257346.00483CEE-C2257346.00483D34@rimibaltic.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary="==IFJRGLKFGIR29037UHRUHIHD"
+
+
+--==IFJRGLKFGIR29037UHRUHIHD
+Content-Type: text/plain; charset=windows-1257
+Content-Transfer-Encoding: quoted-printable
+
+Your message
+
+  Subject: Atbalsta l=FBgums
+
+was not delivered to:
+
+  info@rimibaltic.com
+
+because:
+
+  Recipient user name info (info@rimibaltic.com) not unique.  Several match=
+es found in Domino Directory.
+
+
+--==IFJRGLKFGIR29037UHRUHIHD
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns;rimilt01.rimi.lan
+
+Final-Recipient: rfc822;info@rimibaltic.com
+Action: failed
+Status: 5.0.0
+Diagnostic-Code: X-Notes; Recipient user name info (info@rimibaltic.com
+ ) not unique.  Several matches found in Domino Directory.
+ 
+--==IFJRGLKFGIR29037UHRUHIHD
+Content-Type: message/rfc822
+
+Received: from mail1.rimibaltic.com ([172.16.250.54])
+          by rimilt01.rimi.lan (Lotus Domino Release 6.5.3)
+          with SMTP id 2007082916090093-229401 ;
+          Wed, 29 Aug 2007 16:09:00 +0300 
+Received: from LT-RELAY (LT-RELAY [127.0.0.1])
+	by LV-RELAY (Postfix) with SMTP id 11DAF418F
+	for <info@rimibaltic.com>; Wed, 29 Aug 2007 16:07:54 +0300 (EEST)
+Received: from nf-out-0910.google.com (nf-out-0910.google.com [64.233.182.186])
+	by mail1.rimibaltic.com (Postfix) with SMTP id 375504198
+	for <info@rimibaltic.com>; Wed, 29 Aug 2007 16:07:46 +0300 (EEST)
+Received: by nf-out-0910.google.com with SMTP id k4so180273nfd
+        for <info@rimibaltic.com>; Wed, 29 Aug 2007 06:07:45 -0700 (PDT)
+Received: by 10.82.114.3 with SMTP id m3mr1324122buc.1188392846495;
+        Wed, 29 Aug 2007 06:07:26 -0700 (PDT)
+Received: by 10.66.241.15 with HTTP; Wed, 29 Aug 2007 06:07:26 -0700 (PDT)
+DKIM-Signature: a=rsa-sha1; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:mime-version:content-type;
+        b=CZ9QIO+5UC0ZclbYqmqs89IO2AWxqJeghMU783zhJTGdMEDpiIbj6737zmC4iP7ZEj+j6hLtvYrBIA+oErYDTTzYht/2B2JHLzalRxWjtqekJD/tLV4R5mUVEg9Y8H/aZSj2YKo2h+EWE1NMHyzZgCN47wKiDEFC/g+YnG93K6k=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=received:message-id:date:from:to:subject:mime-version:content-type;
+        b=N2pzQqRtteBggnskinEjcQuPTbTCoymrnmzqX7y0xuc4pQUDSd+/89buaDxOK+qbTr7YT+4hgOCzCTwkk9Tr5AXUD+6MMvlDHANDZ3UkGmrwhdAkf/67SGVhCT64aIIVXJ3BcLR71HRLabzkNgNyCp5+Zh/nkMNMnAmqwWIEuXo=
+Date: Wed, 29 Aug 2007 16:07:26 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: Agris.Ameriks@gmail.com
+Subject: =?ISO-8859-13?Q?Atbalsta_l=FBgums?=
+MIME-Version: 1.0
+X-MIMETrack: Itemize by SMTP Server on RIMILT01/RIMILT/RIMI(Release 6.5.3|September 14, 2004) at
+ 2007.08.29 16:09:02,
+	Serialize by Router on RIMILT01/RIMILT/RIMI(Release 6.5.3|September 14, 2004) at
+ 2007.08.29 16:09:03
+Message-ID: <OFE7DBB275.2E3CF354-ONC2257346.00483CEE-C2257346.00483D34@rimibaltic.com>
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_3572_23058828.1188392846046"
+
+
+------=_Part_3572_23058828.1188392846046
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=ISO-8859-13
+Content-Disposition: inline
+
+TGFiZGllbiEKCjE1LnNlcHRlbWJy7iBFc3BsYW7iZOcgbm90aWtzIHN0dWRlbnR1IHBhc+JrdW1z
+LgoKVudsYW1pZXMgbPtndCBK+3N1IGZpbmFuc2nibG8gYXRiYWxzdHUgc2VtaW7icmEgdGVsdGlq
+LgoKUGllbGlrdW3iOgp4KSBQcmV6ZW504mNpamEKCi0tIApDZXLuYuIgdXogc2FkYXJi7mJ1LApB
+Z3JpcyBBbWVyaWtzCk1vYi50ZWwuIDIgNjQ2MTEwMQpFLXBhc3RzOiBBZ3Jpcy5BbWVyaWtzQGdt
+YWlsLmNvbQo=
+------=_Part_3572_23058828.1188392846046
+X-Attachment-Id: f_f5xue1gd
+Content-Type: application/vnd.ms-powerpoint; name="StudentuPartijsV2.pps"
+Content-Disposition: attachment; filename="StudentuPartijsV2.pps";
+ filename="StudentuPartijsV2.pps"
+Content-Transfer-Encoding: base64
+
+0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAAWAAAAjgoAAAAAAAAA
+EAAA/v///wAAAAD+////AAAAAHgKAAB5CgAAegoAAHsKAAB8CgAAfQoAAH4KAAB/CgAAgAoAAIEK
+AACCCgAAgwoAAIQKAACFCgAAhgoAAIcKAACICgAAiQoAAIoKAACLCgAAjAoAAI0KAAD/////////
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAttachmentTruncated==
+
+
+------=_Part_3572_23058828.1188392846046--
+
+
+--==IFJRGLKFGIR29037UHRUHIHD--
+

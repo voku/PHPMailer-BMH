@@ -1,0 +1,105 @@
+From MAILER-DAEMON  Mon Feb  9 22:17:35 2009
+Return-Path: <>
+X-Original-To: bounces-main+this_doesnotexistinAAc=accenture.com@amerimail.lv
+Delivered-To: bounce_and_mail_handler@ameriks
+Received: from amrmr1003.accenture.com (amrmr1003.accenture.com [170.252.248.72])
+	by ameriks (Postfix) with ESMTPS id D31BD3A08C
+	for <bounces-main+this_doesnotexistinAAc=accenture.com@amerimail.lv>; Mon,  9 Feb 2009 22:17:30 +0200 (EET)
+Received: from AMRXV1001.dir.svc.accenture.com (amrxv1001.dir.svc.accenture.com [10.10.160.61])
+	by amrmr1003.accenture.com (8.13.8/8.13.8) with ESMTP id n19KHDRY022245
+	for <bounces-main+this_doesnotexistinAAc=accenture.com@amerimail.lv>; Mon, 9 Feb 2009 14:17:19 -0600 (CST)
+Received: from mtahm1100.accenture.com ([10.10.100.240]) by AMRXV1001.dir.svc.accenture.com with Microsoft SMTPSVC(6.0.3790.1830);
+	 Mon, 9 Feb 2009 14:17:00 -0600
+X-BigFish: vps9(zzzzzzz2dh6bh43j68o)
+X-Spam-TCS-SCL: 7:0
+X-MS-Exchange-Organization-Antispam-Report: OrigIP: 87.99.72.11;Service: EHS
+Date: Mon, 9 Feb 2009 22:15:33 +0200
+From: Postmaster@accenture.com
+Reply-To: ginta.amerika@ameri.lv
+To: ameriks@amerimail.lv
+Subject: DELIVERY FAILURE: User this_doesnotexistinAAc (this_doesnotexistinAAc@accenture.com) not
+ listed in public Name & Address Book
+Mime-Version: 1.0
+Message-Id: <20090209201600.E1D7B328DAA@Albanis-3.local>
+X-OriginalArrivalTime: 09 Feb 2009 20:16:12.0664 (UTC) FILETIME=[40DC5F80:01C98AF3]
+X-MIMETrack: Itemize by SMTP Server on MTAHM1100/Server/Accenture(Release 5.0.9a |January
+ 7, 2002) at 02/09/2009 02:16:57 PM,
+	Serialize by Router on MTAHM1100/Server/Accenture(Release 5.0.9a |January 7, 2002) at
+ 02/09/2009 02:16:58 PM,
+	Serialize complete at 02/09/2009 02:16:58 PM
+Content-Type: multipart/report; report-type=delivery-status; boundary="==IFJRGLKFGIR48542UHRUHIHD"
+
+--==IFJRGLKFGIR48542UHRUHIHD
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Your message
+
+  Subject: subjecting
+
+was not delivered to:
+
+  this_doesnotexistinAAc@accenture.com
+
+because:
+
+  User this_doesnotexistinAAc (this_doesnotexistinAAc@accenture.com) not listed in public Name & Address Book
+
+
+--==IFJRGLKFGIR48542UHRUHIHD
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns;mtahm1100.accenture.com
+
+Final-Recipient: rfc822;this_doesnotexistinAAc@accenture.com
+Action: failed
+Status: 5.1.1
+Diagnostic-Code: X-Notes; User this_doesnotexistinAAc (this_doesnotexistinAAc@accenture.com) not listed in public Name & Address Book
+
+--==IFJRGLKFGIR48542UHRUHIHD
+Content-Type: message/rfc822
+
+Received: from AMRXV1002.dir.svc.accenture.com ([10.10.160.62])
+          by mtahm1100.accenture.com (Lotus Domino Release 5.0.9a)
+          with ESMTP id 2009020914165788:77437 ;
+          Mon, 9 Feb 2009 14:16:57 -0600 
+Received: from AMRXB1002.dir.svc.accenture.com ([10.10.160.66]) by AMRXV1002.dir.svc.accenture.com with Microsoft SMTPSVC(6.0.3790.1830);
+	 Mon, 9 Feb 2009 14:16:12 -0600
+Received: from amrmr1003.accenture.com ([170.252.248.72]) by AMRXB1002.dir.svc.accenture.com with Microsoft SMTPSVC(6.0.3790.1830);
+	 Mon, 9 Feb 2009 14:16:12 -0600
+Received: from mail110-va3-R.bigfish.com (mail-va3.bigfish.com [216.32.180.113])
+	by amrmr1003.accenture.com (8.13.8/8.13.8) with ESMTP id n19KG9CS021120
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-SHA bits=256 verify=FAIL)
+	for <this_doesnotexistinAAc@accenture.com>; Mon, 9 Feb 2009 14:16:11 -0600 (CST)
+Received: from mail110-va3 (localhost.localdomain [127.0.0.1])
+	by mail110-va3-R.bigfish.com (Postfix) with ESMTP id 4D8DE10008F
+	for <this_doesnotexistinAAc@accenture.com>; Mon,  9 Feb 2009 20:16:09 +0000 (UTC)
+Received: by mail110-va3 (MessageSwitch) id 123421056981910_11174; Mon,  9 Feb 2009 20:16:09 +0000 (UCT)
+Received: from Albanis-3.local (unknown [87.99.72.11])
+	by mail110-va3.bigfish.com (Postfix) with ESMTP id E3C59AD0061
+	for <this_doesnotexistinAAc@accenture.com>; Mon,  9 Feb 2009 20:16:08 +0000 (UTC)
+Received: by Albanis-3.local (Postfix, from userid 501)
+	id E1D7B328DAA; Mon,  9 Feb 2009 22:16:00 +0200 (EET)
+X-BigFish: vps9(zzzzzzz2dh6bh43j68o)
+X-Spam-TCS-SCL: 7:0
+X-MS-Exchange-Organization-Antispam-Report: OrigIP: 87.99.72.11;Service: EHS
+Date: Mon, 9 Feb 2009 22:15:33 +0200
+From: ameriks@amerimail.lv
+Reply-To: ginta.amerika@ameri.lv
+To: this_doesnotexistinAAc@accenture.com
+Subject: subjecting
+Mime-Version: 1.0
+Message-Id: <20090209201600.E1D7B328DAA@Albanis-3.local>
+Return-Path: bounces-main+this_doesnotexistinAAc=accenture.com@amerimail.lv
+X-OriginalArrivalTime: 09 Feb 2009 20:16:12.0664 (UTC) FILETIME=[40DC5F80:01C98AF3]
+X-MIMETrack: Itemize by SMTP Server on MTAHM1100/Server/Accenture(Release 5.0.9a |January
+ 7, 2002) at 02/09/2009 02:16:57 PM,
+	Serialize by Router on MTAHM1100/Server/Accenture(Release 5.0.9a |January 7, 2002) at
+ 02/09/2009 02:16:58 PM,
+	Serialize complete at 02/09/2009 02:16:58 PM
+Content-Type: text/html; charset=utf-8
+
+Hello from mars!
+
+
+--==IFJRGLKFGIR48542UHRUHIHD--

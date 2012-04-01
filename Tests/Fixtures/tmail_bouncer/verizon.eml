@@ -1,0 +1,99 @@
+Return-Path: <>
+X-Original-To: joe@example.com
+Delivered-To: joe@example.com
+Received: from vms169133pub.verizon.net (mail.example.com [1.1.1.1])
+	by mail.example.com (Postfix) with ESMTP id 6731C1780CB
+	for <joe@example.com>; Fri,  5 Jun 2009 06:42:55 -0700 (PDT)
+X-DKIM: Sendmail DKIM Filter v2.4.0 mail.example.com 6731C1780CB
+Received: from vms169133pub.verizon.net ([1.1.1.1] helo=vms169133pub.verizon.net)
+	by ASSP.nospam; 5 Jun 2009 06:42:55 -0700
+Received: from process-daemon.vms169133.mailsrvcs.net by
+ vms169133.mailsrvcs.net
+ (Sun Java(tm) System Messaging Server 6.3-7.04 (built Sep 26 2008; 32bit))
+ id <0KKR00700Q1L4100@vms169133.mailsrvcs.net> for joe@example.com; Fri,
+ 05 Jun 2009 08:43:05 -0500 (CDT)
+Received: from vms169133.mailsrvcs.net
+ (Sun Java(tm) System Messaging Server 6.3-7.04 (built Sep 26 2008; 32bit))
+ id <0KKR00M9HQ3T8100@vms169133.mailsrvcs.net>; Fri,
+ 05 Jun 2009 08:43:05 -0500 (CDT)
+Date: Fri, 05 Jun 2009 08:43:05 -0500 (CDT)
+From: Verizon Online Postmaster <postmaster@verizon.net>
+Subject: Delivery Notification: Delivery has failed
+To: joe@example.com
+Message-id: <1234.1212@example.com>
+MIME-version: 1.0
+Content-type: multipart/report; report-type=delivery-status;
+ boundary="Boundary_(ID_i9HI+uq/Ow7SRFDKTB0YAg)"
+X-Assp-Received-RBL: pass
+
+
+--Boundary_(ID_i9HI+uq/Ow7SRFDKTB0YAg)
+Content-type: text/plain; charset=us-ascii
+Content-language: en-US
+
+This report relates to a message you sent with the following header fields:
+
+  Message-id: <1234.1212@example.com>
+  Date: Fri, 05 Jun 2009 06:41:59 -0700
+  From: joe@example.com
+  To: fred@somewhere.com
+  Subject: I like turtles
+
+Your message cannot be delivered to the following recipients:
+
+  Recipient address: fred@somewhere.com
+  Original address: fred@somewhere.com
+  Reason: Remote SMTP server has rejected address
+  Diagnostic code: smtp;550 cuda_nsu No such recipient
+  Remote system: dns;spamfilter.bju.edu (TCP|1.1.1.1|62801|158.158.239.11|25) (spamfilter.bju.edu ESMTP [f4eed02af219fafc37154b1c2a9ef638])
+
+
+--Boundary_(ID_i9HI+uq/Ow7SRFDKTB0YAg)
+Content-type: message/delivery-status
+
+Reporting-MTA: dns;vms169133.mailsrvcs.net (tcp-daemon)
+
+Original-recipient: rfc822;fred@somewhere.com
+Final-recipient: rfc822;fred@somewhere.com
+Action: failed
+Status: 5.0.0 (Remote SMTP server has rejected address)
+Remote-MTA: dns;spamfilter.bju.edu (TCP|1.1.1.1|62801|158.158.239.11|25)
+ (spamfilter.bju.edu ESMTP [f4eed02af219fafc37154b1c2a9ef638])
+Diagnostic-code: smtp;550 cuda_nsu No such recipient
+
+--Boundary_(ID_i9HI+uq/Ow7SRFDKTB0YAg)
+Content-type: message/rfc822
+
+Return-path: <joe@example.com>
+Received: from tcp-daemon.vms169133.mailsrvcs.net by vms169133.mailsrvcs.net
+ (Sun Java(tm) System Messaging Server 6.3-7.04 (built Sep 26 2008; 32bit))
+ id <0KKR00M9HQ3T8100@vms169133.mailsrvcs.net>; Fri,
+ 05 Jun 2009 08:43:05 -0500 (CDT)
+Received: from mail.example.com ([1.1.1.1]) by vms169133.mailsrvcs.net
+ (Sun Java(tm) System Messaging Server 6.3-7.04 (built Sep 26 2008; 32bit))
+ with ESMTP id <0KKR00HD4Q3SBVF0@vms169133.mailsrvcs.net> for
+ egard789@students.bju.edu (ORCPT fred@somewhere.com); Fri,
+ 05 Jun 2009 08:43:05 -0500 (CDT)
+Received: from mail.example.com (example.com [8.12.160.194])	by mail.example.com (Postfix)
+ with ESMTPA id 81EFD1780F1	for <fred@somewhere.com>; Fri,
+ 05 Jun 2009 06:42:53 -0700 (PDT)
+Date: Fri, 05 Jun 2009 06:41:59 -0700
+From: joe@example.com
+Subject: I like turtles
+X-Originating-IP: [1.1.1.1]
+To: fred@somewhere.com
+Message-id: <1234.1212@example.com>
+MIME-version: 1.0
+Content-type: text/html; charset=utf-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+<BODY bgcolor="#ffffff" topmargin="0" marginheight="0">
+Hi
+</BODY>
+</HTML>
+
+--Boundary_(ID_i9HI+uq/Ow7SRFDKTB0YAg)--
