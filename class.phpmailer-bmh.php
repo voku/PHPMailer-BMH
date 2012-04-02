@@ -261,9 +261,9 @@ class BounceMailHandler {
     $port = $this->port . '/' . $this->service . '/' . $this->service_option;
     set_time_limit(6000);
     if (!$this->testmode) {
-      $this->_mailbox_link = imap_open("{".$this->mailhost.":".$port."}" . $this->boxname,$this->mailbox_username,$this->mailbox_password,CL_EXPUNGE);
+      $this->_mailbox_link = imap_open("{".$this->mailhost.":".$port."}" . $this->boxname,$this->mailbox_username,$this->mailbox_password,CL_EXPUNGE | ($this->testmode ? OP_READONLY : 0));
     } else {
-      $this->_mailbox_link = imap_open("{".$this->mailhost.":".$port."}" . $this->boxname,$this->mailbox_username,$this->mailbox_password);
+      $this->_mailbox_link = imap_open("{".$this->mailhost.":".$port."}" . $this->boxname,$this->mailbox_username,$this->mailbox_password,($this->testmode ? OP_READONLY : 0));
     }
     if (!$this->_mailbox_link) {
       $this->error_msg = 'Cannot create ' . $this->service . ' connection to ' . $this->mailhost . $this->bmh_newline . 'Error MSG: ' . imap_last_error();
@@ -283,9 +283,9 @@ class BounceMailHandler {
   function openLocal($file_path) {
     set_time_limit(6000);
     if (!$this->testmode) {
-      $this->_mailbox_link = imap_open("$file_path",'','',CL_EXPUNGE);
+      $this->_mailbox_link = imap_open("$file_path",'','',CL_EXPUNGE | ($this->testmode ? OP_READONLY : 0));
     } else {
-      $this->_mailbox_link = imap_open("$file_path",'','');
+      $this->_mailbox_link = imap_open("$file_path",'','',($this->testmode ? OP_READONLY : 0));
     }
     if (!$this->_mailbox_link) {
       $this->error_msg = 'Cannot open the mailbox file to ' . $file_path . $this->bmh_newline . 'Error MSG: ' . imap_last_error();
@@ -394,31 +394,31 @@ class BounceMailHandler {
       $moveFlag[$x]   = false;
       if ($processed) {
         $c_processed++;
-        if ( ($this->testmode === false) && ($this->disable_delete === false) ) {
-          // delete the bounce if not in test mode and not in disable_delete mode
-          @imap_delete($this->_mailbox_link,$x);
+        if ( !$this->disable_delete ) {
+          // delete the bounce if not in disable_delete mode
+          if ( !$this->testmode )  @imap_delete($this->_mailbox_link,$x);
           $deleteFlag[$x] = true;
           $c_deleted++;
         } elseif ( $this->moveHard ) {
           // check if the move directory exists, if not create it
-          $this->mailbox_exist($this->hardMailbox);
+          if ( !$this->testmode )  $this->mailbox_exist($this->hardMailbox);
           // move the message
-          @imap_mail_move($this->_mailbox_link, $x, $this->hardMailbox);
+          if ( !$this->testmode )  @imap_mail_move($this->_mailbox_link, $x, $this->hardMailbox);
           $moveFlag[$x] = true;
           $c_moved++;
         } elseif ( $this->moveSoft ) {
           // check if the move directory exists, if not create it
-          $this->mailbox_exist($this->softMailbox);
+          if ( !$this->testmode )  $this->mailbox_exist($this->softMailbox);
           // move the message
-          @imap_mail_move($this->_mailbox_link, $x, $this->softMailbox);
+          if ( !$this->testmode )  @imap_mail_move($this->_mailbox_link, $x, $this->softMailbox);
           $moveFlag[$x] = true;
           $c_moved++;
         }
       } else { // not processed
         $c_unprocessed++;
-        if ( !$this->testmode && !$this->disable_delete && $this->purge_unprocessed ) {
-          // delete this bounce if not in test mode, not in disable_delete mode, and the flag BOUNCE_PURGE_UNPROCESSED is set
-          @imap_delete($this->_mailbox_link,$x);
+        if ( !$this->disable_delete && $this->purge_unprocessed ) {
+          // delete this bounce if not in disable_delete mode, and the flag BOUNCE_PURGE_UNPROCESSED is set
+          if ( !$this->testmode )  @imap_delete($this->_mailbox_link,$x);
           $deleteFlag[$x] = true;
           $c_deleted++;
         }
