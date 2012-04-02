@@ -40,7 +40,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             ),
             // @todo review
             'bounce-email/tt_1234211929.txt' => array(
-                1, 0, 1, 0, 0,
+                1, 1, 0, 1, 0,
             ),
             // @todo review
             'bounce-email/tt_1234211931.txt' => array(
@@ -128,7 +128,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             ),
             // @todo review
             'bounce-email/tt_bounce_16.txt' => array(
-                1, 0, 1, 0, 0,
+                1, 1, 0, 1, 0,
             ),
             // @todo review
             'bounce-email/tt_bounce_17.txt' => array(
@@ -160,7 +160,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             ),
             // @todo review
             'bouncehammer/17-messages.eml' => array(
-                37, 31, 6, 31, 0,
+                37, 34, 3, 34, 0,
             ),
             // @todo review
             'bouncehammer/cannot-parse.eml' => array(
@@ -596,11 +596,11 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             ),
             // @todo review
             'mail-deliverystatus-bounceparser/warning-7.msg' => array(
-                1, 0, 1, 0, 0,
+                1, 1, 0, 1, 0,
             ),
             // @todo review
             'mail-deliverystatus-bounceparser/warning-8.msg' => array(
-                1, 0, 1, 0, 0,
+                1, 1, 0, 1, 0,
             ),
             // @todo review
             'mail-deliverystatus-bounceparser/whitelist.msg' => array(
@@ -752,7 +752,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             ),
             // @todo review
             'PHP-Bounce-Handler/28.eml' => array(
-                1, 0, 1, 0, 0,
+                1, 1, 0, 1, 0,
             ),
             // @todo review
             'PHP-Bounce-Handler/29.eml' => array(
@@ -1024,7 +1024,6 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             $this->assertTrue($rc, $testFile.': processMailbox');
 
             preg_match('/Read: ([0-9]+) messages/', $output, $matches);
-var_dump($testFile, $output);
             $this->assertEquals($fetched, $matches[1], $testFile.': messages read');
 
             preg_match('/([0-9]+) action taken/', $output, $matches);
