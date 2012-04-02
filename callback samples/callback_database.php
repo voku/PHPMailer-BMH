@@ -90,5 +90,3 @@ function prepData($email, $bounce_type, $remove) {
 
   return $data;
 }
-
-?>

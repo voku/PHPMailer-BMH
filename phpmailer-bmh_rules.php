@@ -26,7 +26,7 @@
 '---------------------------------------------------------------------------'
 
 /**
-* next rule number (BODY): 0238 <br />
+* next rule number (BODY): 0239 <br />
 * default category:        unrecognized: <br />
 * default rule no.:        0000 <br />
 */
@@ -1098,6 +1098,15 @@ function bmhDSNRules($dsn_msg,$dsn_report,$debug_mode=false) {
           $result['rule_cat']    = 'dns_unknown';
           $result['rule_no']     = '0208';
         }
+        /* rule: dns_unknown
+         * sample:
+         * Diagnostic-Code: X-Postfix; Host or domain name not found. Name service error
+         *     for name=aaaaaaaaaaa type=A: Host not found
+         */
+        elseif (preg_match ("/Host or domain name not found/is",$diag_code)) {
+          $result['rule_cat']    = 'dns_unknown';
+          $result['rule_no']     = '0238';
+        }
         /* rule: defer
          * sample:
          * Diagnostic-Code: SMTP; 451 System(u) busy, try again later.
@@ -1535,4 +1544,3 @@ function bmhDSNRules($dsn_msg,$dsn_report,$debug_mode=false) {
   }
   return $result;
 }
-?>
