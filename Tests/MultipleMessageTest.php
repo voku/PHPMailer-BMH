@@ -7,6 +7,22 @@ require_once __DIR__.'/../BounceMailHandler.php';
  */
 class MultipleMessageTest extends PHPUnit_Framework_TestCase
 {
+    protected function getMailboxPath($localMailboxPath)
+    {
+        if (!file_exists($localMailboxPath)) {
+            throw new \Exception('Local mailbox doesn\'t exist: '.$localMailboxPath);
+        }
+
+        $localMailboxPath = realpath($localMailboxPath);
+        
+        $homeDirectory = getenv('HOME');
+        if (strncmp($localMailboxPath, $homeDirectory.DIRECTORY_SEPARATOR, strlen($homeDirectory)+1)) {
+            throw new \Exception('Mailbox must be under home directory: '.$homeDirectory);
+        }
+
+        return substr($localMailboxPath, strlen($homeDirectory)+1);
+    }
+
     public function testProcessMailbox()
     {
         $testData = array(
@@ -16,7 +32,7 @@ class MultipleMessageTest extends PHPUnit_Framework_TestCase
 
             // @todo review
             'bouncehammer/17-messages.eml' => array(
-                37, 34, 3, 34, 0,
+                37, 35, 2, 35, 0,
             ),
             // @todo review
             'bouncehammer/double-messages.eml' => array(
@@ -32,7 +48,7 @@ class MultipleMessageTest extends PHPUnit_Framework_TestCase
             list($fetched, $processed, $unprocessed, $deleted, $moved) = $expected;
 
             ob_start();
-            $rc = $bmh->openLocal(__DIR__.'/Fixtures/'.$testFile);
+            $rc = $bmh->openLocal($this->getMailboxPath(__DIR__.'/Fixtures/'.$testFile));
             ob_end_clean();
 
             $this->assertTrue($rc, $testFile.': openLocal');

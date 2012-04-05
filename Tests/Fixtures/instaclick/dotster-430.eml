@@ -1,0 +1,108 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: instaclick.developer@gmail.com
+Received: by 10.220.186.194 with SMTP id ct2csp34572vcb;
+        Sat, 31 Mar 2012 13:05:39 -0700 (PDT)
+Received: by 10.68.227.73 with SMTP id ry9mr8237678pbc.33.1333224338364;
+        Sat, 31 Mar 2012 13:05:38 -0700 (PDT)
+Return-Path: <>
+Received: from mail6.dotsterhost.com (mail6.dotsterhost.com. [72.5.54.120])
+        by mx.google.com with SMTP id x9si16251142pbg.209.2012.03.31.13.05.37
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Sat, 31 Mar 2012 13:05:38 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of mail6.dotsterhost.com designates 72.5.54.120 as permitted sender) client-ip=72.5.54.120;
+Authentication-Results: mx.google.com; spf=pass (google.com: best guess record for domain of mail6.dotsterhost.com designates 72.5.54.120 as permitted sender) smtp.mail=
+Message-Id: <4f776392.091c440a.3340.65aeSMTPIN_ADDED@mx.google.com>
+Received: (qmail 11855 invoked for bounce); 31 Mar 2012 20:05:36 -0000
+Date: 31 Mar 2012 20:05:36 -0000
+From: MAILER-DAEMON@mail6.dotsterhost.com
+To: instaclick.developer@gmail.com
+Subject: failure notice
+
+Hi. This is the qmail-send program at mail6.dotsterhost.com.
+I am afraid I was not able to deliver your message to the following addresses.
+This is a permanent error; I have given up. Sorry it did not work out.
+
+<instaclick@anthonpang.com>:
+Unable to switch to /usr/local/qmail/shared/mailnames/k/w/36714/CATCH-ALL/: file does not exist. (#4.3.0)
+I am not going to try again; this message has been in the queue too long.
+
+--- Below this line is a copy of the message.
+
+Return-Path: <instaclick.developer@gmail.com>
+Received: (qmail 25725 invoked from network); 30 Mar 2012 19:05:36 -0000
+Received: from unknown (HELO mail-yw0-f42.google.com) ([209.85.213.42])
+  by 72.5.54.120 with ESMTPS (RC4-SHA encrypted); 30 Mar 2012 19:05:36 -0000
+Received: by yhfq11 with SMTP id q11so1014116yhf.1
+        for <instaclick@anthonpang.com>; Fri, 30 Mar 2012 12:05:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=message-id:date:subject:from:to:mime-version:content-type
+         :content-transfer-encoding;
+        bh=JZYm9RRTeEK6S6sf/MwiG0L9pATNpDT2CN6A2IqERNs=;
+        b=RNrkRL5rKsLHNeS+rgCV1ukK5Skdi6DYKDOADdlFxbv1tH/6PfzXz6vj1WZl2YPlGW
+         nrCKOPfkUH/zzBGyVz/sBT4Chn66uCxlzvRYORbNwp1MxmJyHJWmXLqaio7btbYKymVN
+         +jgtx5JHhMx3iRtoCG3wy80I+kMFlRI5/f6zxx+R+vCMqhoLA9J2gFC+tERgtao/t2k2
+         NF78n1seKrUgsZp9DVsnyJuvwb5MSEnXjNAubvIaxYAaMr6B0kzF4OCibg6INQyXSRcA
+         B/TkSEPAZrRa1Wn9wqlhZtIkTmTGV9d4LXOZEdU+NNK8BUKyIR//1sthK4knHZ1xUT6o
+         EEAw==
+Received: by 10.60.1.4 with SMTP id 4mr4394068oei.28.1333134335563;
+        Fri, 30 Mar 2012 12:05:35 -0700 (PDT)
+Return-Path: <instaclick.developer@gmail.com>
+Received: from 192.168.0.92 (dsl-3m-9.colosseum.com. [207.61.175.9])
+        by mx.google.com with ESMTPS id yw3sm10023805obb.7.2012.03.30.12.05.34
+        (version=SSLv3 cipher=OTHER);
+        Fri, 30 Mar 2012 12:05:34 -0700 (PDT)
+Message-ID: <1333134334.4f7603fe31f22@192.168.0.92>
+Date: Fri, 30 Mar 2012 15:05:34 -0400
+Subject: Welcome to The Site!
+From: InstaClick Delivery Service <instaclick.developer@gmail.com>
+To: instaclick@anthonpang.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to The S=
+ite!</title>
+</head>
+<body>
+    <img src=3D"http://192.168.=
+1.214/bundles/icsitesteve/images/logo.png" alt=3D"logo"/>
+
+    <=
+h1>Welcome to The Site!</h1>
+
+    <p>
+        Welcome to Mr.=
+Steve website. Here are your registration information:
+    <=
+/p>
+
+    <p>
+        Username: <b>sopmeone2</b><br />
+ =
+   <p>
+        In order to be able to access the site, your email ne=
+eds to be validated.
+        Please use this link to complete your r=
+egistration:
+    </p>
+    <p>
+        <a href=3D"http://19=
+2.168.0.92/register/confirm/a8d3f7a77700d369265888ac2797ca578397f89f">ht=
+tp://192.168.0.92/register/confirm/a8d3f7a77700d369265888ac2797ca578397f=
+89f</a>
+    </p>
+    <p>
+        Happy browsing!
+    <=
+/p>
+    <p>
+        Click <a href=3D"http://site-steve.com/unsu=
+bscribe">here</a> to unsubscribe from us.
+    </p>
+</body>
+<=
+/html>
