@@ -1715,7 +1715,7 @@ function bmhDSNRules($dsn_msg,$dsn_report,$debug_mode=false) {
          * sample 2:
          *   550 5.1.1 xxxxx@yourdomain.com... User unknown
          */
-        elseif (preg_match ("/User unknown/i",$dsn_msg)) {
+        elseif (preg_match ("/(?:User unknown|Unknown user)/i",$dsn_msg)) {
           $result['rule_cat'] = 'unknown';
           $result['rule_no']  = '0193';
         }

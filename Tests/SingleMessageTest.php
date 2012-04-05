@@ -114,6 +114,10 @@ class SingleMessageTest extends PHPUnit_Framework_TestCase
                 1, 1, 0, 1, 0,
                 '0249', 'unknown', 'hard', 'evor@apollo.lv',
             ),
+            'bounce-email/tt_bounce_05.eml' => array(
+                1, 1, 0, 1, 0,
+                '0193', 'unknown', 'hard', 'evor@apollo.lv',
+            ),
             'bounce-email/tt_bounce_06.txt' => array(
                 1, 1, 0, 1, 0,
                 '0250', 'antispam', 'blocked', 'info@koblenz.lv',
