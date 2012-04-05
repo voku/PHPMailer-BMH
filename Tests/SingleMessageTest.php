@@ -1,4 +1,4 @@
-<?php*
+<?php
 
 require_once __DIR__.'/../BounceMailHandler.php';
 
@@ -164,7 +164,6 @@ class SingleMessageTest extends PHPUnit_Framework_TestCase
                 1, 1, 0, 1, 0,
                 '0254', 'unknown', 'hard', 'info@rimibaltic.com',
             ),
-            // @todo review
             'bounce-email/tt_bounce_16.txt' => array(
                 1, 1, 0, 1, 0,
                 '0182', 'full', 'soft', 'notikums@tv5.lv',
@@ -175,8 +174,9 @@ class SingleMessageTest extends PHPUnit_Framework_TestCase
             ),
             'bounce-email/tt_bounce_18.txt' => array(
                 1, 1, 0, 1, 0,
-                '256', 'delayed', 'temporary', 'welcome6_@one.lv',
+                '0256', 'delayed', 'temporary', 'welcome6_@one.lv',
             ),
+/*
             // @todo review
             'bounce-email/tt_bounce_19.txt' => array(
                 1, 0, 1, 0, 0,
@@ -197,10 +197,11 @@ class SingleMessageTest extends PHPUnit_Framework_TestCase
                 1, 0, 1, 0, 0,
                 '', '', '', '',
             ),
+*/
             // @todo review
             'bounce-email/tt_bounce_23.txt' => array(
                 1, 1, 0, 1, 0,
-                '', '', '', '',
+                '0236', 'unknown', 'hard', 'Rihards_Freimanis@exigengroup.com',
             ),
 /*
             // @todo review

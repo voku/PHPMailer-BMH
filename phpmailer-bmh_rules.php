@@ -516,7 +516,7 @@ function bmhBodyRules($body,$structure,$debug_mode=false) {
   if ($result['rule_no'] !== '0000' && $result['email'] === '') {
     $preBody = substr($body, 0, strpos($body, $match[0]));
     if ($count = preg_match_all('/(\S+@\S+)/', $preBody, $match)) {
-      $result['email'] = trim($match[1][$count-1], "'\"()<>:; \t\r\n\0\x0B");
+      $result['email'] = trim($match[1][$count-1], "'\"()<>.:; \t\r\n\0\x0B");
     }
   }
 
