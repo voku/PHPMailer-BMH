@@ -1,0 +1,428 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Bounce Mail Handler » \BounceMailHandler</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Bounce Mail Handler</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">19</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#globalDelete" title="globalDelete :: Function to delete messages in a mailbox, based on date
+NOTE: this is global ... will affect all mailboxes except any that have 'sent' in the mailbox name"><span class="description">Function to delete messages in a mailbox, based on date
+NOTE: this is global ... will affect all mailboxes except any that have 'sent' in the mailbox name</span><pre>globalDelete()</pre></a></li>
+<li class="method public "><a href="#isParameter" title="isParameter :: Function to determine if a particular value is found in a imap_fetchstructure key"><span class="description">Function to determine if a particular value is found in a imap_fetchstructure key</span><pre>isParameter()</pre></a></li>
+<li class="method public "><a href="#mailbox_exist" title="mailbox_exist :: Function to check if a mailbox exists
+- if not found, it will create it"><span class="description">Function to check if a mailbox exists
+- if not found, it will create it</span><pre>mailbox_exist()</pre></a></li>
+<li class="method public "><a href="#openLocal" title="openLocal :: Open a mail box in local file system"><span class="description">Open a mail box in local file system</span><pre>openLocal()</pre></a></li>
+<li class="method public "><a href="#openMailbox" title="openMailbox :: Open a mail box"><span class="description">Open a mail box</span><pre>openMailbox()</pre></a></li>
+<li class="method public "><a href="#output" title="output :: Output additional msg for debug"><span class="description">Output additional msg for debug</span><pre>output()</pre></a></li>
+<li class="method public "><a href="#processBounce" title="processBounce :: Function to process each individual message"><span class="description">Function to process each individual message</span><pre>processBounce()</pre></a></li>
+<li class="method public "><a href="#processMailbox" title="processMailbox :: Process the messages in a mailbox"><span class="description">Process the messages in a mailbox</span><pre>processMailbox()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24Version" title="$Version :: Holds Bounce Mail Handler version."><span class="description">Holds Bounce Mail Handler version.</span><pre>$Version</pre></a></li>
+<li class="property public "><a href="#%24_mailbox_link" title="$_mailbox_link :: Internal variable
+The resource handler for the opened mailbox (POP3/IMAP/NNTP/etc.)"><span class="description">Internal variable
+The resource handler for the opened mailbox (POP3/IMAP/NNTP/etc.)</span><pre>$_mailbox_link</pre></a></li>
+<li class="property public "><a href="#%24action_function" title="$action_function :: Callback Action function name
+the function that handles the bounce mail. Parameters:
+  int     $msgnum        the message number returned by Bounce Mail Handler
+  string  $bounce_type   the bounce type: 'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'        =&gt; array('remove'=&gt;0,'bounce_type'=&gt;'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
+  string  $email         the target email address
+  string  $subject       the subject, ignore now
+  string  $xheader       the XBounceHeader from the mail
+  1 or 0  $remove        delete status, 0 is not deleted, 1 is deleted
+  string  $rule_no       bounce mail detect rule no."><span class="description">Callback Action function name
+the function that handles the bounce mail. Parameters:
+  int     $msgnum        the message number returned by Bounce Mail Handler
+  string  $bounce_type   the bounce type: 'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'        =&gt; array('remove'=&gt;0,'bounce_type'=&gt;'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
+  string  $email         the target email address
+  string  $subject       the subject, ignore now
+  string  $xheader       the XBounceHeader from the mail
+  1 or 0  $remove        delete status, 0 is not deleted, 1 is deleted
+  string  $rule_no       bounce mail detect rule no.</span><pre>$action_function</pre></a></li>
+<li class="property public "><a href="#%24bmh_newline" title="$bmh_newline :: "><span class="description">$bmh_newline</span><pre>$bmh_newline</pre></a></li>
+<li class="property public "><a href="#%24boxname" title="$boxname :: "><span class="description">$boxname</span><pre>$boxname</pre></a></li>
+<li class="property public "><a href="#%24debug_body_rule" title="$debug_body_rule :: control the failed BODY rules output"><span class="description">control the failed BODY rules output</span><pre>$debug_body_rule</pre></a></li>
+<li class="property public "><a href="#%24debug_dsn_rule" title="$debug_dsn_rule :: control the failed DSN rules output"><span class="description">control the failed DSN rules output</span><pre>$debug_dsn_rule</pre></a></li>
+<li class="property public "><a href="#%24deleteMsgDate" title="$deleteMsgDate :: "><span class="description">$deleteMsgDate</span><pre>$deleteMsgDate</pre></a></li>
+<li class="property public "><a href="#%24disable_delete" title="$disable_delete :: If disable_delete is equal to true, it will disable the delete function"><span class="description">If disable_delete is equal to true, it will disable the delete function</span><pre>$disable_delete</pre></a></li>
+<li class="property public "><a href="#%24error_msg" title="$error_msg :: The last error msg"><span class="description">The last error msg</span><pre>$error_msg</pre></a></li>
+<li class="property public "><a href="#%24hardMailbox" title="$hardMailbox :: "><span class="description">$hardMailbox</span><pre>$hardMailbox</pre></a></li>
+<li class="property public "><a href="#%24mailbox_password" title="$mailbox_password :: The password needed to access mailbox"><span class="description">The password needed to access mailbox</span><pre>$mailbox_password</pre></a></li>
+<li class="property public "><a href="#%24mailbox_username" title="$mailbox_username :: The username of mailbox"><span class="description">The username of mailbox</span><pre>$mailbox_username</pre></a></li>
+<li class="property public "><a href="#%24mailhost" title="$mailhost :: Mail server"><span class="description">Mail server</span><pre>$mailhost</pre></a></li>
+<li class="property public "><a href="#%24max_messages" title="$max_messages :: Maximum limit messages processed in one batch"><span class="description">Maximum limit messages processed in one batch</span><pre>$max_messages</pre></a></li>
+<li class="property public "><a href="#%24moveHard" title="$moveHard :: "><span class="description">$moveHard</span><pre>$moveHard</pre></a></li>
+<li class="property public "><a href="#%24moveSoft" title="$moveSoft :: "><span class="description">$moveSoft</span><pre>$moveSoft</pre></a></li>
+<li class="property public "><a href="#%24port" title="$port :: "><span class="description">$port</span><pre>$port</pre></a></li>
+<li class="property public "><a href="#%24purge_unprocessed" title="$purge_unprocessed :: Purge the unknown messages (or not)"><span class="description">Purge the unknown messages (or not)</span><pre>$purge_unprocessed</pre></a></li>
+<li class="property public "><a href="#%24service" title="$service :: "><span class="description">$service</span><pre>$service</pre></a></li>
+<li class="property public "><a href="#%24service_option" title="$service_option :: "><span class="description">$service_option</span><pre>$service_option</pre></a></li>
+<li class="property public "><a href="#%24softMailbox" title="$softMailbox :: "><span class="description">$softMailbox</span><pre>$softMailbox</pre></a></li>
+<li class="property public "><a href="#%24testmode" title="$testmode :: Test mode, if true will not delete messages"><span class="description">Test mode, if true will not delete messages</span><pre>$testmode</pre></a></li>
+<li class="property public "><a href="#%24use_fetchstructure" title="$use_fetchstructure :: Control the method to process the mail header
+if set true, uses the imap_fetchstructure function
+otherwise, detect message type directly from headers,
+a bit faster than imap_fetchstructure function and take less resources."><span class="description">Control the method to process the mail header
+if set true, uses the imap_fetchstructure function
+otherwise, detect message type directly from headers,
+a bit faster than imap_fetchstructure function and take less resources.</span><pre>$use_fetchstructure</pre></a></li>
+<li class="property public "><a href="#%24verbose" title="$verbose :: Control the debug output, default is VERBOSE_SIMPLE"><span class="description">Control the debug output, default is VERBOSE_SIMPLE</span><pre>$verbose</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CBounceMailHandler" id="\BounceMailHandler"></a><div href="../classes/BounceMailHandler.html" class="element class"><div class="details">
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="globalDelete" id="globalDelete"></a><div class="element clickable method public globalDelete" data-toggle="collapse" data-target=".globalDelete .collapse">
+<h2>Function to delete messages in a mailbox, based on date
+NOTE: this is global ... will affect all mailboxes except any that have 'sent' in the mailbox name</h2>
+<pre>globalDelete() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="isParameter" id="isParameter"></a><div class="element clickable method public isParameter" data-toggle="collapse" data-target=".isParameter .collapse">
+<h2>Function to determine if a particular value is found in a imap_fetchstructure key</h2>
+<pre>isParameter(array $currParameters, string $varKey, string $varValue) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$currParameters</h4>
+<code>array</code><p>(imap_fetstructure parameters)</p>
+</div>
+<div class="subelement argument">
+<h4>$varKey</h4>
+<code>string</code><p>(imap_fetstructure key)</p>
+</div>
+<div class="subelement argument">
+<h4>$varValue</h4>
+<code>string</code><p>(value to check for)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="mailbox_exist" id="mailbox_exist"></a><div class="element clickable method public mailbox_exist" data-toggle="collapse" data-target=".mailbox_exist .collapse">
+<h2>Function to check if a mailbox exists
+- if not found, it will create it</h2>
+<pre>mailbox_exist(string $mailbox, boolean $create) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$mailbox</h4>
+<code>string</code><p>(the mailbox name, must be in 'INBOX.checkmailbox' format)</p>
+</div>
+<div class="subelement argument">
+<h4>$create</h4>
+<code>boolean</code><p>(whether or not to create the checkmailbox if not found, defaults to true)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="openLocal" id="openLocal"></a><div class="element clickable method public openLocal" data-toggle="collapse" data-target=".openLocal .collapse">
+<h2>Open a mail box in local file system</h2>
+<pre>openLocal(string $file_path) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$file_path</h4>
+<code>string</code><p>(The local mailbox file path)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="openMailbox" id="openMailbox"></a><div class="element clickable method public openMailbox" data-toggle="collapse" data-target=".openMailbox .collapse">
+<h2>Open a mail box</h2>
+<pre>openMailbox() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="output" id="output"></a><div class="element clickable method public output" data-toggle="collapse" data-target=".output .collapse">
+<h2>Output additional msg for debug</h2>
+<pre>output($msg, $verbose_level) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$msg</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$verbose_level</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<a name="processBounce" id="processBounce"></a><div class="element clickable method public processBounce" data-toggle="collapse" data-target=".processBounce .collapse">
+<h2>Function to process each individual message</h2>
+<pre>processBounce(int $pos, string $type, string $totalFetched) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$pos</h4>
+<code>int</code><p>(message number)</p>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>(DNS or BODY type)</p>
+</div>
+<div class="subelement argument">
+<h4>$totalFetched</h4>
+<code>string</code><p>(total number of messages in mailbox)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="processMailbox" id="processMailbox"></a><div class="element clickable method public processMailbox" data-toggle="collapse" data-target=".processMailbox .collapse">
+<h2>Process the messages in a mailbox</h2>
+<pre>processMailbox(string $max) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$max</h4>
+<code>string</code><p>(maximum limit messages processed in one batch, if not given uses the property $max_messages</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24Version" id="$Version"> </a><div class="element clickable property public $Version" data-toggle="collapse" data-target=".$Version .collapse">
+<h2>Holds Bounce Mail Handler version.</h2>
+<pre>$Version : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24_mailbox_link" id="$_mailbox_link"> </a><div class="element clickable property public $_mailbox_link" data-toggle="collapse" data-target=".$_mailbox_link .collapse">
+<h2>Internal variable
+The resource handler for the opened mailbox (POP3/IMAP/NNTP/etc.)</h2>
+<pre>$_mailbox_link : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24action_function" id="$action_function"> </a><div class="element clickable property public $action_function" data-toggle="collapse" data-target=".$action_function .collapse">
+<h2>Callback Action function name
+the function that handles the bounce mail. Parameters:
+  int     $msgnum        the message number returned by Bounce Mail Handler
+  string  $bounce_type   the bounce type: 'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'        =&gt; array('remove'=&gt;0,'bounce_type'=&gt;'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
+  string  $email         the target email address
+  string  $subject       the subject, ignore now
+  string  $xheader       the XBounceHeader from the mail
+  1 or 0  $remove        delete status, 0 is not deleted, 1 is deleted
+  string  $rule_no       bounce mail detect rule no.</h2>
+<pre>$action_function : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"><p>string  $rule_cat      bounce mail detect rule category
+  int     $totalFetched  total number of messages in the mailbox</p></p></div></div>
+</div>
+<a name="%24bmh_newline" id="$bmh_newline"> </a><div class="element clickable property public $bmh_newline" data-toggle="collapse" data-target=".$bmh_newline .collapse">
+<h2>$bmh_newline</h2>
+<pre>$bmh_newline </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24boxname" id="$boxname"> </a><div class="element clickable property public $boxname" data-toggle="collapse" data-target=".$boxname .collapse">
+<h2>$boxname</h2>
+<pre>$boxname </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24debug_body_rule" id="$debug_body_rule"> </a><div class="element clickable property public $debug_body_rule" data-toggle="collapse" data-target=".$debug_body_rule .collapse">
+<h2>control the failed BODY rules output</h2>
+<pre>$debug_body_rule : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24debug_dsn_rule" id="$debug_dsn_rule"> </a><div class="element clickable property public $debug_dsn_rule" data-toggle="collapse" data-target=".$debug_dsn_rule .collapse">
+<h2>control the failed DSN rules output</h2>
+<pre>$debug_dsn_rule : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24deleteMsgDate" id="$deleteMsgDate"> </a><div class="element clickable property public $deleteMsgDate" data-toggle="collapse" data-target=".$deleteMsgDate .collapse">
+<h2>$deleteMsgDate</h2>
+<pre>$deleteMsgDate </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24disable_delete" id="$disable_delete"> </a><div class="element clickable property public $disable_delete" data-toggle="collapse" data-target=".$disable_delete .collapse">
+<h2>If disable_delete is equal to true, it will disable the delete function</h2>
+<pre>$disable_delete : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24error_msg" id="$error_msg"> </a><div class="element clickable property public $error_msg" data-toggle="collapse" data-target=".$error_msg .collapse">
+<h2>The last error msg</h2>
+<pre>$error_msg : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24hardMailbox" id="$hardMailbox"> </a><div class="element clickable property public $hardMailbox" data-toggle="collapse" data-target=".$hardMailbox .collapse">
+<h2>$hardMailbox</h2>
+<pre>$hardMailbox </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24mailbox_password" id="$mailbox_password"> </a><div class="element clickable property public $mailbox_password" data-toggle="collapse" data-target=".$mailbox_password .collapse">
+<h2>The password needed to access mailbox</h2>
+<pre>$mailbox_password : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24mailbox_username" id="$mailbox_username"> </a><div class="element clickable property public $mailbox_username" data-toggle="collapse" data-target=".$mailbox_username .collapse">
+<h2>The username of mailbox</h2>
+<pre>$mailbox_username : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24mailhost" id="$mailhost"> </a><div class="element clickable property public $mailhost" data-toggle="collapse" data-target=".$mailhost .collapse">
+<h2>Mail server</h2>
+<pre>$mailhost : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24max_messages" id="$max_messages"> </a><div class="element clickable property public $max_messages" data-toggle="collapse" data-target=".$max_messages .collapse">
+<h2>Maximum limit messages processed in one batch</h2>
+<pre>$max_messages : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24moveHard" id="$moveHard"> </a><div class="element clickable property public $moveHard" data-toggle="collapse" data-target=".$moveHard .collapse">
+<h2>$moveHard</h2>
+<pre>$moveHard </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24moveSoft" id="$moveSoft"> </a><div class="element clickable property public $moveSoft" data-toggle="collapse" data-target=".$moveSoft .collapse">
+<h2>$moveSoft</h2>
+<pre>$moveSoft </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24port" id="$port"> </a><div class="element clickable property public $port" data-toggle="collapse" data-target=".$port .collapse">
+<h2>$port</h2>
+<pre>$port </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24purge_unprocessed" id="$purge_unprocessed"> </a><div class="element clickable property public $purge_unprocessed" data-toggle="collapse" data-target=".$purge_unprocessed .collapse">
+<h2>Purge the unknown messages (or not)</h2>
+<pre>$purge_unprocessed : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24service" id="$service"> </a><div class="element clickable property public $service" data-toggle="collapse" data-target=".$service .collapse">
+<h2>$service</h2>
+<pre>$service </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24service_option" id="$service_option"> </a><div class="element clickable property public $service_option" data-toggle="collapse" data-target=".$service_option .collapse">
+<h2>$service_option</h2>
+<pre>$service_option </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24softMailbox" id="$softMailbox"> </a><div class="element clickable property public $softMailbox" data-toggle="collapse" data-target=".$softMailbox .collapse">
+<h2>$softMailbox</h2>
+<pre>$softMailbox </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24testmode" id="$testmode"> </a><div class="element clickable property public $testmode" data-toggle="collapse" data-target=".$testmode .collapse">
+<h2>Test mode, if true will not delete messages</h2>
+<pre>$testmode : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24use_fetchstructure" id="$use_fetchstructure"> </a><div class="element clickable property public $use_fetchstructure" data-toggle="collapse" data-target=".$use_fetchstructure .collapse">
+<h2>Control the method to process the mail header
+if set true, uses the imap_fetchstructure function
+otherwise, detect message type directly from headers,
+a bit faster than imap_fetchstructure function and take less resources.</h2>
+<pre>$use_fetchstructure : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"><p>however - the difference is negligible</p></p></div></div>
+</div>
+<a name="%24verbose" id="$verbose"> </a><div class="element clickable property public $verbose" data-toggle="collapse" data-target=".$verbose .collapse">
+<h2>Control the debug output, default is VERBOSE_SIMPLE</h2>
+<pre>$verbose : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-05-17T22:26:46-04:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -2,31 +2,26 @@
 
 <!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
 <phpunit
-         backupGlobals               = "false"
-         backupStaticAttributes      = "false"
-         colors                      = "true"
-         convertErrorsToExceptions   = "true"
-         convertNoticesToExceptions  = "true"
-         convertWarningsToExceptions = "true"
-         processIsolation            = "false"
-         stopOnFailure               = "false"
-         syntaxCheck                 = "false"
-        >
+    backupGlobals               = "false"
+    backupStaticAttributes      = "false"
+    colors                      = "true"
+    convertErrorsToExceptions   = "true"
+    convertNoticesToExceptions  = "true"
+    convertWarningsToExceptions = "true"
+    processIsolation            = "false"
+    stopOnFailure               = "false"
+    syntaxCheck                 = "false"
+    bootstrap                   = "bootstrap.php" >
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>./Tests</directory>
+            <directory>./test/Test</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>.</directory>
-            <exclude>
-                <directory>docs</directory>
-                <directory>callback samples</directory>
-                <directory>Tests/Fixtures</directory>
-            </exclude>
+            <directory>./lib</directory>
         </whitelist>
     </filter>
 

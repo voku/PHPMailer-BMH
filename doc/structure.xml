@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a2" title="Bounce Mail Handler">
+  <file path="BounceMailHandler/BounceMailHandler.php" hash="4411688f8331bf9a80010594c0921437" package="Default">
+    <parse_markers>
+      <error line="1" code="50007">No page-level DocBlock was found in file BounceMailHandler/BounceMailHandler.php</error>
+    </parse_markers>
+    <include line="10" type="Require Once" package="Default">
+      <name>/class.phpmailer-bmh.php</name>
+    </include>
+    <constant namespace="default" line="7" package="Default">
+      <name>_PATH_BMH</name>
+      <value><![CDATA[dirname(__FILE__).'/']]></value>
+    </constant>
+  </file>
+  <file path="BounceMailHandler/phpmailer-bmh_rules.php" hash="283895cf45177b80a8b2d6f528dafad9" package="Default">
+    <parse_markers>
+      <error line="1" code="50007">No page-level DocBlock was found in file BounceMailHandler/phpmailer-bmh_rules.php</error>
+    </parse_markers>
+    <function namespace="default" line="71" package="Default">
+      <name>bmhBodyRules</name>
+      <type>function</type>
+      <docblock line="63">
+        <description><![CDATA[Defined bounce parsing rules for non-standard DSN]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="63" name="param" description="body of the email" type="string" variable="$body">
+          <type by_reference="false">string</type>
+        </tag>
+        <tag line="63" name="param" description="message structure" type="string" variable="$structure">
+          <type by_reference="false">string</type>
+        </tag>
+        <tag line="63" name="param" description="show debug info. or not" type="boolean" variable="$debug_mode">
+          <type by_reference="false">boolean</type>
+        </tag>
+        <tag line="63" name="return" description="$result an array include the following fields: 'email', 'bounce_type','remove','rule_no','rule_cat' if we could NOT detect the type of bounce, return rule_no = '0000'" type="array">
+          <type by_reference="false">array</type>
+        </tag>
+      </docblock>
+      <argument line="71">
+        <name>$body</name>
+        <default><![CDATA[]]></default>
+        <type/>
+      </argument>
+      <argument line="71">
+        <name>$structure</name>
+        <default><![CDATA[]]></default>
+        <type/>
+      </argument>
+      <argument line="71">
+        <name>$debug_mode</name>
+        <default><![CDATA[false]]></default>
+        <type/>
+      </argument>
+    </function>
+    <function namespace="default" line="547" package="Default">
+      <name>bmhDSNRules</name>
+      <type>function</type>
+      <docblock line="538">
+        <description><![CDATA[Defined bounce parsing rules for standard DSN (Delivery Status Notification)]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="538" name="param" description="human-readable explanation" type="string" variable="$dsn_msg">
+          <type by_reference="false">string</type>
+        </tag>
+        <tag line="538" name="param" description="delivery-status report" type="string" variable="$dsn_report">
+          <type by_reference="false">string</type>
+        </tag>
+        <tag line="538" name="param" description="show debug info. or not" type="boolean" variable="$debug_mode">
+          <type by_reference="false">boolean</type>
+        </tag>
+        <tag line="538" name="return" description="$result an array include the following fields: 'email', 'bounce_type','remove','rule_no','rule_cat' if we could NOT detect the type of bounce, return rule_no = '0000'" type="array">
+          <type by_reference="false">array</type>
+        </tag>
+      </docblock>
+      <argument line="547">
+        <name>$dsn_msg</name>
+        <default><![CDATA[]]></default>
+        <type/>
+      </argument>
+      <argument line="547">
+        <name>$dsn_report</name>
+        <default><![CDATA[]]></default>
+        <type/>
+      </argument>
+      <argument line="547">
+        <name>$debug_mode</name>
+        <default><![CDATA[false]]></default>
+        <type/>
+      </argument>
+    </function>
+  </file>
+  <file path="BounceMailHandler/class.phpmailer-bmh.php" hash="0d11cd3c4b3d6826dbe090fcf3ee8866" package="Default">
+    <parse_markers>
+      <error line="167" code="50018">No DocBlock was found for property $bmh_newline</error>
+      <error line="173" code="50018">No DocBlock was found for property $port</error>
+      <error line="179" code="50018">No DocBlock was found for property $service</error>
+      <error line="185" code="50018">No DocBlock was found for property $service_option</error>
+      <error line="191" code="50018">No DocBlock was found for property $boxname</error>
+      <error line="197" code="50018">No DocBlock was found for property $moveSoft</error>
+      <error line="203" code="50018">No DocBlock was found for property $softMailbox</error>
+      <error line="210" code="50018">No DocBlock was found for property $moveHard</error>
+      <error line="216" code="50018">No DocBlock was found for property $hardMailbox</error>
+      <error line="225" code="50018">No DocBlock was found for property $deleteMsgDate</error>
+      <error line="231" code="50014">Name of argument $msg does not match with the DocBlock's name $msg, in output()</error>
+      <error line="231" code="50014">Name of argument $verbose_level does not match with the DocBlock's name $verbose_level, in output()</error>
+      <notice line="231" code="50013">Parameter $msg, could not be found in output()</notice>
+      <notice line="231" code="50013">Parameter $verbose_level, could not be found in output()</notice>
+      <notice line="598" code="50013">Parameter $mailbox could not be found in globalDelete()</notice>
+      <error line="53" code="50000">No DocBlock was found for BounceMailHandler</error>
+      <error line="1" code="50007">No page-level DocBlock was found in file BounceMailHandler/class.phpmailer-bmh.php</error>
+    </parse_markers>
+    <include line="51" type="Require Once" package="Default">
+      <name>phpmailer-bmh_rules.php</name>
+    </include>
+    <constant namespace="default" line="46" package="Default">
+      <name>VERBOSE_QUIET</name>
+      <value><![CDATA[0]]></value>
+    </constant>
+    <constant namespace="default" line="47" package="Default">
+      <name>VERBOSE_SIMPLE</name>
+      <value><![CDATA[1]]></value>
+    </constant>
+    <constant namespace="default" line="48" package="Default">
+      <name>VERBOSE_REPORT</name>
+      <value><![CDATA[2]]></value>
+    </constant>
+    <constant namespace="default" line="49" package="Default">
+      <name>VERBOSE_DEBUG</name>
+      <value><![CDATA[3]]></value>
+    </constant>
+    <class final="false" abstract="false" namespace="default" line="53" package="Default">
+      <name>BounceMailHandler</name>
+      <full_name>\BounceMailHandler</full_name>
+      <extends/>
+      <property final="false" static="false" visibility="public" line="63" package="Default">
+        <name>$Version</name>
+        <default><![CDATA["5.2-dev"]]></default>
+        <docblock line="59">
+          <description><![CDATA[Holds Bounce Mail Handler version.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="59" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="69" package="Default">
+        <name>$mailhost</name>
+        <default><![CDATA['localhost']]></default>
+        <docblock line="65">
+          <description><![CDATA[Mail server]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="65" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="76" package="Default">
+        <name>$mailbox_username</name>
+        <default><![CDATA[]]></default>
+        <docblock line="71">
+          <description><![CDATA[The username of mailbox]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="71" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="81" package="Default">
+        <name>$mailbox_password</name>
+        <default><![CDATA[]]></default>
+        <docblock line="77">
+          <description><![CDATA[The password needed to access mailbox]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="77" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="87" package="Default">
+        <name>$error_msg</name>
+        <default><![CDATA[]]></default>
+        <docblock line="83">
+          <description><![CDATA[The last error msg]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="83" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="93" package="Default">
+        <name>$max_messages</name>
+        <default><![CDATA[3000]]></default>
+        <docblock line="89">
+          <description><![CDATA[Maximum limit messages processed in one batch]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="89" name="var" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="109" package="Default">
+        <name>$action_function</name>
+        <default><![CDATA['callbackAction']]></default>
+        <docblock line="95">
+          <description><![CDATA[Callback Action function name
+the function that handles the bounce mail. Parameters:
+  int     $msgnum        the message number returned by Bounce Mail Handler
+  string  $bounce_type   the bounce type: 'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'        => array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
+  string  $email         the target email address
+  string  $subject       the subject, ignore now
+  string  $xheader       the XBounceHeader from the mail
+  1 or 0  $remove        delete status, 0 is not deleted, 1 is deleted
+  string  $rule_no       bounce mail detect rule no.]]></description>
+          <long-description><![CDATA[<p>string  $rule_cat      bounce mail detect rule category
+  int     $totalFetched  total number of messages in the mailbox</p>]]></long-description>
+          <tag line="95" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="116" package="Default">
+        <name>$_mailbox_link</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="111">
+          <description><![CDATA[Internal variable
+The resource handler for the opened mailbox (POP3/IMAP/NNTP/etc.)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="111" name="var" description="" type="object">
+            <type by_reference="false">object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="122" package="Default">
+        <name>$testmode</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="118">
+          <description><![CDATA[Test mode, if true will not delete messages]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="118" name="var" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="128" package="Default">
+        <name>$purge_unprocessed</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="124">
+          <description><![CDATA[Purge the unknown messages (or not)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="124" name="var" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="134" package="Default">
+        <name>$verbose</name>
+        <default><![CDATA[VERBOSE_SIMPLE]]></default>
+        <docblock line="130">
+          <description><![CDATA[Control the debug output, default is VERBOSE_SIMPLE]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="130" name="var" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="140" package="Default">
+        <name>$debug_dsn_rule</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="136">
+          <description><![CDATA[control the failed DSN rules output]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="136" name="var" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="146" package="Default">
+        <name>$debug_body_rule</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="142">
+          <description><![CDATA[control the failed BODY rules output]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="142" name="var" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="156" package="Default">
+        <name>$use_fetchstructure</name>
+        <default><![CDATA[true]]></default>
+        <docblock line="148">
+          <description><![CDATA[Control the method to process the mail header
+if set true, uses the imap_fetchstructure function
+otherwise, detect message type directly from headers,
+a bit faster than imap_fetchstructure function and take less resources.]]></description>
+          <long-description><![CDATA[<p>however - the difference is negligible</p>]]></long-description>
+          <tag line="148" name="var" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="162" package="Default">
+        <name>$disable_delete</name>
+        <default><![CDATA[false]]></default>
+        <docblock line="158">
+          <description><![CDATA[If disable_delete is equal to true, it will disable the delete function]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="158" name="var" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="public" line="167" package="Default">
+        <name>$bmh_newline</name>
+        <default><![CDATA["<br />\n"]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="173" package="Default">
+        <name>$port</name>
+        <default><![CDATA[143]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="179" package="Default">
+        <name>$service</name>
+        <default><![CDATA['imap']]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="185" package="Default">
+        <name>$service_option</name>
+        <default><![CDATA['notls']]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="191" package="Default">
+        <name>$boxname</name>
+        <default><![CDATA['INBOX']]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="197" package="Default">
+        <name>$moveSoft</name>
+        <default><![CDATA[false]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="203" package="Default">
+        <name>$softMailbox</name>
+        <default><![CDATA['INBOX.soft']]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="210" package="Default">
+        <name>$moveHard</name>
+        <default><![CDATA[false]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="216" package="Default">
+        <name>$hardMailbox</name>
+        <default><![CDATA['INBOX.hard']]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="225" package="Default">
+        <name>$deleteMsgDate</name>
+        <default><![CDATA['']]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="236" package="">
+        <name>output</name>
+        <type>function</type>
+        <docblock line="231">
+          <description><![CDATA[Output additional msg for debug]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="231" name="param" description="if not given, output the last error msg" type="string" variable="$msg,">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="231" name="param" description="the output level of this message" type="string" variable="$verbose_level,">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="236">
+          <name>$msg</name>
+          <default><![CDATA[false]]></default>
+          <type/>
+        </argument>
+        <argument line="236">
+          <name>$verbose_level</name>
+          <default><![CDATA[VERBOSE_SIMPLE]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="250" package="">
+        <name>openMailbox</name>
+        <type>function</type>
+        <docblock line="246">
+          <description><![CDATA[Open a mail box]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="246" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="283" package="">
+        <name>openLocal</name>
+        <type>function</type>
+        <docblock line="278">
+          <description><![CDATA[Open a mail box in local file system]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="278" name="param" description="(The local mailbox file path)" type="string" variable="$file_path">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="278" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="283">
+          <name>$file_path</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="305" package="">
+        <name>processMailbox</name>
+        <type>function</type>
+        <docblock line="300">
+          <description><![CDATA[Process the messages in a mailbox]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="300" name="param" description="(maximum limit messages processed in one batch, if not given uses the property $max_messages" type="string" variable="$max">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="300" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="305">
+          <name>$max</name>
+          <default><![CDATA[false]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="445" package="">
+        <name>isParameter</name>
+        <type>function</type>
+        <docblock line="438">
+          <description><![CDATA[Function to determine if a particular value is found in a imap_fetchstructure key]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="438" name="param" description="(imap_fetstructure parameters)" type="array" variable="$currParameters">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="438" name="param" description="(imap_fetstructure key)" type="string" variable="$varKey">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="438" name="param" description="(value to check for)" type="string" variable="$varValue">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="438" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="445">
+          <name>$currParameters</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="445">
+          <name>$varKey</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="445">
+          <name>$varValue</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="463" package="">
+        <name>processBounce</name>
+        <type>function</type>
+        <docblock line="456">
+          <description><![CDATA[Function to process each individual message]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="456" name="param" description="(message number)" type="int" variable="$pos">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="456" name="param" description="(DNS or BODY type)" type="string" variable="$type">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="456" name="param" description="(total number of messages in mailbox)" type="string" variable="$totalFetched">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="456" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="463">
+          <name>$pos</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="463">
+          <name>$type</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="463">
+          <name>$totalFetched</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="563" package="">
+        <name>mailbox_exist</name>
+        <type>function</type>
+        <docblock line="556">
+          <description><![CDATA[Function to check if a mailbox exists
+- if not found, it will create it]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="556" name="param" description="(the mailbox name, must be in 'INBOX.checkmailbox' format)" type="string" variable="$mailbox">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="556" name="param" description="(whether or not to create the checkmailbox if not found, defaults to true)" type="boolean" variable="$create">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="556" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="563">
+          <name>$mailbox</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="563">
+          <name>$create</name>
+          <default><![CDATA[true]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="604" package="">
+        <name>globalDelete</name>
+        <type>function</type>
+        <docblock line="598">
+          <description><![CDATA[Function to delete messages in a mailbox, based on date
+NOTE: this is global ... will affect all mailboxes except any that have 'sent' in the mailbox name]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="598" name="param" description="(the mailbox name)" type="string" variable="$mailbox">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="598" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <package name="" full_name=""/>
+  <package name="Default" full_name="Default"/>
+  <namespace name="default" full_name="default"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
