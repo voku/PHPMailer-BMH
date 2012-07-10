@@ -39,7 +39,7 @@ class BounceMailHandler
      *
      * @var string
      */
-    private $version = "5.2-dev";
+    private $version = "5.2";
 
     /**
      * Mail server
