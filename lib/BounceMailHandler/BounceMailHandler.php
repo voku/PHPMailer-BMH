@@ -10,7 +10,7 @@
  * @package BounceMailHandler
  *
  * @author Andy Prevost <andy.prevost@worxteam.com>
- * @author Anthon Pang <anthonp@nationalfibre.net>
+ * @author Anthon Pang <apang@softwaredevelopment.ca>
  */
 namespace BounceMailHandler;
 
