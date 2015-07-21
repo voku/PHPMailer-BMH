@@ -1,4 +1,7 @@
 <?php
+
+use BounceMailHandler\BounceMailHandler;
+
 /*~ index.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer-BMH (Bounce Mail Handler)                            |
@@ -32,10 +35,12 @@ Last updated: January 21 2009 13:38 EST
 
 $time_start = microtime_float();
 
+require_once '../vendor/autoload.php';
+
 // Use ONE of the following -- all echo back to the screen
-require_once('callback samples/callback_echo.php');
-//require_once('callback samples/callback_database.php'); // NOTE: Requires modification to insert your database settings
-//require_once('callback samples/callback_csv.php'); // NOTE: Requires creation of a 'logs' directory and making writable
+require_once 'callback_echo.php';
+//require_once('callback_database.php'); // NOTE: Requires modification to insert your database settings
+//require_once('callback_csv.php');      // NOTE: Requires creation of a 'logs' directory and making writable
 
 // determine the current directory
 $dirTmp = getcwd();
@@ -50,18 +55,16 @@ if (!defined('_PATH_BMH')) {
 }
 // END determine the current directory
 
-include(_PATH_BMH . 'class.phpmailer-bmh.php');
-
 // testing examples
 $bmh = new BounceMailHandler();
-//$bmh->action_function    = 'callbackAction'; // default is 'callbackAction'
-//$bmh->verbose            = VERBOSE_SIMPLE; //VERBOSE_REPORT; //VERBOSE_DEBUG; //VERBOSE_QUIET; // default is VERBOSE_SIMPLE
-//$bmh->use_fetchstructure = true; // true is default, no need to speficy
-//$bmh->testmode           = false; // false is default, no need to specify
+$bmh->actionFunction       = 'callbackAction'; // default is 'callbackAction'
+$bmh->verbose              = BounceMailHandler::VERBOSE_SIMPLE; //BounceMailHandler::VERBOSE_SIMPLE; //BounceMailHandler::VERBOSE_REPORT; //BounceMailHandler::VERBOSE_DEBUG; //BounceMailHandler::VERBOSE_QUIET; // default is BounceMailHandler::VERBOSE_SIMPLE
+//$bmh->useFetchStructure = true; // true is default, no need to specify
+//$bmh->testMode           = false; // false is default, no need to specify
 //$bmh->debug_body_rule    = false; // false is default, no need to specify
 //$bmh->debug_dsn_rule     = false; // false is default, no need to specify
 //$bmh->purge_unprocessed  = false; // false is default, no need to specify
-//$bmh->disable_delete     = false; // false is default, no need to specify
+$bmh->disableDelete        = true; // false is default, no need to specify
 
 /*
  * for local mailbox (to process .EML files)
@@ -72,13 +75,14 @@ $bmh = new BounceMailHandler();
 /*
  * for remote mailbox
  */
-$bmh->mailhost = ''; // your mail server
-$bmh->mailbox_username = ''; // your mailbox username
-$bmh->mailbox_password = ''; // your mailbox password
-//$bmh->port               = 143; // the port to access your mailbox, default is 143
-//$bmh->service            = 'imap'; // the service to use (imap or pop3), default is 'imap'
-//$bmh->service_option     = 'notls'; // the service options (none, tls, notls, ssl, etc.), default is 'notls'
-//$bmh->boxname            = 'INBOX'; // the mailbox to access, default is 'INBOX'
+$bmh->mailhost         = ''; // your mail server
+$bmh->mailboxUserName  = ''; // your mailbox username
+$bmh->mailboxPassword  = ''; // your mailbox password
+$bmh->port             = 143; // the port to access your mailbox, default is 143
+$bmh->service          = 'imap'; // the service to use (imap or pop3), default is 'imap'
+$bmh->serviceOption    = 'notls'; // the service options (none, tls, notls, ssl, etc.), default is 'notls'
+$bmh->boxname          = 'INBOX'; // the mailbox to access, default is 'INBOX'
+
 //$bmh->moveHard           = true; // default is false
 //$bmh->hardMailbox        = 'INBOX.hardtest'; // default is 'INBOX.hard' - NOTE: must start with 'INBOX.'
 //$bmh->moveSoft           = true; // default is false
