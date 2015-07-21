@@ -42,8 +42,8 @@ $dirTmp = getcwd();
 // define the "base" directory of the application
 if (!defined('_PATH_BMH')) {
   $dirTmp = $_SERVER['DOCUMENT_ROOT'] . '/' . $dirTmp;
-  if ( strlen( substr($dirTmp,strlen($_SERVER['DOCUMENT_ROOT']) + 1) ) > 0 ) {
-    define('_PATH_BMH', substr($dirTmp,strlen($_SERVER['DOCUMENT_ROOT']) + 1) . "/");
+  if (strlen(substr($dirTmp, strlen($_SERVER['DOCUMENT_ROOT']) + 1)) > 0) {
+    define('_PATH_BMH', substr($dirTmp, strlen($_SERVER['DOCUMENT_ROOT']) + 1) . "/");
   } else {
     define('_PATH_BMH', '');
   }
@@ -72,9 +72,9 @@ $bmh = new BounceMailHandler();
 /*
  * for remote mailbox
  */
-$bmh->mailhost           = ''; // your mail server
-$bmh->mailbox_username   = ''; // your mailbox username
-$bmh->mailbox_password   = ''; // your mailbox password
+$bmh->mailhost = ''; // your mail server
+$bmh->mailbox_username = ''; // your mailbox username
+$bmh->mailbox_password = ''; // your mailbox password
 //$bmh->port               = 143; // the port to access your mailbox, default is 143
 //$bmh->service            = 'imap'; // the service to use (imap or pop3), default is 'imap'
 //$bmh->service_option     = 'notls'; // the service options (none, tls, notls, ssl, etc.), default is 'notls'
@@ -93,10 +93,15 @@ $bmh->processMailbox();
 
 echo '<hr style="width:200px;" />';
 $time_end = microtime_float();
-$time     = $time_end - $time_start;
+$time = $time_end - $time_start;
 echo "Seconds to process: " . $time . "<br />";
 
-function microtime_float() {
+/**
+ * @return float
+ */
+function microtime_float()
+{
   list($usec, $sec) = explode(" ", microtime());
+
   return ((float)$usec + (float)$sec);
 }
