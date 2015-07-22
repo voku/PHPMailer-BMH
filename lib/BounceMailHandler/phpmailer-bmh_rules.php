@@ -83,12 +83,21 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
 
   // ======== rules =========
 
+  /* rule: dns_unknown
+   * sample:
+   *   Technical details of permanent failure:
+   *   DNS Error: Domain name not found
+   */
+  if (preg_match ("/domain\s+name\s+not\s+found/i",$body, $match)) {
+    $result['rule_cat'] = 'dns_unknown';
+    $result['rule_no']  = '0999';
+  }
   /* rule: unknown
    * sample:
    *   xxxxx@yourdomain.com
    *   no such address here
    */
-  if (preg_match("/no\s+such\s+address\s+here/i", $body, $match)) {
+  elseif (preg_match("/no\s+such\s+address\s+here/i", $body, $match)) {
     $result['rule_cat'] = 'unknown';
     $result['rule_no'] = '0237';
   } /* rule: unknown
