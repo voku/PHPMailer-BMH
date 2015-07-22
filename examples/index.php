@@ -37,7 +37,8 @@ $time_start = microtime_float();
 require_once '../vendor/autoload.php';
 
 // Use ONE of the following -- all echo back to the screen
-require_once 'callback_echo.php';
+
+//require_once 'callback_echo.php';
 //require_once('callback_database.php'); // NOTE: Requires modification to insert your database settings
 //require_once('callback_csv.php');      // NOTE: Requires creation of a 'logs' directory and making writable
 
