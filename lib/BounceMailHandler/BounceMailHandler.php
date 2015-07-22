@@ -593,6 +593,8 @@ class BounceMailHandler
     $header = imap_header($this->mailboxLink, $pos);
     $subject = strip_tags($header->subject);
     $body = '';
+    $headerFull = imap_fetchheader($this->mailboxLink, $pos);
+    $bodyFull   = imap_body($this->mailboxLink, $pos);
 
     if ($type == 'DSN') {
       // first part of DSN (Delivery Status Notification), human-readable explanation
@@ -695,6 +697,8 @@ class BounceMailHandler
             $ruleCategory,
             $totalFetched,
             $body,
+            $headerFull,
+            $bodyFull
         );
         call_user_func_array($this->actionFunction, $params);
       }
@@ -716,6 +720,8 @@ class BounceMailHandler
             $ruleCategory,
             $totalFetched,
             $body,
+            $headerFull,
+            $bodyFull
         );
 
         return call_user_func_array($this->actionFunction, $params);
