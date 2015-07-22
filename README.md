@@ -1,26 +1,15 @@
-===================
-Bounce Mail Handler
-===================
+# Bounce Mail Handler
 
-This fork is a reboot of WorxWare's PHPMailer-BMH. [1]_
+WARNING: this is only a Extended-Fork of "https://github.com/instaclick/PHPMailer-BMH"
 
-Distinguishing features of this fork:
+This fork is a reboot of WorxWare's [PHPMailer-BMH](http://sourceforge.net/projects/bmh/).
 
-* *master* branch where class names and file organization follows PSR-0 conventions for php 5.3+ namespaces
-* coding style follows Symfony2 coding standard
-* a test suite and corpus of email messages
-* auto-generate API documentation via phpDocumentor 2.x [2]_
+## Installation
 
-The *legacy* branch retains backward compatibility but includes a wrapper for PEAR/ZF1 naming convention.  However, bug fixes and enhancements from the master branch may not be backported.
+The recommended installation way is through [Composer](https://getcomposer.org).
 
-Downloads
-=========
+```bash
+$ composer require voku/bounce-mail-handler
+```
 
-* Packagist (dev-master) http://packagist.org/packages/instaclick/bounce-mail-handler
-* Github https://github.com/instaclick/PHPMailer-BMH
 
-Notes
-=====
-
-.. [1] http://sourceforge.net/projects/bmh/
-.. [2] http://phpdoc.org/
