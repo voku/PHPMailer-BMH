@@ -1,13 +1,17 @@
 {
-  "name": "instaclick/bounce-mail-handler",
+  "name": "voku/bounce-mail-handler",
   "type": "library",
   "description": "Bounce Mail Handler",
   "keywords": [
     "bounce",
     "mail",
-    "email"
+    "email",
+    "bounce-mail",
+    "hard-bounce",
+    "soft-bounce",
+    "mailer"
   ],
-  "license": "GPL",
+  "license": "GPLv2",
   "authors": [
     {
       "name": "Andy Prevost",
@@ -35,7 +39,7 @@
   },
   "autoload": {
     "psr-0": {
-      "BounceMailHandler": "lib/"
+      "BounceMailHandler": "src/"
     }
   }
 }

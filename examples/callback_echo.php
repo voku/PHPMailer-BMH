@@ -4,34 +4,48 @@
  * This callback function will echo the results of the BMH processing.
  */
 
-/* Callback (action) function
- * @param int     $msgnum        the message number returned by Bounce Mail Handler
- * @param string  $bounce_type   the bounce type: 'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'        => array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
- * @param string  $email         the target email address
- * @param string  $subject       the subject, ignore now
- * @param string  $xheader       the XBounceHeader from the mail
- * @param boolean $remove        remove status, 1 means removed, 0 means not removed
- * @param string  $rule_no       Bounce Mail Handler detect rule no.
- * @param string  $rule_cat      Bounce Mail Handler detect rule category.
- * @param int     $totalFetched  total number of messages in the mailbox
+/**
+ * Callback (action) function
+ *
+ * @param int            $msgnum       the message number returned by Bounce Mail Handler
+ * @param string         $bounceType  the bounce type:
+ *                                     'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'
+ *                                     =>
+ *                                     array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
+ * @param string         $email        the target email address
+ * @param string         $subject      the subject, ignore now
+ * @param string         $xheader      the XBounceHeader from the mail
+ * @param boolean        $remove       remove status, 1 means removed, 0 means not removed
+ * @param string|boolean $ruleNo      Bounce Mail Handler detect rule no.
+ * @param string|boolean $ruleCat     Bounce Mail Handler detect rule category.
+ * @param int            $totalFetched total number of messages in the mailbox
+ *
  * @return boolean
  */
-function callbackAction($msgnum, $bounce_type, $email, $subject, $xheader, $remove, $rule_no = false, $rule_cat = false, $totalFetched = 0)
+function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0)
 {
-  $displayData = prepData($email, $bounce_type, $remove);
-  $bounce_type = $displayData['bounce_type'];
+  $displayData = prepData($email, $bounceType, $remove);
+  $bounceType = $displayData['bounce_type'];
   $emailName = $displayData['emailName'];
   $emailAddy = $displayData['emailAddy'];
   $remove = $displayData['remove'];
-  echo $msgnum . ': ' . $rule_no . ' | ' . $rule_cat . ' | ' . $bounce_type . ' | ' . $remove . ' | ' . $email . ' | ' . $subject . "<br />\n";
+  echo $msgnum . ': ' . $ruleNo . ' | ' . $ruleCat . ' | ' . $bounceType . ' | ' . $remove . ' | ' . $email . ' | ' . $subject . "<br />\n";
 
   return true;
 }
 
-/* Function to clean the data from the Callback Function for optimized display */
-function prepData($email, $bounce_type, $remove)
+/**
+ * Function to clean the data from the Callback Function for optimized display
+ *
+ * @param $email
+ * @param $bounceType
+ * @param $remove
+ *
+ * @return mixed
+ */
+function prepData($email, $bounceType, $remove)
 {
-  $data['bounce_type'] = trim($bounce_type);
+  $data['bounce_type'] = trim($bounceType);
   $data['email'] = '';
   $data['emailName'] = '';
   $data['emailAddy'] = '';
@@ -52,7 +66,7 @@ function prepData($email, $bounce_type, $remove)
   $data['email'] = $email;
 
   // account for legitimate emails that have no bounce type
-  if (trim($bounce_type) == '') {
+  if (trim($bounceType) == '') {
     $data['bounce_type'] = 'none';
   }
 

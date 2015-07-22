@@ -9,7 +9,7 @@ namespace tests\BounceMailHandler;
  */
 class BounceMailHandlerTest extends \PHPUnit_Framework_TestCase
 {
-    public function testProcessBounce()
-    {
-    }
+  public function testProcessBounce()
+  {
+  }
 }

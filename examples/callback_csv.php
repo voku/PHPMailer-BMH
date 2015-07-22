@@ -4,31 +4,36 @@
  * This callback function will echo the results of the BMH processing.
  */
 
-/* Callback (action) function
- * @param int     $msgnum        the message number returned by Bounce Mail Handler
- * @param string  $bounce_type   the bounce type: 'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'        => array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
- * @param string  $email         the target email address
- * @param string  $subject       the subject, ignore now
- * @param string  $xheader       the XBounceHeader from the mail
- * @param boolean $remove        remove status, 1 means removed, 0 means not removed
- * @param string  $rule_no       Bounce Mail Handler detect rule no.
- * @param string  $rule_cat      Bounce Mail Handler detect rule category.
- * @param int     $totalFetched  total number of messages in the mailbox
+/**
+ * Callback (action) function
+ *
+ * @param int            $msgnum              the message number returned by Bounce Mail Handler
+ * @param string         $bounceType          the bounce type:
+ *                                            'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'
+ *                                            =>
+ *                                            array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
+ * @param string         $email               the target email address
+ * @param string         $subject             the subject, ignore now
+ * @param string         $xheader             the XBounceHeader from the mail
+ * @param boolean        $remove              remove status, 1 means removed, 0 means not removed
+ * @param string|boolean $ruleNo              Bounce Mail Handler detect rule no.
+ * @param string|boolean $ruleCat             Bounce Mail Handler detect rule category.
+ * @param int            $totalFetched        total number of messages in the mailbox
+ *
  * @return boolean
  */
-function callbackAction($msgnum, $bounce_type, $email, $subject, $xheader, $remove, $rule_no = false, $rule_cat = false, $totalFetched = 0)
+function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0)
 {
-
   $currentTime = date('Y-m-d H:i:s', time());
 
-  $displayData = prepData($email, $bounce_type, $remove);
-  $bounce_type = $displayData['bounce_type'];
+  $displayData = prepData($email, $bounceType, $remove);
+  $bounceType = $displayData['bounce_type'];
   $emailName = $displayData['emailName'];
   $emailAddy = $displayData['emailAddy'];
   $remove = $displayData['remove'];
   $removeraw = $displayData['removestat'];
 
-  $msg = $msgnum . ',' . $currentTime . ',' . $rule_no . ',' . $rule_cat . ',' . $bounce_type . ',' . $removeraw . ',' . $email . ',' . $subject;
+  $msg = $msgnum . ',' . $currentTime . ',' . $ruleNo . ',' . $ruleCat . ',' . $bounceType . ',' . $removeraw . ',' . $email . ',' . $subject;
 
   $filename = 'logs/bouncelog_' . date('m') . date('Y') . '.csv';
   if (!file_exists($filename)) {
@@ -37,12 +42,12 @@ function callbackAction($msgnum, $bounce_type, $email, $subject, $xheader, $remo
     $fileContents = file_get_contents($filename);
     if (stristr($fileContents, "\n" . $msgnum . ',')) {
       $doPutFile = false;
-    } else {
     }
     $tmsg = $msg;
   }
 
-  if ($handle = fopen($filename, 'a')) {
+  $handle = fopen($filename, 'a');
+  if ($handle) {
     if (fwrite($handle, $tmsg . "\n") === false) {
       echo 'Cannot write message<br />';
     }
@@ -51,7 +56,7 @@ function callbackAction($msgnum, $bounce_type, $email, $subject, $xheader, $remo
     echo 'Cannot open file to append<br />';
   }
 
-  echo $msgnum . ': ' . $rule_no . ' | ' . $rule_cat . ' | ' . $bounce_type . ' | ' . $remove . ' | ' . $email . ' | ' . $subject . "<br />\n";
+  echo $msgnum . ': ' . $ruleNo . ' | ' . $ruleCat . ' | ' . $bounceType . ' | ' . $remove . ' | ' . $email . ' | ' . $subject . "<br />\n";
 
   return true;
 }
