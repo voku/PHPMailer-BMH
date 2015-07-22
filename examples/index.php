@@ -5,7 +5,7 @@ use BounceMailHandler\BounceMailHandler;
 /*~ index.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer-BMH (Bounce Mail Handler)                            |
-|   Version: 5.2-dev                                                        |
+|   Version: 5.3-dev                                                        |
 |   Contact: codeworxtech@users.sourceforge.net                             |
 |      Info: http://phpmailer.codeworxtech.com                              |
 | ------------------------------------------------------------------------- |
@@ -41,19 +41,6 @@ require_once '../vendor/autoload.php';
 //require_once 'callback_echo.php';
 //require_once('callback_database.php'); // NOTE: Requires modification to insert your database settings
 //require_once('callback_csv.php');      // NOTE: Requires creation of a 'logs' directory and making writable
-
-// determine the current directory
-$dirTmp = getcwd();
-// define the "base" directory of the application
-if (!defined('_PATH_BMH')) {
-  $dirTmp = $_SERVER['DOCUMENT_ROOT'] . '/' . $dirTmp;
-  if (strlen(substr($dirTmp, strlen($_SERVER['DOCUMENT_ROOT']) + 1)) > 0) {
-    define('_PATH_BMH', substr($dirTmp, strlen($_SERVER['DOCUMENT_ROOT']) + 1) . "/");
-  } else {
-    define('_PATH_BMH', '');
-  }
-}
-// END determine the current directory
 
 // testing examples
 $bmh = new BounceMailHandler();
