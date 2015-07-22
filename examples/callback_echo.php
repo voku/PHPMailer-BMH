@@ -8,7 +8,7 @@
  * Callback (action) function
  *
  * @param int            $msgnum       the message number returned by Bounce Mail Handler
- * @param string         $bounceType  the bounce type:
+ * @param string         $bounceType   the bounce type:
  *                                     'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'
  *                                     =>
  *                                     array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
@@ -16,13 +16,16 @@
  * @param string         $subject      the subject, ignore now
  * @param string         $xheader      the XBounceHeader from the mail
  * @param boolean        $remove       remove status, 1 means removed, 0 means not removed
- * @param string|boolean $ruleNo      Bounce Mail Handler detect rule no.
- * @param string|boolean $ruleCat     Bounce Mail Handler detect rule category.
+ * @param string|boolean $ruleNo       Bounce Mail Handler detect rule no.
+ * @param string|boolean $ruleCat      Bounce Mail Handler detect rule category.
  * @param int            $totalFetched total number of messages in the mailbox
+ * @param string         $body         Bounce Mail Body
+ * @param string         $headerFull   Bounce Mail Header
+ * @param string         $bodyFull     Bounce Mail Body (full)
  *
  * @return boolean
  */
-function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0)
+function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0, $body = '', $headerFull = '', $bodyFull = '')
 {
   $displayData = prepData($email, $bounceType, $remove);
   $bounceType = $displayData['bounce_type'];

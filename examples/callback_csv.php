@@ -19,10 +19,13 @@
  * @param string|boolean $ruleNo              Bounce Mail Handler detect rule no.
  * @param string|boolean $ruleCat             Bounce Mail Handler detect rule category.
  * @param int            $totalFetched        total number of messages in the mailbox
+ * @param string         $body                Bounce Mail Body
+ * @param string         $headerFull          Bounce Mail Header
+ * @param string         $bodyFull            Bounce Mail Body (full)
  *
  * @return boolean
  */
-function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0)
+function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0, $body = '', $headerFull = '', $bodyFull = '')
 {
   $currentTime = date('Y-m-d H:i:s', time());
 
