@@ -27,7 +27,6 @@ use BounceMailHandler\BounceMailHandler;
 | - Technology Consulting                                                   |
 | - Oursourcing (highly qualified programmers and graphic designers)        |
 '---------------------------------------------------------------------------'
-Last updated: January 21 2009 13:38 EST
 
 /*
  * This is an example script to work with PHPMailer-BMH (Bounce Mail Handler).
@@ -59,11 +58,11 @@ if (!defined('_PATH_BMH')) {
 $bmh = new BounceMailHandler();
 $bmh->actionFunction       = 'callbackAction'; // default is 'callbackAction'
 $bmh->verbose              = BounceMailHandler::VERBOSE_SIMPLE; //BounceMailHandler::VERBOSE_SIMPLE; //BounceMailHandler::VERBOSE_REPORT; //BounceMailHandler::VERBOSE_DEBUG; //BounceMailHandler::VERBOSE_QUIET; // default is BounceMailHandler::VERBOSE_SIMPLE
-//$bmh->useFetchStructure = true; // true is default, no need to specify
+//$bmh->useFetchStructure  = true; // true is default, no need to specify
 //$bmh->testMode           = false; // false is default, no need to specify
-//$bmh->debug_body_rule    = false; // false is default, no need to specify
-//$bmh->debug_dsn_rule     = false; // false is default, no need to specify
-//$bmh->purge_unprocessed  = false; // false is default, no need to specify
+//$bmh->debugBodyRule      = false; // false is default, no need to specify
+//$bmh->debugDsnRule       = false; // false is default, no need to specify
+//$bmh->purgeUnprocessed   = false; // false is default, no need to specify
 $bmh->disableDelete        = true; // false is default, no need to specify
 
 /*
