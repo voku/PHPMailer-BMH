@@ -88,11 +88,10 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
    *   Technical details of permanent failure:
    *   DNS Error: Domain name not found
    */
-  if (preg_match ("/domain\s+name\s+not\s+found/i",$body, $match)) {
+  if (preg_match("/domain\s+name\s+not\s+found/i", $body, $match)) {
     $result['rule_cat'] = 'dns_unknown';
-    $result['rule_no']  = '0999';
-  }
-  /* rule: unknown
+    $result['rule_no'] = '0999';
+  } /* rule: unknown
    * sample:
    *   xxxxx@yourdomain.com
    *   no such address here
@@ -270,20 +269,18 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
     $result['rule_no'] = '0253';
   } /* rule: inactive
    * sample:
-   *   <xxxxx@yourdomain.com>:
-   *   This address no longer accepts mail.
-   */
-  elseif (preg_match("/(?:alias|account|recipient|address|email|mailbox|user).*no\s+longer\s+accepts\s+mail/i", $body, $match)) {
-    $result['rule_cat'] = 'inactive';
-    $result['rule_no'] = '0235';
-  } /* rule: inactive
-   * sample:
    *   xxxxx@yourdomain.com<br>
    *   553 user is inactive (eyou mta)
    */
   elseif (preg_match("/user is inactive/i", $body, $match)) {
     $result['rule_cat'] = 'inactive';
     $result['rule_no'] = '0171';
+  } /*
+   * <xxxxx@xxx.xxx> is restricted
+   */
+  elseif (preg_match("/(\S+@\S+\w).*n? is restricted/i", $body, $match)) {
+    $result['rule_cat'] = 'inactive';
+    $result['rule_no'] = '0201';
   } /* rule: inactive
    * sample:
    *   xxxxx@yourdomain.com [Inactive account]
@@ -291,6 +288,28 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
   elseif (preg_match("/inactive account/i", $body, $match)) {
     $result['rule_cat'] = 'inactive';
     $result['rule_no'] = '0181';
+  } /*
+   *<xxxxxx@xxxx.xxx>: host mx3.HOTMAIL.COM said: 550
+   * Requested action not taken: mailbox unavailable (in reply to RCPT TO command)
+   */
+  elseif (preg_match("/<(\S+@\S+\w)>.*\n.*mailbox unavailable/i", $body, $match)) {
+    $result['rule_cat'] = 'unknown';
+    $result['rule_no'] = '124';
+  } /*
+   * rule: mailbox unknown;
+   * sample:
+   * xxxxx@yourdomain.com
+   * 550-5.1.1 The email
+   * account that you tried to reach does not exist. Please try 550-5.1.1
+   * double-checking the recipient's email address for typos or 550-5.1.1
+   * unnecessary spaces. Learn more at 550 5.1.1
+   * http://support.google.com/mail/bin/answer.py?answer=6596 n7si4762785wiy.46
+   * (in reply to RCPT TO command)
+   */
+  elseif (preg_match("/<(\S+@\S+\w)>.*\n?.*\n?.*account that you tried to reach does not exist/i", $body, $match)) {
+    $result['rule_cat'] = 'unknown';
+    $result['rule_no'] = '7770';
+    $result['email'] = $match[1];
   } /* rule: dns_unknown
    * sample1:
    *   Delivery to the following recipient failed permanently:
@@ -397,6 +416,14 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
   elseif (preg_match("/Messages\s+without\s+\S+\s+fields\s+are\s+not\s+accepted\s+here/i", $body, $match)) {
     $result['rule_cat'] = 'content_reject';
     $result['rule_no'] = '0248';
+  }  /* rule: inactive
+   * sample:
+   *   <xxxxx@yourdomain.com>:
+   *   This address no longer accepts mail.
+   */
+  elseif (preg_match("/(?:alias|account|recipient|address|email|mailbox|user).*no\s+longer\s+accepts\s+mail/i", $body, $match)) {
+    $result['rule_cat'] = 'inactive';
+    $result['rule_no'] = '0235';
   } /* rule: western chars only
    * sample:
    *   <xxxxx@yourdomain.com>:
@@ -591,6 +618,41 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
         elseif (preg_match("/Insufficient system storage/is", $diag_code)) {
           $result['rule_cat'] = 'full';
           $result['rule_no'] = '0134';
+        } /* rule: full
+         * sample:
+         *   Diagnostic-Code: SMTP; 422 Benutzer hat zuviele Mails auf dem Server
+         */
+        elseif (preg_match("/Benutzer hat zuviele Mails auf dem Server/is", $diag_code)) {
+          $result['rule_cat'] = 'full';
+          $result['rule_no'] = '0998';
+        } /* rule: full
+         * sample:
+         *   Diagnostic-Code: SMTP; 422 exceeded storage allocation
+         */
+        elseif (preg_match("/exceeded storage allocation/is", $diag_code)) {
+          $result['rule_cat'] = 'full';
+          $result['rule_no'] = '0997';
+        } /* rule: full
+         * sample:
+         *   Diagnostic-Code: SMTP; 422 Mailbox quota usage exceeded
+         */
+        elseif (preg_match("/Mailbox quota usage exceeded/is", $diag_code)) {
+          $result['rule_cat'] = 'full';
+          $result['rule_no'] = '0996';
+        } /* rule: full
+         * sample:
+         *   Diagnostic-Code: SMTP; 422 User has exhausted allowed storage space
+         */
+        elseif (preg_match("/User has exhausted allowed storage space/is", $diag_code)) {
+          $result['rule_cat'] = 'full';
+          $result['rule_no'] = '0995';
+        } /* rule: full
+         * sample:
+         *   Diagnostic-Code: SMTP; 422 User mailbox exceeds allowed size
+         */
+        elseif (preg_match("/User mailbox exceeds allowed size/is", $diag_code)) {
+          $result['rule_cat'] = 'full';
+          $result['rule_no'] = '0994';
         } /* rule: full
          * sample:
          *   Diagnostic-Code: smpt; 552 Account(s) <a@b.c> does not have enough space
