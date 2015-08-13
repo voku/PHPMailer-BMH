@@ -4,6 +4,7 @@
  *
  * @copyright 2008-2009 Andry Prevost. All Rights Reserved.
  * @copyright 2011-2012 Anthon Pang.
+ * @copyright 2015-2015 Lars Moelleken.
  *
  * @license   GPL
  *
@@ -11,6 +12,7 @@
  *
  * @author    Andy Prevost <andy.prevost@worxteam.com>
  * @author    Anthon Pang <apang@softwaredevelopment.ca>
+ * @author    Lars Moelleken <lars@moelleken.org>
  */
 namespace BounceMailHandler;
 
@@ -29,81 +31,103 @@ require_once(__DIR__ . '/phpmailer-bmh_rules.php');
  */
 class BounceMailHandler
 {
-  const VERBOSE_QUIET  = 0;  // suppress output
+  const VERBOSE_QUIET  = 0; // suppress output
   const VERBOSE_SIMPLE = 1; // simple report
   const VERBOSE_REPORT = 2; // detailed report
-  const VERBOSE_DEBUG  = 3;  // detailed report plus debug info
+  const VERBOSE_DEBUG  = 3; // detailed report plus debug info
 
   /**
-   * Mail server
+   * mail-server
    *
    * @var string
    */
   public $mailhost = 'localhost';
 
   /**
-   * The username of mailbox
+   * the username of mailbox
    *
    * @var string
    */
   public $mailboxUserName;
 
   /**
-   * The password needed to access mailbox
+   * the password needed to access mailbox
    *
    * @var string
    */
   public $mailboxPassword;
 
   /**
-   * The last error msg
+   * the last error msg
    *
    * @var string
    */
   public $errorMessage;
 
   /**
-   * Maximum limit messages processed in one batch
+   * maximum limit messages processed in one batch
    *
    * @var int
    */
   public $maxMessages = 3000;
 
   /**
-   * Callback Action function name
-   * the function that handles the bounce mail. Parameters:
-   *   int     $msgnum        the message number returned by Bounce Mail Handler
-   *   string  $bounce_type   the bounce type:
-   *   'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'
-   *   =>
-   *   array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
-   *   string  $email         the target email address string  $subject       the subject, ignore now string  $xheader
-   *   the XBounceHeader from the mail
-   *   1 or 0  $remove        delete status, 0 is not deleted, 1 is deleted
-   *   string  $rule_no       bounce mail detect rule no.
-   *   string  $rule_cat      bounce mail detect rule category
-   *   int     $totalFetched  total number of messages in the mailbox
+   * callback Action function name the function that handles the bounce mail. Parameters:
+   *
+   * int     $msgnum        the message number returned by Bounce Mail Handler
+   * string  $bounce_type   the bounce type:
+   *       'antispam',
+   *       'autoreply',
+   *       'concurrent',
+   *       'content_reject',
+   *       'command_reject',
+   *       'internal_error',
+   *       'defer',
+   *       'delayed'
+   *       =>
+   *       array(
+   *           'remove' => 0,
+   *           'bounce_type' => 'temporary'
+   *       ),
+   *       'dns_loop',
+   *       'dns_unknown',
+   *       'full',
+   *       'inactive',
+   *       'latin_only',
+   *       'other',
+   *       'oversize',
+   *       'outofoffice',
+   *       'unknown',
+   *       'unrecognized',
+   *       'user_reject',
+   *       'warning'
+   * string  $email         the target email address string  $subject       the subject, ignore now string  $xheader
+   * the XBounceHeader from the mail
+   * 1 or 0  $remove        delete status, 0 is not deleted, 1 is deleted
+   * string  $rule_no       bounce mail detect rule no.
+   * string  $rule_cat      bounce mail detect rule category
+   * int     $totalFetched  total number of messages in the mailbox
    *
    * @var mixed
    */
   public $actionFunction = 'callbackAction';
 
   /**
-   * Test mode, if true will not delete messages
+   * test-mode, if true will not delete messages
    *
    * @var boolean
    */
   public $testMode = false;
 
   /**
-   * Purge the unknown messages (or not)
+   * purge the unknown messages (or not)
    *
    * @var boolean
    */
   public $purgeUnprocessed = false;
 
   /**
-   * Control the debug output, default is VERBOSE_SIMPLE
+   * control the debug output, default is VERBOSE_SIMPLE
    *
    * @var int
    */
@@ -128,6 +152,7 @@ class BounceMailHandler
    * if set true, uses the imap_fetchstructure function
    * otherwise, detect message type directly from headers,
    * a bit faster than imap_fetchstructure function and take less resources.
+   *
    * however - the difference is negligible
    *
    * @var boolean
@@ -135,63 +160,64 @@ class BounceMailHandler
   public $useFetchstructure = true;
 
   /**
-   * If disableDelete is equal to true, it will disable the delete function
+   * If disableDelete is equal to true, it will disable the delete function.
    *
    * @var boolean
    */
   public $disableDelete = false;
 
   /**
-   * Defines new line ending
+   * defines new line ending
    *
    * @var string
    */
   public $bmhNewLine = "<br />\n";
 
   /**
-   * Defines port number, default is '143', other common choices are '110' (pop3), '993' (gmail)
+   * defines port number, default is '143', other common choices are '110' (pop3), '993' (gmail)
    *
    * @var integer
    */
   public $port = 143;
 
   /**
-   * Defines service, default is 'imap', choice includes 'pop3'
+   * defines service, default is 'imap', choice includes 'pop3'
    *
    * @var string
    */
   public $service = 'imap';
 
   /**
-   * Defines service option, default is 'notls', other choices are 'tls', 'ssl'
+   * defines service option, default is 'notls', other choices are 'tls', 'ssl'
    *
    * @var string
    */
   public $serviceOption = 'notls';
 
   /**
-   * Mailbox type, default is 'INBOX', other choices are (Tasks, Spam, Replies, etc.)
+   * mailbox type, default is 'INBOX', other choices are (Tasks, Spam, Replies, etc.)
    *
    * @var string
    */
   public $boxname = 'INBOX';
 
   /**
-   * Determines if soft bounces will be moved to another mailbox folder
+   * determines if soft bounces will be moved to another mailbox folder
    *
    * @var boolean
    */
   public $moveSoft = false;
 
   /**
-   * Mailbox folder to move soft bounces to, default is 'soft'
+   * mailbox folder to move soft bounces to, default is 'soft'
    *
    * @var string
    */
   public $softMailbox = 'INBOX.soft';
 
   /**
-   * Determines if hard bounces will be moved to another mailbox folder
+   * determines if hard bounces will be moved to another mailbox folder
+   *
    * NOTE: If true, this will disable delete and perform a move operation instead
    *
    * @var boolean
@@ -199,14 +225,15 @@ class BounceMailHandler
   public $moveHard = false;
 
   /**
-   * Mailbox folder to move hard bounces to, default is 'hard'
+   * mailbox folder to move hard bounces to, default is 'hard'
    *
    * @var string
    */
   public $hardMailbox = 'INBOX.hard';
 
   /**
-   * Deletes messages globally prior to date in variable
+   * deletes messages globally prior to date in variable
+   *
    * NOTE: excludes any message folder that includes 'sent' in mailbox name
    * format is same as MySQL: 'yyyy-mm-dd'
    * if variable is blank, will not process global delete
@@ -223,7 +250,8 @@ class BounceMailHandler
   private $version = "5.3-dev";
 
   /**
-   * Internal variable
+   * (internal variable)
+   *
    * The resource handler for the opened mailbox (POP3/IMAP/NNTP/etc.)
    *
    * @var resource
@@ -231,7 +259,7 @@ class BounceMailHandler
   private $mailboxLink = false;
 
   /**
-   * Get version
+   * get version
    *
    * @return string
    */
@@ -241,7 +269,7 @@ class BounceMailHandler
   }
 
   /**
-   * Open a mail box
+   * open a mail box
    *
    * @return boolean
    */
@@ -283,6 +311,7 @@ class BounceMailHandler
 
   /**
    * Function to delete messages in a mailbox, based on date
+   *
    * NOTE: this is global ... will affect all mailboxes except any that have 'sent' in the mailbox name
    */
   public function globalDelete()
@@ -305,8 +334,6 @@ class BounceMailHandler
           $messages = imap_sort($mboxd, SORTDATE, 0);
           $i = 0;
 
-          //$check = imap_mailboxmsginfo($mboxd);
-
           foreach ($messages as $message) {
             $header = imap_header($mboxd, $message);
 
@@ -325,7 +352,7 @@ class BounceMailHandler
   }
 
   /**
-   * Output additional msg for debug
+   * output additional msg for debug
    *
    * @param bool|false $msg          if not given, output the last error msg
    * @param int        $verboseLevel the output level of this message
@@ -342,7 +369,7 @@ class BounceMailHandler
   }
 
   /**
-   * Open a mail box in local file system
+   * open a mail box in local file system
    *
    * @param string $filePath The local mailbox file path
    *
@@ -371,9 +398,10 @@ class BounceMailHandler
   }
 
   /**
-   * Process the messages in a mailbox
+   * process the messages in a mailbox
    *
-   * @param bool|false $max $max maximum limit messages processed in one batch, if not given uses the property $maxMessages
+   * @param bool|false $max $max maximum limit messages processed in one batch, if not given uses the property
+   *                        $maxMessages
    *
    * @return bool
    */
@@ -403,7 +431,7 @@ class BounceMailHandler
     $movedCount = 0;
     $this->output('Total: ' . $totalCount . ' messages ');
 
-    // proccess maximum number of messages
+    // process maximum number of messages
     if ($fetchedCount > $this->maxMessages) {
       $fetchedCount = $this->maxMessages;
       $this->output('Processing first ' . $fetchedCount . ' messages ');
@@ -424,13 +452,6 @@ class BounceMailHandler
     }
 
     for ($x = 1; $x <= $fetchedCount; $x++) {
-      /*
-                  $this->output($x . ":", self::VERBOSE_REPORT);
-
-                  if ($x % 10 == 0) {
-                      $this->output('.', self::VERBOSE_SIMPLE);
-                  }
-      */
 
       // fetch the messages one at a time
       if ($this->useFetchstructure) {
@@ -558,7 +579,7 @@ class BounceMailHandler
   }
 
   /**
-   * Function to determine if a particular value is found in a imap_fetchstructure key
+   * Function to determine if a particular value is found in a imap_fetchstructure key.
    *
    * @param array  $currParameters imap_fetstructure parameters
    * @param string $varKey         imap_fetstructure key
@@ -580,7 +601,7 @@ class BounceMailHandler
   }
 
   /**
-   * Function to process each individual message
+   * Function to process each individual message.
    *
    * @param int    $pos          message number
    * @param string $type         DNS or BODY type
@@ -594,7 +615,7 @@ class BounceMailHandler
     $subject = isset($header->subject) ? strip_tags($header->subject) : '[NO SUBJECT]';
     $body = '';
     $headerFull = imap_fetchheader($this->mailboxLink, $pos);
-    $bodyFull   = imap_body($this->mailboxLink, $pos);
+    $bodyFull = imap_body($this->mailboxLink, $pos);
 
     if ($type == 'DSN') {
       // first part of DSN (Delivery Status Notification), human-readable explanation
@@ -698,7 +719,7 @@ class BounceMailHandler
             $totalFetched,
             $body,
             $headerFull,
-            $bodyFull
+            $bodyFull,
         );
         call_user_func_array($this->actionFunction, $params);
       }
@@ -721,7 +742,7 @@ class BounceMailHandler
             $totalFetched,
             $body,
             $headerFull,
-            $bodyFull
+            $bodyFull,
         );
 
         return call_user_func_array($this->actionFunction, $params);
@@ -732,8 +753,7 @@ class BounceMailHandler
   }
 
   /**
-   * Function to check if a mailbox exists
-   * - if not found, it will create it
+   * Function to check if a mailbox exists - if not found, it will create it.
    *
    * @param string  $mailbox the mailbox name, must be in 'INBOX.checkmailbox' format
    * @param boolean $create  whether or not to create the checkmailbox if not found, defaults to true
