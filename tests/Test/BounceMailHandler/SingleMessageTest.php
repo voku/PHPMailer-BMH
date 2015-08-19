@@ -1433,8 +1433,7 @@ class SingleMessageTest extends \PHPUnit_Framework_TestCase
       $this->assertTrue($rc, $testFile . ': openLocal');
 
       $bmh->actionFunction =
-          function ($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo, $ruleCat, $totalFetched, $body)
-          use ($self, $testFile, $expected) {
+          function ($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo, $ruleCat, $totalFetched, $body) use ($self, $testFile, $expected) {
             return $remove === true || $remove === 1;
           };
 

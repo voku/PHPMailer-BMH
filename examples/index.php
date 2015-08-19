@@ -85,14 +85,14 @@ $bmh->processMailbox();
 echo '<hr style="width:200px;" />';
 $time_end = microtime_float();
 $time = $time_end - $time_start;
-echo "Seconds to process: " . $time . "<br />";
+echo 'Seconds to process: ' . $time . '<br />';
 
 /**
  * @return float
  */
 function microtime_float()
 {
-  list($usec, $sec) = explode(" ", microtime());
+  list($usec, $sec) = explode(' ', microtime());
 
   return ((float)$usec + (float)$sec);
 }
