@@ -321,6 +321,11 @@ class BounceMailHandler
 
     $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
     $mboxt = imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
+
+    if ($mboxt === false) {
+      return false;
+    }
+
     $list = imap_getmailboxes($mboxt, '{' . $this->mailhost . ':' . $port . '}', '*');
 
     if (is_array($list)) {
@@ -348,6 +353,15 @@ class BounceMailHandler
           imap_close($mboxd);
         }
       }
+
+      imap_close($mboxt);
+
+      return true;
+
+    } else {
+      imap_close($mboxt);
+
+      return false;
     }
   }
 
@@ -772,6 +786,11 @@ class BounceMailHandler
 
     $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
     $mbox = imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
+
+    if ($mbox === false) {
+      return false;
+    }
+
     $list = imap_getmailboxes($mbox, '{' . $this->mailhost . ':' . $port . '}', '*');
     $mailboxFound = false;
 
