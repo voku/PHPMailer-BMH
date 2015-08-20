@@ -8,6 +8,6 @@ Corpus:
  - PHP-Bounce-Handler (BSD)
    https://github.com/cfortune/PHP-Bounce-Handler.git
  - bounce-email (MIT)
-   https://github.com/whatcould/bounce-email.git
+   https://github.com/livebg/bounce_email.git
  - mail-deliverystatus-bounceparser (GPL or Artistic)
    https://github.com/rjbs/mail-deliverystatus-bounceparser.git
