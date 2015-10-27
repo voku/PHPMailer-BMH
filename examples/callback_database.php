@@ -71,7 +71,7 @@ function prepData($email, $bounceType, $remove)
   $data['emailName'] = '';
   $data['emailAddy'] = '';
   $data['remove'] = '';
-  if (strstr($email, '<')) {
+  if (strpos($email, '<') !== false) {
     $pos_start = strpos($email, '<');
     $data['emailName'] = trim(substr($email, 0, $pos_start));
     $data['emailAddy'] = substr($email, $pos_start + 1);
@@ -82,8 +82,11 @@ function prepData($email, $bounceType, $remove)
   }
 
   // replace the < and > able so they display on screen
-  $email = str_replace('<', '&lt;', $email);
-  $email = str_replace('>', '&gt;', $email);
+  $email = str_replace(array('<', '>'), array('&lt;', '&gt;'), $email);
+
+  // replace the "TO:<" with nothing
+  $email = str_ireplace('TO:<', '', $email);
+
   $data['email'] = $email;
 
   // account for legitimate emails that have no bounce type
@@ -92,10 +95,10 @@ function prepData($email, $bounceType, $remove)
   }
 
   // change the remove flag from true or 1 to textual representation
-  if (stristr($remove, 'moved') && stristr($remove, 'hard')) {
+  if (stripos($remove, 'moved') !== false && stripos($remove, 'hard') !== false) {
     $data['removestat'] = 'moved (hard)';
     $data['remove'] = '<span style="color:red;">' . 'moved (hard)' . '</span>';
-  } elseif (stristr($remove, 'moved') && stristr($remove, 'soft')) {
+  } elseif (stripos($remove, 'moved') !== false && stripos($remove, 'soft') !== false) {
     $data['removestat'] = 'moved (soft)';
     $data['remove'] = '<span style="color:gray;">' . 'moved (soft)' . '</span>';
   } elseif ($remove == true || $remove == '1') {
