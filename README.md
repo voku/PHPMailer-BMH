@@ -3,9 +3,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/voku/PHPMailer-BMH/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/voku/PHPMailer-BMH/?branch=master)
 [![Codacy Badge](https://www.codacy.com/project/badge/64177eb1d95948789a1fb54b97e0ed21)](https://www.codacy.com/app/voku/PHPMailer-BMH)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/2161b4c1-5025-4e29-ae22-1f91c3a6657c/mini.png)](https://insight.sensiolabs.com/projects/2161b4c1-5025-4e29-ae22-1f91c3a6657c)
-[![Dependency Status](https://www.versioneye.com/user/projects/55a91f3e306535002000013c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55a91f3e306535002000013c)
-[![Total Downloads](https://poser.pugx.org/voku/bounce-mail-handler/downloads)](https://packagist.org/packages/voku/bounce-mail-handler)
-[![License](https://poser.pugx.org/voku/bounce-mail-handler/license.svg)](https://packagist.org/packages/voku/bounce-mail-handler)
+[![Latest Stable Version](https://poser.pugx.org/voku/bounce-mail-handler/v/stable)](https://packagist.org/packages/voku/bounce-mail-handler) [![Total Downloads](https://poser.pugx.org/voku/bounce-mail-handler/downloads)](https://packagist.org/packages/voku/bounce-mail-handler) [![Latest Unstable Version](https://poser.pugx.org/voku/bounce-mail-handler/v/unstable)](https://packagist.org/packages/voku/bounce-mail-handler) [![License](https://poser.pugx.org/voku/bounce-mail-handler/license)](https://packagist.org/packages/voku/bounce-mail-handler)
 
 # Bounce Mail Handler
 
