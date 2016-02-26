@@ -850,6 +850,13 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
           $result['rule_no'] = '0160';
         } /* rule: unknown
          * sample:
+         *   Status: 5.1.1 (bad destination mailbox address)
+         */
+        elseif (preg_match('/(?:unknown|bad).*(?:alias|account|recipient|address|email|mailbox|user)/is', $status_code)) {
+          $result['rule_cat'] = 'unknown';
+          $result['rule_no'] = '01601';
+        } /* rule: unknown
+         * sample:
          *   Diagnostic-Code: SMTP; 550 Command RCPT User <xxxxx@yourdomain.com> not OK
          */
         elseif (preg_match('/(?:alias|account|recipient|address|email|mailbox|user).*not OK/is', $diag_code)) {
@@ -1336,6 +1343,14 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
         elseif (preg_match('/mail receiving disabled/i', $dsn_msg)) {
           $result['rule_cat'] = 'unknown';
           $result['rule_no'] = '0194';
+        } /* rule: unknown
+         * sample:
+         *   - These recipients of your message have been processed by the mail server:
+         *   xxxxx@yourdomain.com; Failed; 5.1.1 (bad destination mailbox address)
+         */
+        elseif (preg_match('/bad.*(?:alias|account|recipient|address|email|mailbox|user)/i', $status_code)) {
+          $result['rule_cat'] = 'unknown';
+          $result['rule_no'] = '02441';
         } /* rule: unknown
          * sample:
          *   - These recipients of your message have been processed by the mail server:
