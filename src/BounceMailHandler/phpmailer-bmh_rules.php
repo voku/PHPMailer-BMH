@@ -1546,7 +1546,7 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
       case 'expanded': // unhandled cases
         break;
 
-      default :
+      default:
         break;
     }
   }
