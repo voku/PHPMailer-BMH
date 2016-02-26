@@ -471,7 +471,17 @@ class BounceMailHandler
       if ($this->useFetchstructure) {
         $structure = imap_fetchstructure($this->mailboxLink, $x);
 
-        if ($structure->type == 1 && $structure->ifsubtype && $structure->subtype == 'REPORT' && $structure->ifparameters && $this->isParameter($structure->parameters, 'REPORT-TYPE', 'delivery-status')) {
+        if (
+            $structure->type == 1
+            &&
+            $structure->ifsubtype
+            &&
+            strtoupper($structure->subtype) == 'REPORT'
+            &&
+            $structure->ifparameters
+            &&
+            $this->isParameter($structure->parameters, 'REPORT-TYPE', 'delivery-status')
+        ) {
           $processed = $this->processBounce($x, 'DSN', $totalCount);
         } else {
           // not standard DSN msg
@@ -604,10 +614,12 @@ class BounceMailHandler
   public function isParameter($currParameters, $varKey, $varValue)
   {
     foreach ($currParameters as $object) {
-      if ($object->attribute == $varKey) {
-        if ($object->value == $varValue) {
-          return true;
-        }
+      if (
+          strtolower($object->attribute) == strtolower($varKey)
+          &&
+          strtolower($object->value) == strtolower($varValue)
+      ) {
+        return true;
       }
     }
 
