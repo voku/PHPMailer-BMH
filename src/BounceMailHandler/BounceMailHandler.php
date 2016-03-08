@@ -725,7 +725,7 @@ class BounceMailHandler
 
     if ($ruleNumber === '0000') {
       // unrecognized
-      if (trim($email) == '') {
+      if( trim( $email ) == '' and property_exists($header, 'fromaddress') ) {
         $email = $header->fromaddress;
       }
 
