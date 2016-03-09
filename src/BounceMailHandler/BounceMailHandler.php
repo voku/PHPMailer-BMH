@@ -709,6 +709,11 @@ class BounceMailHandler
     $email = $result['email'];
     $bounceType = $result['bounce_type'];
 
+    // workaround: I think there is a error in one of the reg-ex in "phpmailer-bmh_rules.php".
+    if ($email && strpos($email, 'TO:<')) {
+      $email = str_replace('TO:<', '', $email);
+    }
+
     if ($this->moveHard && $result['remove'] == 1) {
       $remove = 'moved (hard)';
     } elseif ($this->moveSoft && $result['remove'] == 1) {
