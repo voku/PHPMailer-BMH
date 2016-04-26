@@ -79,6 +79,9 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
       'remove'      => 0,
       'rule_cat'    => 'unrecognized',
       'rule_no'     => '0000',
+      'status_code' => '',
+      'action'      => '',
+      'diagnostic_code' => '',
   );
 
   // ======== rules =========
@@ -551,15 +554,23 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
 
   if (preg_match('/Action: (.+)/i', $dsn_report, $match)) {
     $action = strtolower(trim($match[1]));
+    $result['action'] = $action;
   }
 
   if (preg_match("/Status: ([0-9\.]+)/i", $dsn_report, $match)) {
     $status_code = $match[1];
+    $result['status_code'] = $status_code;
   }
 
   // Could be multi-line , if the new line is beginning with SPACE or HTAB
   if (preg_match("/Diagnostic-Code:((?:[^\n]|\n[\t ])+)(?:\n[^\t ]|$)/is", $dsn_report, $match)) {
     $diag_code = $match[1];
+    $result['diagnostic_code'] = $diag_code;
+  }
+
+  // No Diagnostic-Code in email, use dsn message
+  if (empty($diag_code)) {
+    $diag_code = $dsn_msg;
   }
 
   // ======= rules ======

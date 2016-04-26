@@ -726,6 +726,9 @@ class BounceMailHandler
 
     $ruleNumber = $result['rule_no'];
     $ruleCategory = $result['rule_cat'];
+    $status_code = $result['status_code'];
+    $action = $result['action'];
+    $diagnostic_code = $result['diagnostic_code'];
     $xheader = false;
 
     if ($ruleNumber === '0000') {
@@ -755,6 +758,9 @@ class BounceMailHandler
             $body,
             $headerFull,
             $bodyFull,
+            $status_code,
+            $action,
+            $diagnostic_code
         );
         call_user_func_array($this->actionFunction, $params);
       }
@@ -778,6 +784,9 @@ class BounceMailHandler
             $body,
             $headerFull,
             $bodyFull,
+            $status_code,
+            $action,
+            $diagnostic_code
         );
 
         return call_user_func_array($this->actionFunction, $params);
