@@ -520,15 +520,14 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
 {
   // initialize the result array
   $result = array(
-      'email'       => ''
-      ,
-      'bounce_type' => false
-      ,
-      'remove'      => 0
-      ,
-      'rule_cat'    => 'unrecognized'
-      ,
+      'email'       => '',
+      'bounce_type' => false,
+      'remove'      => 0,
+      'rule_cat'    => 'unrecognized',
       'rule_no'     => '0000',
+      'status_code' => '',
+      'action'      => '',
+      'diagnostic_code' => '',
   );
   $action = false;
   $status_code = false;
