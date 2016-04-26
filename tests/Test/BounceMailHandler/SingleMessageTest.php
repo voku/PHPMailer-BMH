@@ -204,7 +204,7 @@ class SingleMessageTest extends \PHPUnit_Framework_TestCase
           0,
           1,
           0,
-          '0193',
+          '0128',
           'unknown',
           'hard',
           'evor@apollo.lv',
