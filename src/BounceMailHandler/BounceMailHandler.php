@@ -819,7 +819,7 @@ class BounceMailHandler
    */
   public function mailboxExist($mailbox, $create = true)
   {
-    if (trim($mailbox) == '') {
+    if (trim($mailbox) == '' || strpos($mailbox, 'INBOX.') === false) {
       // this is a critical error with either the mailbox name blank or an invalid mailbox name
       // need to stop processing and exit at this point
       echo "Invalid mailbox name for move operation. Cannot continue.<br />\n";
