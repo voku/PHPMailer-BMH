@@ -231,6 +231,12 @@ class BounceMailHandler
    */
   public $hardMailbox = 'INBOX.hard';
 
+  /*
+   * Mailbox folder to move unprocessed mails
+   * @var string
+   */
+  public $unprocessedBox = 'INBOX.unprocessed';
+
   /**
    * deletes messages globally prior to date in variable
    *
@@ -282,7 +288,7 @@ class BounceMailHandler
     }
 
     // disable move operations if server is Gmail ... Gmail does not support mailbox creation
-    if (stristr($this->mailhost, 'gmail')) {
+    if (false !== stripos($this->mailhost, 'gmail')) {
       $this->moveSoft = false;
       $this->moveHard = false;
     }
@@ -334,7 +340,7 @@ class BounceMailHandler
         $nameArr = explode('}', imap_utf7_decode($val->name));
         $nameRaw = $nameArr[count($nameArr) - 1];
 
-        if (!stristr($nameRaw, 'sent')) {
+        if (false === stripos($nameRaw, 'sent')) {
           $mboxd = imap_open('{' . $this->mailhost . ':' . $port . '}' . $nameRaw, $this->mailboxUserName, $this->mailboxPassword, CL_EXPUNGE);
           $messages = imap_sort($mboxd, SORTDATE, 0);
           $i = 0;
@@ -584,6 +590,12 @@ class BounceMailHandler
           $deleteFlag[$x] = true;
           $deletedCount++;
         }
+
+        // check if the move directory exists, if not create it
+        $this->mailboxExist($this->unprocessedBox);
+        // move the message
+        @imap_mail_move($this->mailboxLink, $x, $this->unprocessedBox);
+        $moveFlag[$x] = true;
       }
 
       flush();
@@ -591,6 +603,7 @@ class BounceMailHandler
 
     $this->output($this->bmhNewLine . 'Closing mailbox, and purging messages');
 
+    imap_expunge($this->mailboxLink);
     imap_close($this->mailboxLink);
 
     $this->output('Read: ' . $fetchedCount . ' messages');
@@ -806,7 +819,7 @@ class BounceMailHandler
    */
   public function mailboxExist($mailbox, $create = true)
   {
-    if (trim($mailbox) == '' || strpos($mailbox, 'INBOX.') === false) {
+    if ( trim($mailbox) == '') {
       // this is a critical error with either the mailbox name blank or an invalid mailbox name
       // need to stop processing and exit at this point
       echo "Invalid mailbox name for move operation. Cannot continue.<br />\n";
