@@ -603,7 +603,7 @@ class BounceMailHandler
 
     $this->output($this->bmhNewLine . 'Closing mailbox, and purging messages');
 
-    imap_expunge($this->mailboxLink);
+    @imap_expunge($this->mailboxLink);
     imap_close($this->mailboxLink);
 
     $this->output('Read: ' . $fetchedCount . ' messages');
@@ -819,16 +819,15 @@ class BounceMailHandler
    */
   public function mailboxExist($mailbox, $create = true)
   {
-    if (trim($mailbox) == '' || strpos($mailbox, 'INBOX.') === false) {
+    if (trim($mailbox) == '') {
       // this is a critical error with either the mailbox name blank or an invalid mailbox name
       // need to stop processing and exit at this point
-      echo "Invalid mailbox name for move operation. Cannot continue.<br />\n";
-      echo "TIP: the mailbox you want to move the message to must include 'INBOX.' at the start.<br />\n";
+      echo 'Invalid mailbox name for move operation. Cannot continue: ' . $mailbox . "<br />\n";
       exit();
     }
 
     $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
-    $mbox = imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
+    $mbox = @imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
 
     if ($mbox === false) {
       return false;
