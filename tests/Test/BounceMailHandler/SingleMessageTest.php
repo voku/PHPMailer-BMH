@@ -1457,7 +1457,7 @@ class SingleMessageTest extends \PHPUnit_Framework_TestCase
       self::assertSame((string)$deleted, $matches[1], $testFile . ': messages deleted');
 
       preg_match('/([0-9]+) messages moved/', $output, $matches);
-      self::assertSame((string)moved, $matches[1], $testFile . ': messages moved');
+      self::assertSame((string)$moved, $matches[1], $testFile . ': messages moved');
 
       preg_match('/Match: ([^:]+):([^;]+); ([^;]*); <?([^<]*)/', $output, $matches);
       self::assertSame($ruleNo, $matches[1], $testFile . ': rule_no');
