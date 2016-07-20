@@ -1445,19 +1445,19 @@ class SingleMessageTest extends \PHPUnit_Framework_TestCase
       self::assertTrue($rc, $testFile . ': processMailbox');
 
       preg_match('/Read: ([0-9]+) messages/', $output, $matches);
-      self::assertSame($fetched, $matches[1], $testFile . ': messages read');
+      self::assertSame((string)$fetched, $matches[1], $testFile . ': messages read');
 
       preg_match('/([0-9]+) action taken/', $output, $matches);
-      self::assertSame($processed, $matches[1], $testFile . ': action taken');
+      self::assertSame((string)$processed, $matches[1], $testFile . ': action taken');
 
       preg_match('/([0-9]+) no action taken/', $output, $matches);
-      self::assertSame($unprocessed, $matches[1], $testFile . ': no action taken');
+      self::assertSame((string)$unprocessed, $matches[1], $testFile . ': no action taken');
 
       preg_match('/([0-9]+) messages deleted/', $output, $matches);
-      self::assertSame($deleted, $matches[1], $testFile . ': messages deleted');
+      self::assertSame((string)$deleted, $matches[1], $testFile . ': messages deleted');
 
       preg_match('/([0-9]+) messages moved/', $output, $matches);
-      self::assertSame($moved, $matches[1], $testFile . ': messages moved');
+      self::assertSame((string)moved, $matches[1], $testFile . ': messages moved');
 
       preg_match('/Match: ([^:]+):([^;]+); ([^;]*); <?([^<]*)/', $output, $matches);
       self::assertSame($ruleNo, $matches[1], $testFile . ': rule_no');
