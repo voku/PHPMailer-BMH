@@ -1460,10 +1460,10 @@ class SingleMessageTest extends \PHPUnit_Framework_TestCase
       self::assertSame((string)$moved, $matches[1], $testFile . ': messages moved');
 
       preg_match('/Match: ([^:]+):([^;]+); ([^;]*); <?([^<]*)/', $output, $matches);
-      self::assertSame($ruleNo, $matches[1], $testFile . ': rule_no');
-      self::assertSame($ruleCat, $matches[2], $testFile . ': rule_cat');
-      self::assertSame($bounceType, $matches[3], $testFile . ': bounce_type');
-      self::assertSame($email, $matches[4], $testFile . ': email');
+      self::assertSame((string)$ruleNo, $matches[1], $testFile . ': rule_no');
+      self::assertSame((string)$ruleCat, $matches[2], $testFile . ': rule_cat');
+      self::assertSame((string)$bounceType, $matches[3], $testFile . ': bounce_type'); // false
+      self::assertSame((string)$email, $matches[4], $testFile . ': email');
     }
   }
 
