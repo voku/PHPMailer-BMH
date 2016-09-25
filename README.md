@@ -9,9 +9,14 @@
 [![PHP 7 ready](http://php7ready.timesplinter.ch/voku/PHPMailer-BMH/badge.svg)](https://travis-ci.org/voku/PHPMailer-BMH)
 [![License](https://poser.pugx.org/voku/bounce-mail-handler/license)](https://packagist.org/packages/voku/bounce-mail-handler)
 
+* PHP 5.3+ Support
+* Composer & PSR-0 Support
+* PHPUnit testing via Travis CI (TODO: more tests needed)
+* PHP-Quality testing via SensioLabsInsight (TODO: more fixes needed)
+
 # Bounce Mail Handler
 
-WARNING: This is a Extended-Fork of "https://github.com/instaclick/PHPMailer-BMH" what is on the other hand a Fork of WorxWare's [PHPMailer-BMH](http://sourceforge.net/projects/bmh/).
+WARNING: This is a Extended-Fork of instaclick's [PHPMailer-BMH](https://github.com/instaclick/PHPMailer-BMH) what is on the other hand a Fork of WorxWare's [PHPMailer-BMH](http://sourceforge.net/projects/bmh/).
 
 ## Installation
 
