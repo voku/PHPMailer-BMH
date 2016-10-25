@@ -112,7 +112,7 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
   elseif (preg_match("/Delivery to the following (?:recipient|recipients) failed permanently\X*?(\S+@\S+\w)/i", $body, $match)) {
     $result['rule_cat'] = 'unknown';
     $result['rule_no'] = '0998';
-	  $result['email'] = $match[1];
+    $result['email'] = $match[1];
   }
   /* rule: unknown
    * sample:
