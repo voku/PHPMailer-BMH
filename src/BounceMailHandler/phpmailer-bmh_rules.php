@@ -296,6 +296,7 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
   elseif (preg_match("/(\S+@\S+\w).*n? is restricted/i", $body, $match)) {
     $result['rule_cat'] = 'inactive';
     $result['rule_no'] = '0201';
+    $result['email'] = $match[1];
   } /* rule: inactive
    * sample:
    *   xxxxx@yourdomain.com [Inactive account]
@@ -310,6 +311,7 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
   elseif (preg_match("/<(\S+@\S+\w)>.*\n.*mailbox unavailable/i", $body, $match)) {
     $result['rule_cat'] = 'unknown';
     $result['rule_no'] = '124';
+    $result['email'] = $match[1];
   } /*
    * rule: mailbox unknown;
    * sample:
