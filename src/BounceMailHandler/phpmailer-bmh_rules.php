@@ -102,8 +102,7 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
   elseif (preg_match("/no\s+such\s+address\s+here/i", $body, $match)) {
     $result['rule_cat'] = 'unknown';
     $result['rule_no'] = '0237';
-  }
-  /* Gmail Bounce Error
+  } /* Gmail Bounce Error
    * rule: unknown
    * sample:
    *   Delivery to the following recipient failed permanently:
@@ -113,8 +112,7 @@ function bmhBodyRules($body, $structure, $debug_mode = false)
     $result['rule_cat'] = 'unknown';
     $result['rule_no'] = '0998';
     $result['email'] = $match[1];
-  }
-  /* rule: unknown
+  } /* rule: unknown
    * sample:
    *   <xxxxx@yourdomain.com>:
    *   111.111.111.111 does not like recipient.
