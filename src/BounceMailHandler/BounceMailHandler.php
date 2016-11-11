@@ -482,9 +482,9 @@ class BounceMailHandler
             &&
             $structure->ifsubtype
             &&
-            strtoupper($structure->subtype) == 'REPORT'
-            &&
             $structure->ifparameters
+            &&
+            strtoupper($structure->subtype) == 'REPORT'
             &&
             $this->isParameter($structure->parameters, 'REPORT-TYPE', 'delivery-status')
         ) {
@@ -508,7 +508,11 @@ class BounceMailHandler
 
         // Could be multi-line, if the new line begins with SPACE or HTAB
         if (preg_match("/Content-Type:((?:[^\n]|\n[\t ])+)(?:\n[^\t ]|$)/i", $header, $match)) {
-          if (preg_match("/multipart\/report/i", $match[1]) && preg_match("/report-type=[\"']?delivery-status[\"']?/i", $match[1])) {
+          if (
+              preg_match("/multipart\/report/i", $match[1])
+              &&
+              preg_match("/report-type=[\"']?delivery-status[\"']?/i", $match[1])
+          ) {
             // standard DSN msg
             $processed = $this->processBounce($x, 'DSN', $totalCount);
           } else {
@@ -594,6 +598,7 @@ class BounceMailHandler
         // check if the move directory exists, if not create it
         $this->mailboxExist($this->unprocessedBox);
         // move the message
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
         @imap_mail_move($this->mailboxLink, $x, $this->unprocessedBox);
         $moveFlag[$x] = true;
       }
@@ -603,6 +608,7 @@ class BounceMailHandler
 
     $this->output($this->bmhNewLine . 'Closing mailbox, and purging messages');
 
+    /** @noinspection PhpUsageOfSilenceOperatorInspection */
     @imap_expunge($this->mailboxLink);
     imap_close($this->mailboxLink);
 
@@ -827,6 +833,7 @@ class BounceMailHandler
     }
 
     $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
+    /** @noinspection PhpUsageOfSilenceOperatorInspection */
     $mbox = @imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
 
     if ($mbox === false) {
