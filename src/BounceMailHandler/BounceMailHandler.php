@@ -113,6 +113,32 @@ class BounceMailHandler
   public $actionFunction = 'callbackAction';
 
   /**
+   * Callback custom body rules
+   * ```
+   * function customBodyRulesCallback( $result, $body, $structure, $debug )
+   * {
+   *    return $result;
+   * }
+   * ```
+   *
+   * @var null|callable
+   */
+  public $customBodyRulesCallback = null;
+
+  /**
+   * Callback custom DSN (Delivery Status Notification) rules
+   * ```
+   * function customDSNRulesCallback( $result, $dsnMsg, $dsnReport, $debug )
+   * {
+   *    return $result;
+   * }
+   * ```
+   *
+   * @var null|callable
+   */
+  public $customDSNRulesCallback = null;
+
+  /**
    * test-mode, if true will not delete messages
    *
    * @var boolean
@@ -678,6 +704,8 @@ class BounceMailHandler
 
       // process bounces by rules
       $result = bmhDSNRules($dsnMsg, $dsnReport, $this->debugDsnRule);
+      $result = is_callable($this->customDSNRulesCallback) ? call_user_func($this->customDSNRulesCallback, $result, $dsnMsg, $dsnReport, $this->debugDsnRule) : $result;
+
     } elseif ($type == 'BODY') {
       $structure = imap_fetchstructure($this->mailboxLink, $pos);
 
@@ -685,6 +713,7 @@ class BounceMailHandler
         case 0: // Content-type = text
           $body = imap_fetchbody($this->mailboxLink, $pos, '1');
           $result = bmhBodyRules($body, $structure, $this->debugBodyRule);
+          $result = is_callable($this->customBodyRulesCallback) ? call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
           break;
 
         case 1: // Content-type = multipart
@@ -698,6 +727,7 @@ class BounceMailHandler
           }
 
           $result = bmhBodyRules($body, $structure, $this->debugBodyRule);
+          $result = is_callable($this->customBodyRulesCallback) ? call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
           break;
 
         case 2: // Content-type = message
@@ -711,6 +741,7 @@ class BounceMailHandler
 
           $body = substr($body, 0, 1000);
           $result = bmhBodyRules($body, $structure, $this->debugBodyRule);
+          $result = is_callable($this->customBodyRulesCallback) ? call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
           break;
 
         default: // unsupport Content-type
