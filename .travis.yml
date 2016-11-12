@@ -1,6 +1,6 @@
 language: php
 
-sudo: false
+#sudo: false
 
 php:
   - 5.3
@@ -11,6 +11,19 @@ php:
   - hhvm
 
 before_script:
+  - sudo apt-get -qq update
+  - sudo apt-get -qq -y install dovecot-imapd dovecot-pop3d
+  - sudo touch /etc/dovecot/local.conf
+  - sudo echo 'mail_location = maildir:/home/%u/Maildir' >> /etc/dovecot/local.conf
+  - sudo echo 'disable_plaintext_auth = no' >> /etc/dovecot/local.conf
+  - sudo echo 'mail_max_userip_connections = 10000' >> /etc/dovecot/local.conf
+  - sudo restart dovecot
+  - sudo useradd testuser -m -s /bin/bash
+  - echo "testuser:applesauce" | sudo chpasswd
+  - sudo stop dovecot
+  - sudo cp -Rp tests/resources/Maildir /home/testuser/
+  - sudo chown -R testuser:testuser /home/testuser/Maildir
+  - sudo start dovecot
   - wget https://scrutinizer-ci.com/ocular.phar
   - travis_retry composer self-update
   - travis_retry composer require satooshi/php-coveralls:1.0.0

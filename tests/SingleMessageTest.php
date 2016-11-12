@@ -1427,7 +1427,7 @@ class SingleMessageTest extends \PHPUnit_Framework_TestCase
       list($fetched, $processed, $unprocessed, $deleted, $moved, $ruleNo, $ruleCat, $bounceType, $email) = $expected;
 
       ob_start();
-      $rc = $bmh->openLocal($this->getMailboxPath(__DIR__ . '/../../fixtures/' . $testFile));
+      $rc = $bmh->openLocal($this->getMailboxPath(__DIR__ . '/fixtures/' . $testFile));
       ob_end_clean();
 
       self::assertTrue($rc, $testFile . ': openLocal');

@@ -4,7 +4,7 @@
  *
  * @copyright 2008-2009 Andry Prevost. All Rights Reserved.
  * @copyright 2011-2012 Anthon Pang.
- * @copyright 2015-2015 Lars Moelleken.
+ * @copyright 2015-2016 Lars Moelleken.
  *
  * @license   GPL
  *
