@@ -51,9 +51,9 @@ class FullExampleDemo
     $bmh->mailhost = '127.0.0.1'; // your mail server
     $bmh->mailboxUserName = 'testuser'; // your mailbox username
     $bmh->mailboxPassword = 'applesauce!'; // your mailbox password
-    $bmh->port = 143; // the port to access your mailbox, default is 143
+    $bmh->port = 993; // the port to access your mailbox, default is 143
     $bmh->service = 'imap'; // the service to use (imap or pop3), default is 'imap'
-    $bmh->serviceOption = 'notls'; // the service options (none, tls, notls, ssl, etc.), default is 'notls'
+    $bmh->serviceOption = 'novalidate-cert'; // the service options (none, tls, notls, ssl, etc.), default is 'notls'
     $bmh->boxname = 'INBOX'; // the mailbox to access, default is 'INBOX'
 
     $bmh->moveHard           = true; // default is false
