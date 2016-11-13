@@ -1,6 +1,7 @@
 language: php
 
-#sudo: false
+dist: trusty
+sudo: required
 
 php:
   - 5.3
