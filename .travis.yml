@@ -25,6 +25,7 @@ before_script:
   - sudo service dovecot stop
   - sudo cp -Rp tests/resources/Maildir /home/testuser/
   - sudo chown -R testuser:testuser /home/testuser/Maildir
+  - sudo sudo /bin/bash tests/resources/dovecotSsl.sh
   - sudo service dovecot start
   - sudo service dovecot status
   - sudo doveconf -n
@@ -35,6 +36,8 @@ before_script:
   - composer dump-autoload -o
 
 script:
+  - netstat -tuln | grep 143
+  - netstat -tuln | grep 993
   - mkdir -p build/logs
   - php vendor/bin/phpunit -c phpunit.xml
 
