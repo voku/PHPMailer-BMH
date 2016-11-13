@@ -60,7 +60,7 @@ class FullExampleDemo
     $bmh->hardMailbox        = 'INBOX.hardtest'; // default is 'INBOX.hard' - NOTE: must start with 'INBOX.'
     $bmh->moveSoft           = true; // default is false
     $bmh->softMailbox        = 'INBOX.softtest'; // default is 'INBOX.soft' - NOTE: must start with 'INBOX.'
-    $bmh->deleteMsgDate      = date('Y-m-d', strtotime('last month')); // format must be as 'yyyy-mm-dd'
+    //$bmh->deleteMsgDate      = date('Y-m-d', strtotime('last month')); // format must be as 'yyyy-mm-dd'
 
     /*
      * rest used regardless what type of connection it is
