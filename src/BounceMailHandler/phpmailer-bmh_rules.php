@@ -108,7 +108,11 @@ function bmhBodyRules($body, /** @noinspection PhpUnusedParameterInspection */ $
    *   Delivery to the following recipient failed permanently:
    *   xxxxx@yourdomain.com
    */
-  elseif (preg_match("/Delivery to the following (?:recipient|recipients) failed permanently\X*?(\S+@\S+\w)/i", $body, $match)) {
+  elseif (
+      strpos($body, 'Technical details of permanent failure') === false // if there are technical details, try another test-case
+      &&
+      preg_match("/Delivery to the following (?:recipient|recipients) failed permanently\X*?(\S+@\S+\w)/i", $body, $match)
+  ) {
     $result['rule_cat'] = 'unknown';
     $result['rule_no'] = '0998';
     $result['email'] = $match[1];
