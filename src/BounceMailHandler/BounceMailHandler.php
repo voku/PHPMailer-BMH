@@ -505,6 +505,10 @@ class BounceMailHandler
         $structure = @imap_fetchstructure($this->mailboxLink, $x);
 
         if (
+            $structure
+            &&
+            is_object($structure)
+            &&
             $structure->type == 1
             &&
             $structure->ifsubtype
@@ -710,6 +714,10 @@ class BounceMailHandler
     } elseif ($type == 'BODY') {
       /** @noinspection PhpUsageOfSilenceOperatorInspection */
       $structure = @imap_fetchstructure($this->mailboxLink, $pos);
+
+      if (is_object($structure)) {
+        return false;
+      }
 
       switch ($structure->type) {
         case 0: // Content-type = text
