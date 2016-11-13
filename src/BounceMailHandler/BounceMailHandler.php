@@ -501,7 +501,8 @@ class BounceMailHandler
 
       // fetch the messages one at a time
       if ($this->useFetchstructure) {
-        $structure = imap_fetchstructure($this->mailboxLink, $x);
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
+        $structure = @imap_fetchstructure($this->mailboxLink, $x);
 
         if (
             $structure->type == 1
@@ -707,7 +708,8 @@ class BounceMailHandler
       $result = is_callable($this->customDSNRulesCallback) ? call_user_func($this->customDSNRulesCallback, $result, $dsnMsg, $dsnReport, $this->debugDsnRule) : $result;
 
     } elseif ($type == 'BODY') {
-      $structure = imap_fetchstructure($this->mailboxLink, $pos);
+      /** @noinspection PhpUsageOfSilenceOperatorInspection */
+      $structure = @imap_fetchstructure($this->mailboxLink, $pos);
 
       switch ($structure->type) {
         case 0: // Content-type = text
