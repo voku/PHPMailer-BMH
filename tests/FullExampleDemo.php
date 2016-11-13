@@ -48,7 +48,7 @@ class FullExampleDemo
     /*
      * for remote mailbox
      */
-    $bmh->mailhost = 'localhost'; // your mail server
+    $bmh->mailhost = '127.0.0.1'; // your mail server
     $bmh->mailboxUserName = 'testuser'; // your mailbox username
     $bmh->mailboxPassword = 'applesauce!'; // your mailbox password
     $bmh->port = 143; // the port to access your mailbox, default is 143
