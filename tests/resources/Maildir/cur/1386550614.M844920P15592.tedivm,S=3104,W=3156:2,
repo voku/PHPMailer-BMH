@@ -1,0 +1,91 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.36.252.76 with SMTP id z76cs42358nzh;
+        Mon, 28 Nov 2005 11:05:40 -0800 (PST)
+Received: by 10.36.251.8 with SMTP id y8mr3758555nzh;
+        Mon, 28 Nov 2005 11:05:40 -0800 (PST)
+X-Forwarded-To: Agris.Ameriks@gmail.com
+X-Forwarded-For: ameriks@gmail.com Agris.Ameriks@gmail.com
+X-Gmail-Received: 499bf0339a8d4dd35bcd03d4596db02d01fdefc5
+Delivered-To: ameriks@gmail.com
+Received: by 10.36.251.57 with SMTP id y57cs33742nzh;
+        Mon, 28 Nov 2005 11:05:39 -0800 (PST)
+Received: by 10.48.3.5 with SMTP id 5mr493496nfc;
+        Mon, 28 Nov 2005 11:05:39 -0800 (PST)
+Return-Path: <>
+Received: from apollo.lv (jupiter.apollo.lv [80.232.168.212])
+        by mx.gmail.com with ESMTP id o45si619017nfa.2005.11.28.11.05.09;
+        Mon, 28 Nov 2005 11:05:39 -0800 (PST)
+Received-SPF: pass (gmail.com: best guess record for domain of apollo.lv designates 80.232.168.212 as permitted sender)
+Subject: Undeliverable mail: 
+From: MAILER-DAEMON@apollo.lv
+To: <ameriks@gmail.com>
+Date: Mon, 28 Nov 2005 20:26:38 +0200
+Message-ID: <receipt-110354846@apollo.lv>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type="delivery-status"; boundary="_===110354846====apollo.lv===_"
+
+
+--_===110354846====apollo.lv===_
+Content-Type: text/plain; charset="utf-8"
+
+Failed to deliver to '<agrisa@apollo.lv>'
+Messages without To: fields are not accepted here
+
+
+--_===110354846====apollo.lv===_
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; apollo.lv
+
+Original-Recipient: rfc822;<agrisa@apollo.lv>
+Final-Recipient: system;<>
+Action: failed
+Status: 5.0.0
+
+--_===110354846====apollo.lv===_
+Content-Type: message/rfc822
+
+Received: from zproxy.gmail.com ([64.233.162.194] verified)
+  by apollo.lv (CommuniGate Pro SMTP 4.1.8)
+  with ESMTP id 110354858 for agrisa@apollo.lv; Mon, 28 Nov 2005 20:26:37 +0200
+Received: by zproxy.gmail.com with SMTP id s18so2823588nze
+        for <agrisa@apollo.lv>; Mon, 28 Nov 2005 10:26:35 -0800 (PST)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+        s=beta; d=gmail.com;
+        h=received:message-id:date:from:reply-to:subject:mime-version:content-type;
+        b=tVddE1twi6/ew8gg2erlzR1AV4UgqT1v2d7+lazGsJr8a68QzxZLAhp/6NvW18kcpgqxRajkHztCLu0HYtQ+eR7iZLfM45EB6McOaZm0cfoySOIUl60KDFAH1LyW3Vl8lC7BNMCZwxomqaLI8kK2J8L/wOP/iqpdo0lFvDGFnsY=
+Received: by 10.37.15.37 with SMTP id s37mr3728494nzi;
+        Mon, 28 Nov 2005 10:26:35 -0800 (PST)
+Received: by 10.36.251.57 with HTTP; Mon, 28 Nov 2005 10:26:35 -0800 (PST)
+Message-ID: <4abe0f090511281026t1436fa8dg844ce3c26184a927@mail.gmail.com>
+Date: Mon, 28 Nov 2005 20:26:35 +0200
+From: Agris Ameriks <ameriks@gmail.com>
+Reply-To: Agris.Ameriks@gmail.com
+Subject: 
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_12151_7196822.1133202395822"
+
+------=_Part_12151_7196822.1133202395822
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+lalallalalaasd
+
+--
+Ar cienu,
+Agris Ameriks
+RSD Kulturas komitejas vaditajs
+
+------=_Part_12151_7196822.1133202395822
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+lalallalalaasd<br clear=3D"all"><br>-- <br>Ar cienu,<br>Agris Ameriks<br>RS=
+D Kulturas komitejas vaditajs
+
+------=_Part_12151_7196822.1133202395822--
+
+--_===110354846====apollo.lv===_--

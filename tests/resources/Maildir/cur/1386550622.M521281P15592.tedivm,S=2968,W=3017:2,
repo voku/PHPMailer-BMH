@@ -1,0 +1,99 @@
+Delivered-To: agris.ameriks@gmail.com
+Received: by 10.67.102.1 with SMTP id e1cs84341ugm;
+        Wed, 12 Sep 2007 22:25:35 -0700 (PDT)
+Received: by 10.67.103.12 with SMTP id f12mr2624608ugm.1189661135681;
+        Wed, 12 Sep 2007 22:25:35 -0700 (PDT)
+Return-Path: <>
+Received: from blackbird.grafton.lv (blackbird.grafton.lv [159.148.13.8])
+        by mx.google.com with ESMTP id d26si2053796nfh.2007.09.12.22.25.32;
+        Wed, 12 Sep 2007 22:25:35 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of blackbird.grafton.lv designates 159.148.13.8 as permitted sender) client-ip=159.148.13.8;
+Authentication-Results: mx.google.com; spf=pass (google.com: best guess record for domain of blackbird.grafton.lv designates 159.148.13.8 as permitted sender) smtp.mail=
+Received: by blackbird.grafton.lv (Postfix)
+	id 39C5162006D; Thu, 13 Sep 2007 08:25:32 +0300 (EEST)
+Date: Thu, 13 Sep 2007 08:25:32 +0300 (EEST)
+From: MAILER-DAEMON@blackbird.grafton.lv (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: agris.ameriks@gmail.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="EC740620064.1189661132/blackbird.grafton.lv"
+Message-Id: <20070913052532.39C5162006D@blackbird.grafton.lv>
+
+This is a MIME-encapsulated message.
+
+--EC740620064.1189661132/blackbird.grafton.lv
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host blackbird.grafton.lv.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<jekaterina@tv5.lv> (expanded from <notikums@tv5.lv>): maildir delivery failed:
+    Sorry, the user's maildir has overdrawn his diskspace quota, please try
+    again later.
+
+--EC740620064.1189661132/blackbird.grafton.lv
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; blackbird.grafton.lv
+X-Postfix-Queue-ID: EC740620064
+X-Postfix-Sender: rfc822; agris.ameriks@gmail.com
+Arrival-Date: Thu, 13 Sep 2007 08:25:29 +0300 (EEST)
+
+Final-Recipient: rfc822; jekaterina@tv5.lv
+Original-Recipient: rfc822;notikums@tv5.lv
+Action: failed
+Status: 5.2.3
+Diagnostic-Code: X-Postfix; maildir delivery failed: Sorry, the user's maildir
+    has overdrawn his diskspace quota, please try again later.
+
+--EC740620064.1189661132/blackbird.grafton.lv
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Received: from hu-out-0506.google.com (hu-out-0506.google.com [72.14.214.233])
+	by blackbird.grafton.lv (Postfix) with ESMTP id 1B48675C04F
+	for <notikums@tv5.lv>; Thu, 13 Sep 2007 08:25:29 +0300 (EEST)
+Received: by hu-out-0506.google.com with SMTP id 28so167829hug
+        for <notikums@tv5.lv>; Wed, 12 Sep 2007 22:25:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=beta;
+        h=domainkey-signature:received:received:message-id:date:from:to:subject:cc:mime-version:content-type;
+        bh=L2SyivlqHxtTjH5g4+fQw5fs6kGsOHDdZAIpOVCV8D8=;
+        b=RM2JXrCYFBhkLe4yd6MxT0vmzvsHsyA32ylCdGEs6dezOLBcyT3lgh/t+qJ6XgJpJyDA6z2lEt3GRh8UvPhjD4Kl/Y6IuiNcuzZWVAXZ7MGTBiv+3wSBCU+pyQsQDGkZWLkBTX6MgAthHhOzZAhXnyfM1Oe1Dgg0Q2UCaz9bXY4=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=gmail.com; s=beta;
+        h=received:message-id:date:from:to:subject:cc:mime-version:content-type;
+        b=FRTW/6SXI8LlxwFqs1q82QJK0pNGrTWJ1KVsKIqnA++p++EGtHGryiAagnHG4s91WGGZ8IeRnQhiEPDqyG3GHqpYZR3GzmsluDdLGsKhi75yYfwXq8p+XAQ9AGGMFwYpq2RCrumuHNWWnAPLFvkIQePM/4aLKJ9Ms/ORwiinMXY=
+Received: by 10.67.26.7 with SMTP id d7mr2639740ugj.1189661104603;
+        Wed, 12 Sep 2007 22:25:04 -0700 (PDT)
+Received: by 10.67.102.1 with HTTP; Wed, 12 Sep 2007 22:25:04 -0700 (PDT)
+Message-ID: <da9602510709122225p7ffafeb9uf34d41aa3ce5f9e2@mail.gmail.com>
+Date: Thu, 13 Sep 2007 08:25:04 +0300
+From: "Agris Ameriks" <agris.ameriks@gmail.com>
+To: Agris.Ameriks@gmail.com
+Subject: =?ISO-8859-13?Q?15.septembr=EE_Studentu_P=E2rtijs!?=
+Cc: "=?ISO-8859-13?Q?J=E2nis_Erts?=" <ertsjanis@gmail.com>, 
+	"Edgars Gutkis" <edgars.gutkis@gmail.com>, 
+	"Toms Beinerts" <toms.beinerts@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_8802_28973416.1189661104602"
+X-GRAFTON-MailScanner-Information: Scanned by GRAFTON mailscanner service
+X-GRAFTON-MailScanner: Found to be clean
+X-GRAFTON-MailScanner-From: agris.ameriks@gmail.com
+X-Spam-Status: No
+
+--EC740620064.1189661132/blackbird.grafton.lv--
