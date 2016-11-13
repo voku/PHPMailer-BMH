@@ -715,7 +715,7 @@ class BounceMailHandler
       /** @noinspection PhpUsageOfSilenceOperatorInspection */
       $structure = @imap_fetchstructure($this->mailboxLink, $pos);
 
-      if (is_object($structure)) {
+      if (!is_object($structure)) {
         return false;
       }
 
