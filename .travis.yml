@@ -16,6 +16,7 @@ before_script:
   - sudo touch /etc/dovecot/local.conf
   - sudo chmod 777 /etc/dovecot/local.conf
   - sudo echo 'listen = *, [::]' >> /etc/dovecot/local.conf
+  - echo echo 'auth_mechanisms = plain login' >> /etc/dovecot/local.conf
   - sudo echo 'mail_location = maildir:/home/%u/Maildir' >> /etc/dovecot/local.conf
   - sudo echo 'disable_plaintext_auth = no' >> /etc/dovecot/local.conf
   - sudo echo 'mail_max_userip_connections = 10000' >> /etc/dovecot/local.conf
