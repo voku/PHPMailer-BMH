@@ -23,10 +23,13 @@ before_script:
   - sudo useradd testuser -m -s /bin/bash
   - echo "testuser:applesauce" | sudo chpasswd
   - sudo service dovecot stop
+  - sudo mkdir -p /home/testuser/
   - sudo cp -Rp tests/resources/Maildir /home/testuser/
+  - sudo ls -la /home/testuser/
   - sudo chown -R testuser:testuser /home/testuser/Maildir
   - sudo sudo /bin/bash tests/resources/dovecotSsl.sh
   - sudo service dovecot start
+  - sudo service dovecot restart
   - sudo service dovecot status
   - sudo doveconf -n
   - wget https://scrutinizer-ci.com/ocular.phar
