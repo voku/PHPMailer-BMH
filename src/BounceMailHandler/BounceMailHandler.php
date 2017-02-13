@@ -101,8 +101,9 @@ class BounceMailHandler
    *       'unrecognized',
    *       'user_reject',
    *       'warning'
-   * string  $email         the target email address string  $subject       the subject, ignore now string  $xheader
-   * the XBounceHeader from the mail
+   * string  $email         the target email address
+   * string  $subject       the subject, ignore now
+   * string  $xheader       the XBounceHeader from the mail
    * 1 or 0  $remove        delete status, 0 is not deleted, 1 is deleted
    * string  $rule_no       bounce mail detect rule no.
    * string  $rule_cat      bounce mail detect rule category
