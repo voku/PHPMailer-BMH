@@ -335,11 +335,11 @@ class BounceMailHandler
       $this->output();
 
       return false;
-    } else {
-      $this->output('Connected to: ' . $this->mailhost . ' (' . $this->mailboxUserName . ')');
-
-      return true;
     }
+
+    $this->output('Connected to: ' . $this->mailhost . ' (' . $this->mailboxUserName . ')');
+
+    return true;
   }
 
   /**
@@ -391,11 +391,11 @@ class BounceMailHandler
 
       return true;
 
-    } else {
-      imap_close($mboxt);
-
-      return false;
     }
+
+    imap_close($mboxt);
+
+    return false;
   }
 
   /**
@@ -437,11 +437,11 @@ class BounceMailHandler
       $this->output();
 
       return false;
-    } else {
-      $this->output('Opened ' . $filePath);
-
-      return true;
     }
+
+    $this->output('Opened ' . $filePath);
+
+    return true;
   }
 
   /**
@@ -520,7 +520,7 @@ class BounceMailHandler
             &&
             $this->isParameter($structure->parameters, 'REPORT-TYPE', 'delivery-status')
         ) {
-          $processed = $this->processBounce($x, 'DSN', $totalCount);
+          $processedResult = $this->processBounce($x, 'DSN', $totalCount);
         } else {
           // not standard DSN msg
           $this->output('Msg #' . $x . ' is not a standard DSN message', self::VERBOSE_REPORT);
@@ -533,7 +533,7 @@ class BounceMailHandler
             }
           }
 
-          $processed = $this->processBounce($x, 'BODY', $totalCount);
+          $processedResult = $this->processBounce($x, 'BODY', $totalCount);
         }
       } else {
         $header = imap_fetchheader($this->mailboxLink, $x);
@@ -546,7 +546,7 @@ class BounceMailHandler
               preg_match("/report-type=[\"']?delivery-status[\"']?/i", $match[1])
           ) {
             // standard DSN msg
-            $processed = $this->processBounce($x, 'DSN', $totalCount);
+            $processedResult = $this->processBounce($x, 'DSN', $totalCount);
           } else {
             // not standard DSN msg
             $this->output('Msg #' . $x . ' is not a standard DSN message', self::VERBOSE_REPORT);
@@ -555,7 +555,7 @@ class BounceMailHandler
               $this->output("  Content-Type : {$match[1]}", self::VERBOSE_DEBUG);
             }
 
-            $processed = $this->processBounce($x, 'BODY', $totalCount);
+            $processedResult = $this->processBounce($x, 'BODY', $totalCount);
           }
         } else {
           // didn't get content-type header
@@ -565,14 +565,14 @@ class BounceMailHandler
             $this->output('  Headers: ' . $this->bmhNewLine . $header . $this->bmhNewLine, self::VERBOSE_DEBUG);
           }
 
-          $processed = $this->processBounce($x, 'BODY', $totalCount);
+          $processedResult = $this->processBounce($x, 'BODY', $totalCount);
         }
       }
 
       $deleteFlag[$x] = false;
       $moveFlag[$x] = false;
 
-      if ($processed) {
+      if ($processedResult !== false) {
         $processedCount++;
 
         if (!$this->disableDelete) {
@@ -584,7 +584,7 @@ class BounceMailHandler
 
           $deleteFlag[$x] = true;
           $deletedCount++;
-        } elseif ($this->moveHard) {
+        } elseif ($this->moveHard && $processedResult['bounce_type'] === 'hard') {
           // check if the move directory exists, if not create it
           if (!$this->testMode) {
             $this->mailboxExist($this->hardMailbox);
@@ -598,7 +598,7 @@ class BounceMailHandler
 
           $moveFlag[$x] = true;
           $movedCount++;
-        } elseif ($this->moveSoft) {
+        } elseif ($this->moveSoft && $processedResult['bounce_type'] === 'soft') {
           // check if the move directory exists, if not create it
           if (!$this->testMode) {
             $this->mailboxExist($this->softMailbox);
@@ -684,7 +684,7 @@ class BounceMailHandler
    * @param string $type         DNS or BODY type
    * @param string $totalFetched total number of messages in mailbox
    *
-   * @return boolean
+   * @return false|array <p>"$result"-array or false</p>
    */
   public function processBounce($pos, $type, $totalFetched)
   {
@@ -755,7 +755,7 @@ class BounceMailHandler
           $result = is_callable($this->customBodyRulesCallback) ? call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
           break;
 
-        default: // unsupport Content-type
+        default: // un-support Content-type
           $this->output('Msg #' . $pos . ' is unsupported Content-Type:' . $structure->type, self::VERBOSE_REPORT);
 
           return false;
@@ -775,9 +775,9 @@ class BounceMailHandler
       $email = str_replace('TO:<', '', $email);
     }
 
-    if ($this->moveHard && $result['remove'] == 1) {
+    if ($this->moveHard && $result['bounce_type'] == 'hard') {
       $remove = 'moved (hard)';
-    } elseif ($this->moveSoft && $result['remove'] == 1) {
+    } elseif ($this->moveSoft && $result['bounce_type'] == 'soft') {
       $remove = 'moved (soft)';
     } elseif ($this->disableDelete) {
       $remove = 0;
@@ -831,27 +831,28 @@ class BounceMailHandler
         $this->output('Match: ' . $ruleNumber . ':' . $ruleCategory . '; ' . $bounceType . '; ' . $email);
 
         return true;
-      } else {
-        $params = array(
-            $pos,
-            $bounceType,
-            $email,
-            $subject,
-            $xheader,
-            $remove,
-            $ruleNumber,
-            $ruleCategory,
-            $totalFetched,
-            $body,
-            $headerFull,
-            $bodyFull,
-            $status_code,
-            $action,
-            $diagnostic_code,
-        );
-
-        return call_user_func_array($this->actionFunction, $params);
       }
+
+      $params = array(
+          $pos,
+          $bounceType,
+          $email,
+          $subject,
+          $xheader,
+          $remove,
+          $ruleNumber,
+          $ruleCategory,
+          $totalFetched,
+          $body,
+          $headerFull,
+          $bodyFull,
+          $status_code,
+          $action,
+          $diagnostic_code,
+      );
+      call_user_func_array($this->actionFunction, $params);
+
+      return $result;
     }
 
     return false;
@@ -901,15 +902,15 @@ class BounceMailHandler
         imap_close($mbox);
 
         return true;
-      } else {
-        imap_close($mbox);
-
-        return false;
       }
-    } else {
+
       imap_close($mbox);
 
       return false;
     }
+
+    imap_close($mbox);
+
+    return false;
   }
 }
