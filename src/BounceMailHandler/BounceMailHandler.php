@@ -289,7 +289,7 @@ class BounceMailHandler
    *
    * @var resource
    */
-  private $mailboxLink = false;
+  protected $mailboxLink = false;
 
   /**
    * get version
