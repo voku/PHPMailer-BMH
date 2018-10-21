@@ -498,6 +498,8 @@ class BounceMailHandler
       }
     }
 
+    $fetchedCountOutput = $fetchedCount;
+
     for ($x = 1; $x <= $fetchedCount; $x++) {
 
       // fetch the messages one at a time
@@ -635,6 +637,11 @@ class BounceMailHandler
         $moveFlag[$x] = true;
       }
 
+      if ($deleteFlag[$x] || $moveFlag[$x]) {
+        --$x;
+        --$fetchedCount;
+      }
+
       flush();
     }
 
@@ -644,7 +651,7 @@ class BounceMailHandler
     @imap_expunge($this->mailboxLink);
     imap_close($this->mailboxLink);
 
-    $this->output('Read: ' . $fetchedCount . ' messages');
+    $this->output('Read: ' . $fetchedCountOutput . ' messages');
     $this->output($processedCount . ' action taken');
     $this->output($unprocessedCount . ' no action taken');
     $this->output($deletedCount . ' messages deleted');
