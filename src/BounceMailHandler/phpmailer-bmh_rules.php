@@ -3,7 +3,7 @@
 /*~ phpmailer-bmh_rules.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer-BMH (Bounce Mail Handler)                            |
-|   Version: 5.5-dev                                                        |
+|   Version: 6.0-dev                                                        |
 |   Contact: codeworxtech@users.sourceforge.net                             |
 |      Info: http://phpmailer.codeworxtech.com                              |
 | ------------------------------------------------------------------------- |
