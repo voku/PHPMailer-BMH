@@ -52,21 +52,21 @@ class BounceMailHandler
    *
    * @var string
    */
-  public $mailboxUserName;
+  public $mailboxUserName = '';
 
   /**
    * the password needed to access mailbox
    *
    * @var string
    */
-  public $mailboxPassword;
+  public $mailboxPassword = '';
 
   /**
    * the last error msg
    *
    * @var string
    */
-  public $errorMessage;
+  public $errorMessage = '';
 
   /**
    * maximum limit messages processed in one batch
@@ -606,7 +606,7 @@ class BounceMailHandler
           // move the message
           if (!$this->testMode) {
             /** @noinspection PhpUsageOfSilenceOperatorInspection */
-            @\imap_mail_move($this->mailboxLink, $x, $this->hardMailbox);
+            @\imap_mail_move($this->mailboxLink, (string)$x, $this->hardMailbox);
           }
 
           $moveFlag[$x] = true;
@@ -620,7 +620,7 @@ class BounceMailHandler
           // move the message
           if (!$this->testMode) {
             /** @noinspection PhpUsageOfSilenceOperatorInspection */
-            @\imap_mail_move($this->mailboxLink, $x, $this->softMailbox);
+            @\imap_mail_move($this->mailboxLink, (string)$x, $this->softMailbox);
           }
 
           $moveFlag[$x] = true;
@@ -644,7 +644,7 @@ class BounceMailHandler
         $this->mailboxExist($this->unprocessedBox);
         // move the message
         /** @noinspection PhpUsageOfSilenceOperatorInspection */
-        @\imap_mail_move($this->mailboxLink, $x, $this->unprocessedBox);
+        @\imap_mail_move($this->mailboxLink, (string)$x, $this->unprocessedBox);
         $moveFlag[$x] = true;
       }
 
