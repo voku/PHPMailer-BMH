@@ -9,7 +9,7 @@
 [![PHP 7 ready](http://php7ready.timesplinter.ch/voku/PHPMailer-BMH/badge.svg)](https://travis-ci.org/voku/PHPMailer-BMH)
 [![License](https://poser.pugx.org/voku/bounce-mail-handler/license)](https://packagist.org/packages/voku/bounce-mail-handler)
 
-* PHP 5.3+ Support
+* PHP 7.0+ Support
 * Composer & PSR-0 Support
 * PHPUnit testing via Travis CI (TODO: more tests needed)
 * PHP-Quality testing via SensioLabsInsight (TODO: more fixes needed)
