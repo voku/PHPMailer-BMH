@@ -5,7 +5,7 @@ require_once __DIR__ . '/FullExampleDemo.php';
 /**
  * FullExampleDemoTest
  */
-class FullExampleDemoTest extends \PHPUnit_Framework_TestCase
+class FullExampleDemoTest extends \PHPUnit\Framework\TestCase
 {
   public function testBounceHandling()
   {

@@ -5,7 +5,7 @@ use BounceMailHandler\BounceMailHandler;
 /**
  * @group functional
  */
-class MultipleMessageTest extends \PHPUnit_Framework_TestCase
+class MultipleMessageTest extends \PHPUnit\Framework\TestCase
 {
   public function testProcessMailbox()
   {

@@ -1,4 +1,5 @@
 <?php
+
 /*~ phpmailer-bmh_rules.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer-BMH (Bounce Mail Handler)                            |
@@ -32,6 +33,7 @@
 */
 
 global $rule_categories;
+
 $rule_categories = array(
     'antispam'       => array('remove' => 0, 'bounce_type' => 'blocked'),
     'autoreply'      => array('remove' => 0, 'bounce_type' => 'autoreply'),
@@ -72,6 +74,9 @@ $bmh_newline = "<br />\n";
  */
 function bmhBodyRules($body, /** @noinspection PhpUnusedParameterInspection */ $structure, $debug_mode = false)
 {
+  global $rule_categories;
+  global $bmh_newline;
+  
   // initialize the result array
   $result = array(
       'email'           => '',
@@ -111,7 +116,7 @@ function bmhBodyRules($body, /** @noinspection PhpUnusedParameterInspection */ $
   elseif (
       strpos($body, 'Technical details of permanent failure') === false // if there are technical details, try another test-case
       &&
-      preg_match("/Delivery to the following (?:recipient|recipients) failed permanently\X*?(\S+@\S+\w)/i", $body, $match)
+      preg_match("/Delivery to the following (?:recipient|recipients) failed permanently\X*?(\S+@\S+\w)/ui", $body, $match)
   ) {
     $result['rule_cat'] = 'unknown';
     $result['rule_no'] = '0998';
@@ -514,8 +519,7 @@ function bmhBodyRules($body, /** @noinspection PhpUnusedParameterInspection */ $
       $result['email'] = trim($match[1][$count - 1], "'\"()<>.:; \t\r\n\0\x0B");
     }
   }
-
-  global $rule_categories, $bmh_newline;
+  
   if ($result['rule_no'] == '0000') {
     if ($debug_mode) {
       echo 'Body:' . $bmh_newline . $body . $bmh_newline;
@@ -543,6 +547,9 @@ function bmhBodyRules($body, /** @noinspection PhpUnusedParameterInspection */ $
  */
 function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
 {
+  global $rule_categories;
+  global $bmh_newline;
+  
   // initialize the result array
   $result = array(
       'email'           => '',
@@ -1235,7 +1242,7 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
          * sample:
          *   Diagnostic-Code: SMTP; 554 Please visit http:// antispam.domain.com/denyip.php?IP=111.111.111.000 (#5.7.1)
          */
-        elseif (preg_match('/denyip/i', $diag_code)) {
+        elseif (false !== stripos($diag_code, "denyip")) {
           $result['rule_cat'] = 'antispam';
           $result['rule_no'] = '0144';
         } /* rule: antispam, deny ip
@@ -1270,7 +1277,7 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
          * sample:
          *   Diagnostic-Code: SMTP; 553 5.7.1 <xxxxx@yourdomain.com>... SpamTrap=reject mode, dsn=5.7.1, Message blocked by BOX Solutions (www.domain.com) SpamTrap Technology, please contact the domain.com site manager for help: (ctlusr8012).
          */
-        elseif (preg_match('/SpamTrap/i', $diag_code)) {
+        elseif (false !== stripos($diag_code, "SpamTrap")) {
           $result['rule_cat'] = 'antispam';
           $result['rule_no'] = '0200';
         } /* rule: antispam, mailfrom mismatch
@@ -1586,8 +1593,7 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
         break;
     }
   }
-
-  global $rule_categories, $bmh_newline;
+  
   if ($result['rule_no'] == '0000') {
     if ($debug_mode) {
       echo 'email: ' . $result['email'] . $bmh_newline;

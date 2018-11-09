@@ -5,7 +5,7 @@
  *
  * @group functional
  */
-class BounceMailHandlerTest extends \PHPUnit_Framework_TestCase
+class BounceMailHandlerTest extends \PHPUnit\Framework\TestCase
 {
   public function testProcessBounce()
   {

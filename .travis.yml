@@ -1,17 +1,12 @@
 language: php
 
-dist: trusty
 sudo: required
 
 php:
-  - 5.4
-  - 5.5
-  - 5.6
   - 7.0
   - 7.1
   - 7.2
   - 7.3
-  - hhvm
 
 before_script:
   - sudo apt-get -qq update
@@ -51,7 +46,7 @@ after_script:
   - php vendor/bin/coveralls -v
   - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
   - bash <(curl -s https://codecov.io/bash)
-  
+
 matrix:
   allow_failures:
     - php: hhvm
