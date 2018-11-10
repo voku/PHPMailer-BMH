@@ -1242,7 +1242,7 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
          * sample:
          *   Diagnostic-Code: SMTP; 554 Please visit http:// antispam.domain.com/denyip.php?IP=111.111.111.000 (#5.7.1)
          */
-        elseif (false !== stripos($diag_code, "denyip")) {
+        elseif (false !== stripos($diag_code, 'denyip')) {
           $result['rule_cat'] = 'antispam';
           $result['rule_no'] = '0144';
         } /* rule: antispam, deny ip
@@ -1277,7 +1277,7 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false)
          * sample:
          *   Diagnostic-Code: SMTP; 553 5.7.1 <xxxxx@yourdomain.com>... SpamTrap=reject mode, dsn=5.7.1, Message blocked by BOX Solutions (www.domain.com) SpamTrap Technology, please contact the domain.com site manager for help: (ctlusr8012).
          */
-        elseif (false !== stripos($diag_code, "SpamTrap")) {
+        elseif (false !== stripos($diag_code, 'SpamTrap')) {
           $result['rule_cat'] = 'antispam';
           $result['rule_no'] = '0200';
         } /* rule: antispam, mailfrom mismatch
