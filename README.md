@@ -5,8 +5,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/2161b4c1-5025-4e29-ae22-1f91c3a6657c/mini.png)](https://insight.sensiolabs.com/projects/2161b4c1-5025-4e29-ae22-1f91c3a6657c)
 [![Latest Stable Version](https://poser.pugx.org/voku/bounce-mail-handler/v/stable)](https://packagist.org/packages/voku/bounce-mail-handler)
  [![Total Downloads](https://poser.pugx.org/voku/bounce-mail-handler/downloads)](https://packagist.org/packages/voku/bounce-mail-handler) 
-[![Latest Unstable Version](https://poser.pugx.org/voku/bounce-mail-handler/v/unstable)](https://packagist.org/packages/voku/bounce-mail-handler) 
-[![PHP 7 ready](http://php7ready.timesplinter.ch/voku/PHPMailer-BMH/badge.svg)](https://travis-ci.org/voku/PHPMailer-BMH)
+[![Latest Unstable Version](https://poser.pugx.org/voku/bounce-mail-handler/v/unstable)](https://packagist.org/packages/voku/bounce-mail-handler)
 [![License](https://poser.pugx.org/voku/bounce-mail-handler/license)](https://packagist.org/packages/voku/bounce-mail-handler)
 
 * PHP 7.0+ Support
