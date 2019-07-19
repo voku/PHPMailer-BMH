@@ -7,12 +7,17 @@ declare(strict_types=1);
  *
  * @copyright 2008-2009 Andry Prevost. All Rights Reserved.
  * @copyright 2011-2012 Anthon Pang.
- * @copyright 2015-2016 Lars Moelleken.
+ * @copyright 2015-2019 Lars Moelleken.
  * @license   GPL
  */
 namespace BounceMailHandler;
 
-require_once __DIR__ . '/phpmailer-bmh_rules.php';
+use function bmhBodyRules;
+use function bmhDSNRules;
+use const CL_EXPUNGE;
+use const OP_HALFOPEN;
+use const OP_READONLY;
+use const SORTDATE;
 
 /**
  * BounceMailHandler class
@@ -25,20 +30,15 @@ require_once __DIR__ . '/phpmailer-bmh_rules.php';
  */
 class BounceMailHandler
 {
-    const VERBOSE_QUIET = 0; // suppress output
-
-    const VERBOSE_SIMPLE = 1; // simple report
-
-    const VERBOSE_REPORT = 2; // detailed report
+    const SECONDS_TIMEOUT = 6000;
 
     const VERBOSE_DEBUG = 3; // detailed report plus debug info
 
-    /**
-     * get version
-     *
-     * @return string
-     */
-    const SECONDS_TIMEOUT = 6000;
+    const VERBOSE_QUIET = 0; // suppress output
+
+    const VERBOSE_REPORT = 2; // detailed report
+
+    const VERBOSE_SIMPLE = 1; // simple report
 
     /**
      * mail-server
@@ -304,47 +304,6 @@ class BounceMailHandler
     }
 
     /**
-     * open a mail box
-     *
-     * @return bool
-     */
-    public function openMailbox(): bool
-    {
-        // before starting the processing, let's check the delete flag and do global deletes if true
-        if (\trim($this->deleteMsgDate) != '') {
-            echo 'processing global delete based on date of ' . $this->deleteMsgDate . '<br />';
-            $this->globalDelete();
-        }
-
-        // disable move operations if server is Gmail ... Gmail does not support mailbox creation
-        if (\stripos($this->mailhost, 'gmail') !== false) {
-            $this->moveSoft = false;
-            $this->moveHard = false;
-        }
-
-        $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
-
-        \set_time_limit(self::SECONDS_TIMEOUT);
-
-        if (!$this->testMode) {
-            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, \CL_EXPUNGE | ($this->testMode ? \OP_READONLY : 0));
-        } else {
-            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, ($this->testMode ? \OP_READONLY : 0));
-        }
-
-        if (!$this->mailboxLink) {
-            $this->errorMessage = 'Cannot create ' . $this->service . ' connection to ' . $this->mailhost . $this->bmhNewLine . 'Error MSG: ' . \imap_last_error();
-            $this->output();
-
-            return false;
-        }
-
-        $this->output('Connected to: ' . $this->mailhost . ' (' . $this->mailboxUserName . ')');
-
-        return true;
-    }
-
-    /**
      * Function to delete messages in a mailbox, based on date
      *
      * NOTE: this is global ... will affect all mailboxes except any that have 'sent' in the mailbox name
@@ -355,7 +314,7 @@ class BounceMailHandler
         $delDate = \mktime(0, 0, 0, $dateArr[1], $dateArr[2], $dateArr[0]);
 
         $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
-        $mboxt = \imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, \OP_HALFOPEN);
+        $mboxt = \imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
 
         if ($mboxt === false) {
             return false;
@@ -370,9 +329,8 @@ class BounceMailHandler
                 $nameRaw = $nameArr[\count($nameArr) - 1];
 
                 if (\stripos($nameRaw, 'sent') === false) {
-                    $mboxd = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $nameRaw, $this->mailboxUserName, $this->mailboxPassword, \CL_EXPUNGE);
-                    $messages = \imap_sort($mboxd, \SORTDATE, 0);
-                    $i = 0;
+                    $mboxd = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $nameRaw, $this->mailboxUserName, $this->mailboxPassword, CL_EXPUNGE);
+                    $messages = \imap_sort($mboxd, SORTDATE, 0);
 
                     foreach ($messages as $message) {
                         $header = \imap_headerinfo($mboxd, $message);
@@ -381,7 +339,6 @@ class BounceMailHandler
                         if ($header->udate < $delDate) {
                             \imap_delete($mboxd, $message);
                         }
-                        ++$i;
                     }
 
                     \imap_expunge($mboxd);
@@ -397,6 +354,156 @@ class BounceMailHandler
         \imap_close($mboxt);
 
         return false;
+    }
+
+    /**
+     * Function to determine if a particular value is found in a imap_fetchstructure key.
+     *
+     * @param array  $currParameters imap_fetstructure parameters
+     * @param string $varKey         imap_fetstructure key
+     * @param string $varValue       value to check for
+     *
+     * @return bool
+     */
+    public function isParameter(array $currParameters, string $varKey, string $varValue): bool
+    {
+        foreach ($currParameters as $object) {
+            if (
+                \strtoupper($object->attribute) == \strtoupper($varKey)
+                &&
+                \strtoupper($object->value) == \strtoupper($varValue)
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Function to check if a mailbox exists - if not found, it will create it.
+     *
+     * @param string $mailbox the mailbox name, must be in 'INBOX.checkmailbox' format
+     * @param bool   $create  whether or not to create the checkmailbox if not found, defaults to true
+     *
+     * @return bool
+     */
+    public function mailboxExist(string $mailbox, bool $create = true): bool
+    {
+        if (\trim($mailbox) === '') {
+            // this is a critical error with either the mailbox name blank or an invalid mailbox name
+            // need to stop processing and exit at this point
+            echo 'Invalid mailbox name for move operation. Cannot continue: ' . $mailbox . "<br />\n";
+            exit();
+        }
+
+        $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
+        $mbox = @\imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
+
+        if ($mbox === false) {
+            return false;
+        }
+
+        $list = \imap_getmailboxes($mbox, '{' . $this->mailhost . ':' . $port . '}', '*');
+        $mailboxFound = false;
+
+        if (\is_array($list)) {
+            foreach ($list as $key => $val) {
+                // get the mailbox name only
+                $nameArr = \explode('}', \imap_utf7_decode($val->name));
+                $nameRaw = $nameArr[\count($nameArr) - 1];
+                if ($mailbox == $nameRaw) {
+                    $mailboxFound = true;
+                }
+            }
+
+            if ($mailboxFound === false && $create) {
+                /** @noinspection PhpUsageOfSilenceOperatorInspection */
+                @\imap_createmailbox($mbox, \imap_utf7_encode('{' . $this->mailhost . ':' . $port . '}' . $mailbox));
+                \imap_close($mbox);
+
+                return true;
+            }
+
+            \imap_close($mbox);
+
+            return false;
+        }
+
+        \imap_close($mbox);
+
+        return false;
+    }
+
+    /**
+     * open a mail box in local file system
+     *
+     * @param string $filePath The local mailbox file path
+     *
+     * @return bool
+     */
+    public function openLocal(string $filePath): bool
+    {
+        \set_time_limit(self::SECONDS_TIMEOUT);
+
+        if (!$this->testMode) {
+            $this->mailboxLink = \imap_open($filePath, '', '', CL_EXPUNGE | ($this->testMode ? OP_READONLY : 0));
+        } else {
+            $this->mailboxLink = \imap_open($filePath, '', '', ($this->testMode ? OP_READONLY : 0));
+        }
+
+        if (!$this->mailboxLink) {
+            $this->errorMessage = 'Cannot open the mailbox file to ' . $filePath . $this->bmhNewLine . 'Error MSG: ' . \imap_last_error();
+            $this->output();
+
+            return false;
+        }
+
+        $this->output('Opened ' . $filePath);
+
+        return true;
+    }
+
+    /**
+     * open a mail box
+     *
+     * @return bool
+     */
+    public function openMailbox(): bool
+    {
+        // before starting the processing, let's check the delete flag and do global deletes if true
+        if (\trim($this->deleteMsgDate) !== '') {
+            echo 'processing global delete based on date of ' . $this->deleteMsgDate . '<br />';
+            $this->globalDelete();
+        }
+
+        // disable move operations if server is Gmail ... Gmail does not support mailbox creation
+        if (\stripos($this->mailhost, 'gmail') !== false) {
+            $this->moveSoft = false;
+            $this->moveHard = false;
+        }
+
+        $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
+
+        \set_time_limit(self::SECONDS_TIMEOUT);
+
+        if (!$this->testMode) {
+            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, CL_EXPUNGE | ($this->testMode ? OP_READONLY : 0));
+        } else {
+            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, ($this->testMode ? OP_READONLY : 0));
+        }
+
+        if (!$this->mailboxLink) {
+            $this->errorMessage = 'Cannot create ' . $this->service . ' connection to ' . $this->mailhost . $this->bmhNewLine . 'Error MSG: ' . \imap_last_error();
+            $this->output();
+
+            return false;
+        }
+
+        $this->output('Connected to: ' . $this->mailhost . ' (' . $this->mailboxUserName . ')');
+
+        return true;
     }
 
     /**
@@ -417,32 +524,186 @@ class BounceMailHandler
     }
 
     /**
-     * open a mail box in local file system
+     * Function to process each individual message.
      *
-     * @param string $filePath The local mailbox file path
+     * @param int    $pos          message number
+     * @param string $type         DNS or BODY type
+     * @param int    $totalFetched total number of messages in mailbox
      *
-     * @return bool
+     * @return array|false <p>"$result"-array or false</p>
      */
-    public function openLocal(string $filePath): bool
+    public function processBounce(int $pos, string $type, int $totalFetched)
     {
-        \set_time_limit(self::SECONDS_TIMEOUT);
+        $header = \imap_headerinfo($this->mailboxLink, $pos);
+        $subject = isset($header->subject) ? \strip_tags($header->subject) : '[NO SUBJECT]';
+        $body = '';
+        $headerFull = \imap_fetchheader($this->mailboxLink, $pos);
+        $bodyFull = \imap_body($this->mailboxLink, $pos);
 
-        if (!$this->testMode) {
-            $this->mailboxLink = \imap_open($filePath, '', '', \CL_EXPUNGE | ($this->testMode ? \OP_READONLY : 0));
+        if ($type == 'DSN') {
+            // first part of DSN (Delivery Status Notification), human-readable explanation
+            $dsnMsg = \imap_fetchbody($this->mailboxLink, $pos, '1');
+            $dsnMsgStructure = \imap_bodystruct($this->mailboxLink, $pos, '1');
+
+            if ($dsnMsgStructure->encoding == 4) {
+                $dsnMsg = \quoted_printable_decode($dsnMsg);
+            } elseif ($dsnMsgStructure->encoding == 3) {
+                $dsnMsg = \base64_decode($dsnMsg, true);
+            }
+
+            // second part of DSN (Delivery Status Notification), delivery-status
+            $dsnReport = \imap_fetchbody($this->mailboxLink, $pos, '2');
+
+            // process bounces by rules
+            $result = bmhDSNRules($dsnMsg, $dsnReport, $this->debugDsnRule);
+            $result = \is_callable($this->customDSNRulesCallback) ? \call_user_func($this->customDSNRulesCallback, $result, $dsnMsg, $dsnReport, $this->debugDsnRule) : $result;
+        } elseif ($type == 'BODY') {
+            /** @noinspection PhpUsageOfSilenceOperatorInspection */
+            $structure = @\imap_fetchstructure($this->mailboxLink, $pos);
+
+            if (!\is_object($structure)) {
+                return false;
+            }
+
+            switch ($structure->type) {
+                case 0: // Content-type = text
+                    $body = \imap_fetchbody($this->mailboxLink, $pos, '1');
+                    $result = bmhBodyRules($body, $structure, $this->debugBodyRule);
+                    $result = \is_callable($this->customBodyRulesCallback) ? \call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
+
+                    break;
+
+                case 1: // Content-type = multipart
+                    $body = \imap_fetchbody($this->mailboxLink, $pos, '1');
+
+                    // Detect encoding and decode - only base64
+                    if ($structure->parts[0]->encoding == 4) {
+                        $body = \quoted_printable_decode($body);
+                    } elseif ($structure->parts[0]->encoding == 3) {
+                        $body = \base64_decode($body, true);
+                    }
+
+                    $result = bmhBodyRules($body, $structure, $this->debugBodyRule);
+                    $result = \is_callable($this->customBodyRulesCallback) ? \call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
+
+                    break;
+
+                case 2: // Content-type = message
+                    $body = \imap_body($this->mailboxLink, $pos);
+
+                    if ($structure->encoding == 4) {
+                        $body = \quoted_printable_decode($body);
+                    } elseif ($structure->encoding == 3) {
+                        $body = \base64_decode($body, true);
+                    }
+
+                    $body = \substr($body, 0, 1000);
+                    $result = bmhBodyRules($body, $structure, $this->debugBodyRule);
+                    $result = \is_callable($this->customBodyRulesCallback) ? \call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
+
+                    break;
+
+                default: // un-support Content-type
+                    $this->output('Msg #' . $pos . ' is unsupported Content-Type:' . $structure->type, self::VERBOSE_REPORT);
+
+                    return false;
+            }
         } else {
-            $this->mailboxLink = \imap_open($filePath, '', '', ($this->testMode ? \OP_READONLY : 0));
-        }
-
-        if (!$this->mailboxLink) {
-            $this->errorMessage = 'Cannot open the mailbox file to ' . $filePath . $this->bmhNewLine . 'Error MSG: ' . \imap_last_error();
-            $this->output();
+            // internal error
+            $this->errorMessage = 'Internal Error: unknown type';
 
             return false;
         }
 
-        $this->output('Opened ' . $filePath);
+        $email = $result['email'];
+        $bounceType = $result['bounce_type'];
 
-        return true;
+        // workaround: I think there is a error in one of the reg-ex in "phpmailer-bmh_rules.php".
+        if ($email && \strpos($email, 'TO:<') !== false) {
+            $email = \str_replace('TO:<', '', $email);
+        }
+
+        if ($this->moveHard && $result['bounce_type'] == 'hard') {
+            $remove = 'moved (hard)';
+        } elseif ($this->moveSoft && $result['bounce_type'] == 'soft') {
+            $remove = 'moved (soft)';
+        } elseif ($this->disableDelete) {
+            $remove = 0;
+        } else {
+            $remove = $result['remove'];
+        }
+
+        $ruleNumber = $result['rule_no'];
+        $ruleCategory = $result['rule_cat'];
+        $status_code = $result['status_code'];
+        $action = $result['action'];
+        $diagnostic_code = $result['diagnostic_code'];
+        $xheader = false;
+
+        if ($ruleNumber === '0000') {
+            // unrecognized
+            if (
+                \trim($email) === ''
+                &&
+                \property_exists($header, 'fromaddress') === true
+            ) {
+                $email = $header->fromaddress;
+            }
+
+            if ($this->testMode) {
+                $this->output('Match: ' . $ruleNumber . ':' . $ruleCategory . '; ' . $bounceType . '; ' . $email);
+            } else {
+                // code below will use the Callback function, but return no value
+                $params = [
+                    $pos,
+                    $bounceType,
+                    $email,
+                    $subject,
+                    $header,
+                    $remove,
+                    $ruleNumber,
+                    $ruleCategory,
+                    $totalFetched,
+                    $body,
+                    $headerFull,
+                    $bodyFull,
+                    $status_code,
+                    $action,
+                    $diagnostic_code,
+                ];
+                \call_user_func_array($this->actionFunction, $params);
+            }
+        } else {
+            // match rule, do bounce action
+            if ($this->testMode) {
+                $this->output('Match: ' . $ruleNumber . ':' . $ruleCategory . '; ' . $bounceType . '; ' . $email);
+
+                return true;
+            }
+
+            $params = [
+                $pos,
+                $bounceType,
+                $email,
+                $subject,
+                $xheader,
+                $remove,
+                $ruleNumber,
+                $ruleCategory,
+                $totalFetched,
+                $body,
+                $headerFull,
+                $bodyFull,
+                $status_code,
+                $action,
+                $diagnostic_code,
+            ];
+            \call_user_func_array($this->actionFunction, $params);
+
+            return $result;
+        }
+
+        return false;
     }
 
     /**
@@ -456,10 +717,10 @@ class BounceMailHandler
     public function processMailbox($max = false): bool
     {
         if (
-        empty($this->actionFunction)
-        ||
-        !\is_callable($this->actionFunction)
-    ) {
+            empty($this->actionFunction)
+            ||
+            !\is_callable($this->actionFunction)
+        ) {
             $this->errorMessage = 'Action function not found!';
             $this->output();
 
@@ -505,26 +766,26 @@ class BounceMailHandler
 
         for ($x = 1; $x <= $fetchedCount; ++$x) {
 
-      // fetch the messages one at a time
+            // fetch the messages one at a time
             if ($this->useFetchstructure) {
                 /** @noinspection PhpUsageOfSilenceOperatorInspection */
                 $structure = @\imap_fetchstructure($this->mailboxLink, $x);
 
                 if (
-            $structure
-            &&
-            \is_object($structure)
-            &&
-            $structure->type == 1
-            &&
-            $structure->ifsubtype
-            &&
-            $structure->ifparameters
-            &&
-            \strtoupper($structure->subtype) == 'REPORT'
-            &&
-            $this->isParameter($structure->parameters, 'REPORT-TYPE', 'delivery-status')
-        ) {
+                    $structure
+                    &&
+                    \is_object($structure)
+                    &&
+                    $structure->type == 1
+                    &&
+                    $structure->ifsubtype
+                    &&
+                    $structure->ifparameters
+                    &&
+                    \strtoupper($structure->subtype) == 'REPORT'
+                    &&
+                    $this->isParameter($structure->parameters, 'REPORT-TYPE', 'delivery-status')
+                ) {
                     $processedResult = $this->processBounce($x, 'DSN', $totalCount);
                 } else {
                     // not standard DSN msg
@@ -546,10 +807,10 @@ class BounceMailHandler
                 // Could be multi-line, if the new line begins with SPACE or HTAB
                 if (\preg_match("/Content-Type:((?:[^\n]|\n[\t ])+)(?:\n[^\t ]|$)/i", $header, $match)) {
                     if (
-              \preg_match("/multipart\/report/i", $match[1])
-              &&
-              \preg_match("/report-type=[\"']?delivery-status[\"']?/i", $match[1])
-          ) {
+                        \preg_match("/multipart\/report/i", $match[1])
+                        &&
+                        \preg_match("/report-type=[\"']?delivery-status[\"']?/i", $match[1])
+                    ) {
                         // standard DSN msg
                         $processedResult = $this->processBounce($x, 'DSN', $totalCount);
                     } else {
@@ -656,268 +917,5 @@ class BounceMailHandler
         $this->output($movedCount . ' messages moved');
 
         return true;
-    }
-
-    /**
-     * Function to determine if a particular value is found in a imap_fetchstructure key.
-     *
-     * @param array  $currParameters imap_fetstructure parameters
-     * @param string $varKey         imap_fetstructure key
-     * @param string $varValue       value to check for
-     *
-     * @return bool
-     */
-    public function isParameter(array $currParameters, string $varKey, string $varValue): bool
-    {
-        foreach ($currParameters as $object) {
-            if (
-          \strtoupper($object->attribute) == \strtoupper($varKey)
-          &&
-          \strtoupper($object->value) == \strtoupper($varValue)
-      ) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Function to process each individual message.
-     *
-     * @param int    $pos          message number
-     * @param string $type         DNS or BODY type
-     * @param int    $totalFetched total number of messages in mailbox
-     *
-     * @return array|false <p>"$result"-array or false</p>
-     */
-    public function processBounce(int $pos, string $type, int $totalFetched)
-    {
-        $header = \imap_headerinfo($this->mailboxLink, $pos);
-        $subject = isset($header->subject) ? \strip_tags($header->subject) : '[NO SUBJECT]';
-        $body = '';
-        $headerFull = \imap_fetchheader($this->mailboxLink, $pos);
-        $bodyFull = \imap_body($this->mailboxLink, $pos);
-
-        if ($type == 'DSN') {
-            // first part of DSN (Delivery Status Notification), human-readable explanation
-            $dsnMsg = \imap_fetchbody($this->mailboxLink, $pos, '1');
-            $dsnMsgStructure = \imap_bodystruct($this->mailboxLink, $pos, '1');
-
-            if ($dsnMsgStructure->encoding == 4) {
-                $dsnMsg = \quoted_printable_decode($dsnMsg);
-            } elseif ($dsnMsgStructure->encoding == 3) {
-                $dsnMsg = \base64_decode($dsnMsg, true);
-            }
-
-            // second part of DSN (Delivery Status Notification), delivery-status
-            $dsnReport = \imap_fetchbody($this->mailboxLink, $pos, '2');
-
-            // process bounces by rules
-            $result = \bmhDSNRules($dsnMsg, $dsnReport, $this->debugDsnRule);
-            $result = \is_callable($this->customDSNRulesCallback) ? \call_user_func($this->customDSNRulesCallback, $result, $dsnMsg, $dsnReport, $this->debugDsnRule) : $result;
-        } elseif ($type == 'BODY') {
-            /** @noinspection PhpUsageOfSilenceOperatorInspection */
-            $structure = @\imap_fetchstructure($this->mailboxLink, $pos);
-
-            if (!\is_object($structure)) {
-                return false;
-            }
-
-            switch ($structure->type) {
-        case 0: // Content-type = text
-          $body = \imap_fetchbody($this->mailboxLink, $pos, '1');
-          $result = \bmhBodyRules($body, $structure, $this->debugBodyRule);
-          $result = \is_callable($this->customBodyRulesCallback) ? \call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
-
-          break;
-
-        case 1: // Content-type = multipart
-          $body = \imap_fetchbody($this->mailboxLink, $pos, '1');
-
-          // Detect encoding and decode - only base64
-          if ($structure->parts[0]->encoding == 4) {
-              $body = \quoted_printable_decode($body);
-          } elseif ($structure->parts[0]->encoding == 3) {
-              $body = \base64_decode($body, true);
-          }
-
-          $result = \bmhBodyRules($body, $structure, $this->debugBodyRule);
-          $result = \is_callable($this->customBodyRulesCallback) ? \call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
-
-          break;
-
-        case 2: // Content-type = message
-          $body = \imap_body($this->mailboxLink, $pos);
-
-          if ($structure->encoding == 4) {
-              $body = \quoted_printable_decode($body);
-          } elseif ($structure->encoding == 3) {
-              $body = \base64_decode($body, true);
-          }
-
-          $body = \substr($body, 0, 1000);
-          $result = \bmhBodyRules($body, $structure, $this->debugBodyRule);
-          $result = \is_callable($this->customBodyRulesCallback) ? \call_user_func($this->customBodyRulesCallback, $result, $body, $structure, $this->debugBodyRule) : $result;
-
-          break;
-
-        default: // un-support Content-type
-          $this->output('Msg #' . $pos . ' is unsupported Content-Type:' . $structure->type, self::VERBOSE_REPORT);
-
-          return false;
-      }
-        } else {
-            // internal error
-            $this->errorMessage = 'Internal Error: unknown type';
-
-            return false;
-        }
-
-        $email = $result['email'];
-        $bounceType = $result['bounce_type'];
-
-        // workaround: I think there is a error in one of the reg-ex in "phpmailer-bmh_rules.php".
-        if ($email && \strpos($email, 'TO:<') !== false) {
-            $email = \str_replace('TO:<', '', $email);
-        }
-
-        if ($this->moveHard && $result['bounce_type'] == 'hard') {
-            $remove = 'moved (hard)';
-        } elseif ($this->moveSoft && $result['bounce_type'] == 'soft') {
-            $remove = 'moved (soft)';
-        } elseif ($this->disableDelete) {
-            $remove = 0;
-        } else {
-            $remove = $result['remove'];
-        }
-
-        $ruleNumber = $result['rule_no'];
-        $ruleCategory = $result['rule_cat'];
-        $status_code = $result['status_code'];
-        $action = $result['action'];
-        $diagnostic_code = $result['diagnostic_code'];
-        $xheader = false;
-
-        if ($ruleNumber === '0000') {
-            // unrecognized
-            if (
-          \trim($email) == ''
-          &&
-          \property_exists($header, 'fromaddress') === true
-      ) {
-                $email = $header->fromaddress;
-            }
-
-            if ($this->testMode) {
-                $this->output('Match: ' . $ruleNumber . ':' . $ruleCategory . '; ' . $bounceType . '; ' . $email);
-            } else {
-                // code below will use the Callback function, but return no value
-                $params = [
-                    $pos,
-                    $bounceType,
-                    $email,
-                    $subject,
-                    $header,
-                    $remove,
-                    $ruleNumber,
-                    $ruleCategory,
-                    $totalFetched,
-                    $body,
-                    $headerFull,
-                    $bodyFull,
-                    $status_code,
-                    $action,
-                    $diagnostic_code,
-                ];
-                \call_user_func_array($this->actionFunction, $params);
-            }
-        } else {
-            // match rule, do bounce action
-            if ($this->testMode) {
-                $this->output('Match: ' . $ruleNumber . ':' . $ruleCategory . '; ' . $bounceType . '; ' . $email);
-
-                return true;
-            }
-
-            $params = [
-                $pos,
-                $bounceType,
-                $email,
-                $subject,
-                $xheader,
-                $remove,
-                $ruleNumber,
-                $ruleCategory,
-                $totalFetched,
-                $body,
-                $headerFull,
-                $bodyFull,
-                $status_code,
-                $action,
-                $diagnostic_code,
-            ];
-            \call_user_func_array($this->actionFunction, $params);
-
-            return $result;
-        }
-
-        return false;
-    }
-
-    /**
-     * Function to check if a mailbox exists - if not found, it will create it.
-     *
-     * @param string $mailbox the mailbox name, must be in 'INBOX.checkmailbox' format
-     * @param bool   $create  whether or not to create the checkmailbox if not found, defaults to true
-     *
-     * @return bool
-     */
-    public function mailboxExist(string $mailbox, bool $create = true): bool
-    {
-        if (\trim($mailbox) == '') {
-            // this is a critical error with either the mailbox name blank or an invalid mailbox name
-            // need to stop processing and exit at this point
-            echo 'Invalid mailbox name for move operation. Cannot continue: ' . $mailbox . "<br />\n";
-            exit();
-        }
-
-        $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
-        /** @noinspection PhpUsageOfSilenceOperatorInspection */
-        $mbox = @\imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, \OP_HALFOPEN);
-
-        if ($mbox === false) {
-            return false;
-        }
-
-        $list = \imap_getmailboxes($mbox, '{' . $this->mailhost . ':' . $port . '}', '*');
-        $mailboxFound = false;
-
-        if (\is_array($list)) {
-            foreach ($list as $key => $val) {
-                // get the mailbox name only
-                $nameArr = \explode('}', \imap_utf7_decode($val->name));
-                $nameRaw = $nameArr[\count($nameArr) - 1];
-                if ($mailbox == $nameRaw) {
-                    $mailboxFound = true;
-                }
-            }
-
-            if ($mailboxFound === false && $create) {
-                /** @noinspection PhpUsageOfSilenceOperatorInspection */
-                @\imap_createmailbox($mbox, \imap_utf7_encode('{' . $this->mailhost . ':' . $port . '}' . $mailbox));
-                \imap_close($mbox);
-
-                return true;
-            }
-
-            \imap_close($mbox);
-
-            return false;
-        }
-
-        \imap_close($mbox);
-
-        return false;
     }
 }

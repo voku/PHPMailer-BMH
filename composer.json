@@ -34,11 +34,14 @@
     "ext-imap": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "~6.0|~7.0"
+    "phpunit/phpunit": "~6.0 || ~7.0"
   },
   "autoload": {
     "psr-0": {
       "BounceMailHandler": "src/"
-    }
+    },
+    "files": [
+      "src/BounceMailHandler/phpmailer-bmh_rules.php"
+    ]
   }
 }
