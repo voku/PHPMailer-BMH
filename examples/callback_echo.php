@@ -7,34 +7,34 @@
 /**
  * Callback (action) function
  *
- * @param int            $msgnum       the message number returned by Bounce Mail Handler
- * @param string         $bounceType   the bounce type:
- *                                     'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'
- *                                     =>
- *                                     array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
- * @param string         $email        the target email address
- * @param string         $subject      the subject, ignore now
- * @param string         $xheader      the XBounceHeader from the mail
- * @param boolean        $remove       remove status, 1 means removed, 0 means not removed
- * @param string|boolean $ruleNo       Bounce Mail Handler detect rule no.
- * @param string|boolean $ruleCat      Bounce Mail Handler detect rule category.
- * @param int            $totalFetched total number of messages in the mailbox
- * @param string         $body         Bounce Mail Body
- * @param string         $headerFull   Bounce Mail Header
- * @param string         $bodyFull     Bounce Mail Body (full)
+ * @param int         $msgnum       the message number returned by Bounce Mail Handler
+ * @param string      $bounceType   the bounce type:
+ *                                  'antispam','autoreply','concurrent','content_reject','command_reject','internal_error','defer','delayed'
+ *                                  =>
+ *                                  array('remove'=>0,'bounce_type'=>'temporary'),'dns_loop','dns_unknown','full','inactive','latin_only','other','oversize','outofoffice','unknown','unrecognized','user_reject','warning'
+ * @param string      $email        the target email address
+ * @param string      $subject      the subject, ignore now
+ * @param string      $xheader      the XBounceHeader from the mail
+ * @param bool        $remove       remove status, 1 means removed, 0 means not removed
+ * @param bool|string $ruleNo       bounce Mail Handler detect rule no
+ * @param bool|string $ruleCat      bounce Mail Handler detect rule category
+ * @param int         $totalFetched total number of messages in the mailbox
+ * @param string      $body         Bounce Mail Body
+ * @param string      $headerFull   Bounce Mail Header
+ * @param string      $bodyFull     Bounce Mail Body (full)
  *
- * @return boolean
+ * @return bool
  */
-function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0, $body = '', $headerFull = '', $bodyFull = '')
+function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0, $body = '', $headerFull = '', $bodyFull = ''): bool
 {
-  $displayData = prepData($email, $bounceType, $remove);
-  $bounceType = $displayData['bounce_type'];
-  $emailName = $displayData['emailName'];
-  $emailAddy = $displayData['emailAddy'];
-  $remove = $displayData['remove'];
-  echo $msgnum . ': ' . $ruleNo . ' | ' . $ruleCat . ' | ' . $bounceType . ' | ' . $remove . ' | ' . $email . ' | ' . $subject . "<br />\n";
+    $displayData = prepData($email, $bounceType, $remove);
+    $bounceType = $displayData['bounce_type'];
+    $emailName = $displayData['emailName'];
+    $emailAddy = $displayData['emailAddy'];
+    $remove = $displayData['remove'];
+    echo $msgnum . ': ' . $ruleNo . ' | ' . $ruleCat . ' | ' . $bounceType . ' | ' . $remove . ' | ' . $email . ' | ' . $subject . "<br />\n";
 
-  return true;
+    return true;
 }
 
 /**
@@ -48,49 +48,49 @@ function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remov
  */
 function prepData($email, $bounceType, $remove)
 {
-  $data['bounce_type'] = trim($bounceType);
-  $data['email'] = '';
-  $data['emailName'] = '';
-  $data['emailAddy'] = '';
-  $data['remove'] = '';
-  if (strpos($email, '<') !== false) {
-    $pos_start = strpos($email, '<');
-    $data['emailName'] = trim(substr($email, 0, $pos_start));
-    $data['emailAddy'] = substr($email, $pos_start + 1);
-    $pos_end = strpos($data['emailAddy'], '>');
+    $data['bounce_type'] = \trim($bounceType);
+    $data['email'] = '';
+    $data['emailName'] = '';
+    $data['emailAddy'] = '';
+    $data['remove'] = '';
+    if (\strpos($email, '<') !== false) {
+        $pos_start = \strpos($email, '<');
+        $data['emailName'] = \trim(\substr($email, 0, $pos_start));
+        $data['emailAddy'] = \substr($email, $pos_start + 1);
+        $pos_end = \strpos($data['emailAddy'], '>');
 
-    if ($pos_end) {
-      $data['emailAddy'] = substr($data['emailAddy'], 0, $pos_end);
+        if ($pos_end) {
+            $data['emailAddy'] = \substr($data['emailAddy'], 0, $pos_end);
+        }
     }
-  }
 
-  // replace the < and > able so they display on screen
-  $email = str_replace(array('<', '>'), array('&lt;', '&gt;'), $email);
+    // replace the < and > able so they display on screen
+    $email = \str_replace(['<', '>'], ['&lt;', '&gt;'], $email);
 
-  // replace the "TO:<" with nothing
-  $email = str_ireplace('TO:<', '', $email);
+    // replace the "TO:<" with nothing
+    $email = \str_ireplace('TO:<', '', $email);
 
-  $data['email'] = $email;
+    $data['email'] = $email;
 
-  // account for legitimate emails that have no bounce type
-  if (trim($bounceType) == '') {
-    $data['bounce_type'] = 'none';
-  }
+    // account for legitimate emails that have no bounce type
+    if (\trim($bounceType) == '') {
+        $data['bounce_type'] = 'none';
+    }
 
-  // change the remove flag from true or 1 to textual representation
-  if (stripos($remove, 'moved') !== false && stripos($remove, 'hard') !== false) {
-    $data['removestat'] = 'moved (hard)';
-    $data['remove'] = '<span style="color:red;">' . 'moved (hard)' . '</span>';
-  } elseif (stripos($remove, 'moved') !== false && stripos($remove, 'soft') !== false) {
-    $data['removestat'] = 'moved (soft)';
-    $data['remove'] = '<span style="color:gray;">' . 'moved (soft)' . '</span>';
-  } elseif ($remove == true || $remove == '1') {
-    $data['removestat'] = 'deleted';
-    $data['remove'] = '<span style="color:red;">' . 'deleted' . '</span>';
-  } else {
-    $data['removestat'] = 'not deleted';
-    $data['remove'] = '<span style="color:gray;">' . 'not deleted' . '</span>';
-  }
+    // change the remove flag from true or 1 to textual representation
+    if (\stripos($remove, 'moved') !== false && \stripos($remove, 'hard') !== false) {
+        $data['removestat'] = 'moved (hard)';
+        $data['remove'] = '<span style="color:red;">' . 'moved (hard)' . '</span>';
+    } elseif (\stripos($remove, 'moved') !== false && \stripos($remove, 'soft') !== false) {
+        $data['removestat'] = 'moved (soft)';
+        $data['remove'] = '<span style="color:gray;">' . 'moved (soft)' . '</span>';
+    } elseif ($remove == true || $remove == '1') {
+        $data['removestat'] = 'deleted';
+        $data['remove'] = '<span style="color:red;">' . 'deleted' . '</span>';
+    } else {
+        $data['removestat'] = 'not deleted';
+        $data['remove'] = '<span style="color:gray;">' . 'not deleted' . '</span>';
+    }
 
-  return $data;
+    return $data;
 }

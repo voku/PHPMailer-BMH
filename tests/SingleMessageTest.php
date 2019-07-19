@@ -6,51 +6,53 @@ use BounceMailHandler\BounceMailHandler;
 
 /**
  * @group functional
+ *
+ * @internal
  */
-class SingleMessageTest extends \PHPUnit\Framework\TestCase
+final class SingleMessageTest extends \PHPUnit\Framework\TestCase
 {
-  public function testProcessMailbox()
-  {
-    $testData = array(
-      // 'filename' => array(
-      //     $fetched, $processed, $unprocessed, $deleted, $moved,
-      //     $ruleNo, $ruleCat, $bounceType, $email,
-      // ),
+    public function testProcessMailbox()
+    {
+        $testData = [
+            // 'filename' => array(
+            //     $fetched, $processed, $unprocessed, $deleted, $moved,
+            //     $ruleNo, $ruleCat, $bounceType, $email,
+            // ),
 
-      'bounce-email/tt_1234175799.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0238',
-          'dns_unknown',
-          'hard',
-          'agris.ameriks@amerimailzzz.lv',
-      ),
-      'bounce-email/tt_1234177688.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0148',
-          'unknown',
-          'hard',
-          'aaaaagggrrriiiizz@inbox.lv',
-      ),
-      'bounce-email/tt_1234210655.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0103',
-          'unknown',
-          'hard',
-          'this_doesnotexistinAAc@accenture.com',
-      ),
-      /*
+            'bounce-email/tt_1234175799.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0238',
+                'dns_unknown',
+                'hard',
+                'agris.ameriks@amerimailzzz.lv',
+            ],
+            'bounce-email/tt_1234177688.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0148',
+                'unknown',
+                'hard',
+                'aaaaagggrrriiiizz@inbox.lv',
+            ],
+            'bounce-email/tt_1234210655.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0103',
+                'unknown',
+                'hard',
+                'this_doesnotexistinAAc@accenture.com',
+            ],
+            /*
                   // @todo outofoffice if body matches /out.*of.*office/ ?
                   'bounce-email/tt_1234210666.txt' => array(
                       1, 0, 1, 0, 0,
@@ -61,287 +63,287 @@ class SingleMessageTest extends \PHPUnit\Framework\TestCase
                       1, 0, 1, 0, 0,
                       '0000', 'unrecognized', false, 'agris.ameriks@gmail.com',
                   ),
-       */
-      'bounce-email/tt_1234211357.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0205',
-          'unknown',
-          'hard',
-          'agris.ameriksNEEXISTEE@gmail.com',
-      ),
-      'bounce-email/tt_1234211929.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0105',
-          'full',
-          'soft',
-          'jekaterina@tv5.lv',
-      ),
-      'bounce-email/tt_1234211931.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0245',
-          'dns_loop',
-          'hard',
-          'info.rietumuradio.lv@mail.studio7.lv',
-      ),
-      'bounce-email/tt_1234211932.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0123',
-          'unknown',
-          'hard',
-          'dace.balode@rigasvilni.lv',
-      ),
-      // this is a non-English auto-reply without an Autoreply header
-      'bounce-email/tt_1234241664.txt'     => array(
-          1,
-          0,
-          1,
-          0,
-          0,
-          '0000',
-          'unrecognized',
-          false,
-          'ameriks@amerimail.lv',
-      ),
-      'bounce-email/tt_1234241665.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0128',
-          'unknown',
-          'hard',
-          'annas@sfl.lv',
-      ),
-      'bounce-email/tt_1234285532.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0127',
-          'unknown',
-          'hard',
-          'doesntexistthisemaill@yahoo.com',
-      ),
-      'bounce-email/tt_1234285668.txt'     => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0246',
-          'full',
-          'soft',
-          'agrisa@one.lv',
-      ),
-      'bounce-email/tt_bounce_01.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0247',
-          'dns_unknown',
-          'hard',
-          'thornborrow@connect4free.net',
-      ),
-      /*
+             */
+            'bounce-email/tt_1234211357.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0205',
+                'unknown',
+                'hard',
+                'agris.ameriksNEEXISTEE@gmail.com',
+            ],
+            'bounce-email/tt_1234211929.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0105',
+                'full',
+                'soft',
+                'jekaterina@tv5.lv',
+            ],
+            'bounce-email/tt_1234211931.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0245',
+                'dns_loop',
+                'hard',
+                'info.rietumuradio.lv@mail.studio7.lv',
+            ],
+            'bounce-email/tt_1234211932.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0123',
+                'unknown',
+                'hard',
+                'dace.balode@rigasvilni.lv',
+            ],
+            // this is a non-English auto-reply without an Autoreply header
+            'bounce-email/tt_1234241664.txt' => [
+                1,
+                0,
+                1,
+                0,
+                0,
+                '0000',
+                'unrecognized',
+                false,
+                'ameriks@amerimail.lv',
+            ],
+            'bounce-email/tt_1234241665.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0128',
+                'unknown',
+                'hard',
+                'annas@sfl.lv',
+            ],
+            'bounce-email/tt_1234285532.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0127',
+                'unknown',
+                'hard',
+                'doesntexistthisemaill@yahoo.com',
+            ],
+            'bounce-email/tt_1234285668.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0246',
+                'full',
+                'soft',
+                'agrisa@one.lv',
+            ],
+            'bounce-email/tt_bounce_01.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0247',
+                'dns_unknown',
+                'hard',
+                'thornborrow@connect4free.net',
+            ],
+            /*
                   // duplicates tt_bounce_01.txt
                   'bounce-email/tt_bounce_02.txt' => array(
                       1, 1, 0, 1, 0,
                       '0247', 'dns_unknown', 'hard', 'thornborrow@connect4free.net',
                   ),
-      */
-      'bounce-email/tt_bounce_03.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0248',
-          'content_reject',
-          'soft',
-          'agrisa@apollo.lv',
-      ),
-      /*
+             */
+            'bounce-email/tt_bounce_03.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0248',
+                'content_reject',
+                'soft',
+                'agrisa@apollo.lv',
+            ],
+            /*
                   // duplicates tt_bounce_03.txt
                   'bounce-email/tt_bounce_04.txt' => array(
                       1, 1, 0, 1, 0,
                       '0248', 'content_reject', 'soft', 'agrisa@apollo.lv',
                   ),
-       */
-      'bounce-email/tt_bounce_05.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0249',
-          'unknown',
-          'hard',
-          'evor@apollo.lv',
-      ),
-      'bounce-email/tt_bounce_05.eml'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0128',
-          'unknown',
-          'hard',
-          'evor@apollo.lv',
-      ),
-      'bounce-email/tt_bounce_06.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0250',
-          'antispam',
-          'blocked',
-          'info@koblenz.lv',
-      ),
-      'bounce-email/tt_bounce_07.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0236',
-          'unknown',
-          'hard',
-          'ilona.kalnina@citrus.lv',
-      ),
-      'bounce-email/tt_bounce_08.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0251',
-          'dns_unknown',
-          'hard',
-          'jauatkales@gmial.com',
-      ),
-      /*
+             */
+            'bounce-email/tt_bounce_05.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0249',
+                'unknown',
+                'hard',
+                'evor@apollo.lv',
+            ],
+            'bounce-email/tt_bounce_05.eml' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0128',
+                'unknown',
+                'hard',
+                'evor@apollo.lv',
+            ],
+            'bounce-email/tt_bounce_06.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0250',
+                'antispam',
+                'blocked',
+                'info@koblenz.lv',
+            ],
+            'bounce-email/tt_bounce_07.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0236',
+                'unknown',
+                'hard',
+                'ilona.kalnina@citrus.lv',
+            ],
+            'bounce-email/tt_bounce_08.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0251',
+                'dns_unknown',
+                'hard',
+                'jauatkales@gmial.com',
+            ],
+            /*
                   // duplicates tt_bounce_08.txt
                   'bounce-email/tt_bounce_09.txt' => array(
                       1, 1, 0, 1, 0,
                       '0251', 'dns_unknown', 'hard', 'gintsgrube@pop.ml.lv',
                   ),
-       */
-      /*
+             */
+            /*
                   // @todo review (diag_code contains "X-Postfix; temporary failure)
                   'bounce-email/tt_bounce_10.txt' => array(
                       1, 0, 1, 0, 0,
                       '', '', '', 'info.rietumuradio.lv@mail.studio7.lv',
                   ),
-       */
-      /*
+             */
+            /*
                   // body contains "did not reach the following recipient(s)"; email unparseable
                   // @todo why is $email == $_ENV['USER'].'@'.$_ENV['HOSTNAME'] ?
                   'bounce-email/tt_bounce_11.txt' => array(
                       1, 0, 1, 0, 0,
                       '0000', 'unrecognized', false, '',
                   ),
-      */
-      'bounce-email/tt_bounce_12_soft.txt' => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0252',
-          'delayed',
-          'temporary',
-          'info@radioliepaja.lv',
-      ),
-      'bounce-email/tt_bounce_13.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0013',
-          'unknown',
-          'hard',
-          'ilzeB@lvaei.lv',
-      ),
-      'bounce-email/tt_bounce_14.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0253',
-          'full',
-          'soft',
-          'jolanta_putnina@ogreszinas.lv',
-      ),
-      'bounce-email/tt_bounce_15.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0254',
-          'unknown',
-          'hard',
-          'info@rimibaltic.com',
-      ),
-      'bounce-email/tt_bounce_16.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0182',
-          'full',
-          'soft',
-          'notikums@tv5.lv',
-      ),
-      'bounce-email/tt_bounce_17.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0157',
-          'unknown',
-          'hard',
-          'agris.brivers@motosports.lv',
-      ),
-      'bounce-email/tt_bounce_18.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0256',
-          'delayed',
-          'temporary',
-          'welcome6_@one.lv',
-      ),
-      /*
+             */
+            'bounce-email/tt_bounce_12_soft.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0252',
+                'delayed',
+                'temporary',
+                'info@radioliepaja.lv',
+            ],
+            'bounce-email/tt_bounce_13.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0013',
+                'unknown',
+                'hard',
+                'ilzeB@lvaei.lv',
+            ],
+            'bounce-email/tt_bounce_14.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0253',
+                'full',
+                'soft',
+                'jolanta_putnina@ogreszinas.lv',
+            ],
+            'bounce-email/tt_bounce_15.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0254',
+                'unknown',
+                'hard',
+                'info@rimibaltic.com',
+            ],
+            'bounce-email/tt_bounce_16.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0182',
+                'full',
+                'soft',
+                'notikums@tv5.lv',
+            ],
+            'bounce-email/tt_bounce_17.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0157',
+                'unknown',
+                'hard',
+                'agris.brivers@motosports.lv',
+            ],
+            'bounce-email/tt_bounce_18.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0256',
+                'delayed',
+                'temporary',
+                'welcome6_@one.lv',
+            ],
+            /*
                   // @todo review
                   'bounce-email/tt_bounce_19.txt' => array(
                       1, 0, 1, 0, 0,
@@ -362,20 +364,20 @@ class SingleMessageTest extends \PHPUnit\Framework\TestCase
                       1, 0, 1, 0, 0,
                       '', '', '', '',
                   ),
-      */
-      // @todo review
-      'bounce-email/tt_bounce_23.txt'      => array(
-          1,
-          1,
-          0,
-          1,
-          0,
-          '0236',
-          'unknown',
-          'hard',
-          'Rihards_Freimanis@exigengroup.com',
-      ),
-      /*
+             */
+            // @todo review
+            'bounce-email/tt_bounce_23.txt' => [
+                1,
+                1,
+                0,
+                1,
+                0,
+                '0236',
+                'unknown',
+                'hard',
+                'Rihards_Freimanis@exigengroup.com',
+            ],
+            /*
                   // @todo review
                   'bouncehammer/cannot-parse.eml' => array(
                       1, 0, 1, 0, 0,
@@ -1416,76 +1418,77 @@ class SingleMessageTest extends \PHPUnit\Framework\TestCase
                       1, 0, 1, 0, 0,
                       '', '', '', '',
                   ),
-       */
-    );
+             */
+        ];
 
-    $self = $this;
-    $bmh = new BounceMailHandler;
-    $bmh->testMode = true;
+        $self = $this;
+        $bmh = new BounceMailHandler();
+        $bmh->testMode = true;
 
-    foreach ($testData as $testFile => $expected) {
-      list($fetched, $processed, $unprocessed, $deleted, $moved, $ruleNo, $ruleCat, $bounceType, $email) = $expected;
+        foreach ($testData as $testFile => $expected) {
+            list($fetched, $processed, $unprocessed, $deleted, $moved, $ruleNo, $ruleCat, $bounceType, $email) = $expected;
 
-      ob_start();
-      $rc = $bmh->openLocal($this->getMailboxPath(__DIR__ . '/fixtures/' . $testFile));
-      ob_end_clean();
+            \ob_start();
+            $rc = $bmh->openLocal($this->getMailboxPath(__DIR__ . '/fixtures/' . $testFile));
+            \ob_end_clean();
 
-      self::assertTrue($rc, $testFile . ': openLocal');
+            static::assertTrue($rc, $testFile . ': openLocal');
 
-      $bmh->actionFunction =
-          function ($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo, $ruleCat, $totalFetched, $body) use ($self, $testFile, $expected) {
-            return $remove === true || $remove === 1;
+            $bmh->actionFunction =
+          static function ($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo, $ruleCat, $totalFetched, $body) use ($self, $testFile, $expected) {
+              return $remove === true || $remove === 1;
           };
 
-      ob_start();
-      $rc = $bmh->processMailbox();
-      $output = ob_get_contents();
-      ob_end_clean();
+            \ob_start();
+            $rc = $bmh->processMailbox();
+            $output = \ob_get_contents();
+            \ob_end_clean();
 
-      self::assertTrue($rc, $testFile . ': processMailbox');
+            static::assertTrue($rc, $testFile . ': processMailbox');
 
-      preg_match('/Read: ([0-9]+) messages/', $output, $matches);
-      self::assertSame((string)$fetched, $matches[1], $testFile . ': messages read');
+            \preg_match('/Read: ([0-9]+) messages/', $output, $matches);
+            static::assertSame((string) $fetched, $matches[1], $testFile . ': messages read');
 
-      preg_match('/([0-9]+) action taken/', $output, $matches);
-      self::assertSame((string)$processed, $matches[1], $testFile . ': action taken');
+            \preg_match('/([0-9]+) action taken/', $output, $matches);
+            static::assertSame((string) $processed, $matches[1], $testFile . ': action taken');
 
-      preg_match('/([0-9]+) no action taken/', $output, $matches);
-      self::assertSame((string)$unprocessed, $matches[1], $testFile . ': no action taken');
+            \preg_match('/([0-9]+) no action taken/', $output, $matches);
+            static::assertSame((string) $unprocessed, $matches[1], $testFile . ': no action taken');
 
-      preg_match('/([0-9]+) messages deleted/', $output, $matches);
-      self::assertSame((string)$deleted, $matches[1], $testFile . ': messages deleted');
+            \preg_match('/([0-9]+) messages deleted/', $output, $matches);
+            static::assertSame((string) $deleted, $matches[1], $testFile . ': messages deleted');
 
-      preg_match('/([0-9]+) messages moved/', $output, $matches);
-      self::assertSame((string)$moved, $matches[1], $testFile . ': messages moved');
+            \preg_match('/([0-9]+) messages moved/', $output, $matches);
+            static::assertSame((string) $moved, $matches[1], $testFile . ': messages moved');
 
-      preg_match('/Match: ([^:]+):([^;]+); ([^;]*); <?([^<]*)/', $output, $matches);
-      self::assertSame((string)$ruleNo, $matches[1], $testFile . ': rule_no');
-      self::assertSame((string)$ruleCat, $matches[2], $testFile . ': rule_cat');
-      self::assertSame((string)$bounceType, $matches[3], $testFile . ': bounce_type'); // false
-      self::assertSame((string)$email, $matches[4], $testFile . ': email');
-    }
-  }
-
-  /**
-   * @param $localMailboxPath
-   *
-   * @return string
-   * @throws \Exception
-   */
-  protected function getMailboxPath($localMailboxPath)
-  {
-    if (!file_exists($localMailboxPath)) {
-      throw new \Exception('Local mailbox doesn\'t exist: ' . $localMailboxPath);
+            \preg_match('/Match: ([^:]+):([^;]+); ([^;]*); <?([^<]*)/', $output, $matches);
+            static::assertSame((string) $ruleNo, $matches[1], $testFile . ': rule_no');
+            static::assertSame((string) $ruleCat, $matches[2], $testFile . ': rule_cat');
+            static::assertSame((string) $bounceType, $matches[3], $testFile . ': bounce_type'); // false
+            static::assertSame((string) $email, $matches[4], $testFile . ': email');
+        }
     }
 
-    $localMailboxPath = realpath($localMailboxPath);
+    /**
+     * @param $localMailboxPath
+     *
+     * @throws \Exception
+     *
+     * @return string
+     */
+    protected function getMailboxPath($localMailboxPath): string
+    {
+        if (!\file_exists($localMailboxPath)) {
+            throw new \Exception('Local mailbox doesn\'t exist: ' . $localMailboxPath);
+        }
 
-    $homeDirectory = getenv('HOME');
-    if (strncmp($localMailboxPath, $homeDirectory . DIRECTORY_SEPARATOR, strlen($homeDirectory) + 1)) {
-      throw new \Exception('Mailbox must be under home directory: ' . $homeDirectory);
+        $localMailboxPath = \realpath($localMailboxPath);
+
+        $homeDirectory = \getenv('HOME');
+        if (\strncmp($localMailboxPath, $homeDirectory . \DIRECTORY_SEPARATOR, \strlen($homeDirectory) + 1)) {
+            throw new \Exception('Mailbox must be under home directory: ' . $homeDirectory);
+        }
+
+        return \substr($localMailboxPath, \strlen($homeDirectory) + 1);
     }
-
-    return substr($localMailboxPath, strlen($homeDirectory) + 1);
-  }
 }

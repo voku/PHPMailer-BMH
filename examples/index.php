@@ -90,9 +90,9 @@ echo 'Seconds to process: ' . $time . '<br />';
 /**
  * @return float
  */
-function microtime_float()
+function microtime_float(): float
 {
-  list($usec, $sec) = explode(' ', microtime());
+    list($usec, $sec) = \explode(' ', \microtime());
 
-  return ((float)$usec + (float)$sec);
+    return (float) $usec + (float) $sec;
 }
