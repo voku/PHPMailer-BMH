@@ -342,15 +342,21 @@ class BounceMailHandler
                     }
 
                     \imap_expunge($mboxd);
+                    \imap_errors();
+                    \imap_alerts();
                     \imap_close($mboxd);
                 }
             }
 
+            \imap_errors();
+            \imap_alerts();
             \imap_close($mboxt);
 
             return true;
         }
 
+        \imap_errors();
+        \imap_alerts();
         \imap_close($mboxt);
 
         return false;
@@ -421,16 +427,22 @@ class BounceMailHandler
             if ($mailboxFound === false && $create) {
                 /** @noinspection PhpUsageOfSilenceOperatorInspection */
                 @\imap_createmailbox($mbox, \imap_utf7_encode('{' . $this->mailhost . ':' . $port . '}' . $mailbox));
+                \imap_errors();
+                \imap_alerts();
                 \imap_close($mbox);
 
                 return true;
             }
 
+            \imap_errors();
+            \imap_alerts();
             \imap_close($mbox);
 
             return false;
         }
 
+        \imap_errors();
+        \imap_alerts();
         \imap_close($mbox);
 
         return false;
