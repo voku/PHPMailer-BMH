@@ -817,7 +817,7 @@ class BounceMailHandler
                 $header = \imap_fetchheader($this->mailboxLink, $x);
 
                 // Could be multi-line, if the new line begins with SPACE or HTAB
-                if (\preg_match("/Content-Type:((?:[^\n]|\n[\t ])+)(?:\n[^\t ]|$)/i", $header, $match)) {
+                if ($header && \preg_match("/Content-Type:((?:[^\n]|\n[\t ])+)(?:\n[^\t ]|$)/i", $header, $match)) {
                     if (
                         \preg_match("/multipart\/report/i", $match[1])
                         &&
