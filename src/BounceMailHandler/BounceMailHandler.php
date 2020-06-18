@@ -311,7 +311,7 @@ class BounceMailHandler
     public function globalDelete(): bool
     {
         $dateArr = \explode('-', $this->deleteMsgDate); // date format is yyyy-mm-dd
-        $delDate = \mktime(0, 0, 0, $dateArr[1], $dateArr[2], $dateArr[0]);
+        $delDate = \mktime(0, 0, 0, intval($dateArr[1]), intval($dateArr[2]), intval($dateArr[0]));
 
         $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
         $mboxt = \imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
