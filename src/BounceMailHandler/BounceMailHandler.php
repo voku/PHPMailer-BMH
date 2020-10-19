@@ -311,7 +311,7 @@ class BounceMailHandler
     public function globalDelete(): bool
     {
         $dateArr = \explode('-', $this->deleteMsgDate); // date format is yyyy-mm-dd
-        $delDate = \mktime(0, 0, 0, $dateArr[1], $dateArr[2], $dateArr[0]);
+        $delDate = \mktime(0, 0, 0, intval($dateArr[1]), intval($dateArr[2]), intval($dateArr[0]));
 
         $port = $this->port . '/' . $this->service . '/' . $this->serviceOption;
         $mboxt = \imap_open('{' . $this->mailhost . ':' . $port . '}', $this->mailboxUserName, $this->mailboxPassword, OP_HALFOPEN);
@@ -342,15 +342,21 @@ class BounceMailHandler
                     }
 
                     \imap_expunge($mboxd);
+                    \imap_errors();
+                    \imap_alerts();
                     \imap_close($mboxd);
                 }
             }
 
+            \imap_errors();
+            \imap_alerts();
             \imap_close($mboxt);
 
             return true;
         }
 
+        \imap_errors();
+        \imap_alerts();
         \imap_close($mboxt);
 
         return false;
@@ -421,16 +427,22 @@ class BounceMailHandler
             if ($mailboxFound === false && $create) {
                 /** @noinspection PhpUsageOfSilenceOperatorInspection */
                 @\imap_createmailbox($mbox, \imap_utf7_encode('{' . $this->mailhost . ':' . $port . '}' . $mailbox));
+                \imap_errors();
+                \imap_alerts();
                 \imap_close($mbox);
 
                 return true;
             }
 
+            \imap_errors();
+            \imap_alerts();
             \imap_close($mbox);
 
             return false;
         }
 
+        \imap_errors();
+        \imap_alerts();
         \imap_close($mbox);
 
         return false;
@@ -805,7 +817,7 @@ class BounceMailHandler
                 $header = \imap_fetchheader($this->mailboxLink, $x);
 
                 // Could be multi-line, if the new line begins with SPACE or HTAB
-                if (\preg_match("/Content-Type:((?:[^\n]|\n[\t ])+)(?:\n[^\t ]|$)/i", $header, $match)) {
+                if ($header && \preg_match("/Content-Type:((?:[^\n]|\n[\t ])+)(?:\n[^\t ]|$)/i", $header, $match)) {
                     if (
                         \preg_match("/multipart\/report/i", $match[1])
                         &&
