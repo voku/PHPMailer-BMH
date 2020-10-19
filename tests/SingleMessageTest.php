@@ -1434,10 +1434,9 @@ final class SingleMessageTest extends \PHPUnit\Framework\TestCase
 
             static::assertTrue($rc, $testFile . ': openLocal');
 
-            $bmh->actionFunction =
-          static function ($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo, $ruleCat, $totalFetched, $body) use ($self, $testFile, $expected) {
-              return $remove === true || $remove === 1;
-          };
+            $bmh->actionFunction = static function ($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo, $ruleCat, $totalFetched, $body) use ($self, $testFile, $expected) {
+                return $remove === true || $remove === 1;
+            };
 
             \ob_start();
             $rc = $bmh->processMailbox();

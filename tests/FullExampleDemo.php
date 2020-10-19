@@ -39,32 +39,32 @@ class FullExampleDemo
         $bmh->verbose = BounceMailHandler::VERBOSE_DEBUG;
 
         //$bmh->useFetchStructure  = true; // true is default, no need to specify
-    //$bmh->testMode           = false; // false is default, no need to specify
-    //$bmh->debugBodyRule      = false; // false is default, no need to specify
-    //$bmh->debugDsnRule       = false; // false is default, no need to specify
-    //$bmh->purgeUnprocessed   = false; // false is default, no need to specify
-    $bmh->disableDelete = true; // false is default, no need to specify
+        //$bmh->testMode           = false; // false is default, no need to specify
+        //$bmh->debugBodyRule      = false; // false is default, no need to specify
+        //$bmh->debugDsnRule       = false; // false is default, no need to specify
+        //$bmh->purgeUnprocessed   = false; // false is default, no need to specify
+        $bmh->disableDelete = true; // false is default, no need to specify
 
-    /*
-     * for remote mailbox
-     */
+        /*
+         * for remote mailbox
+         */
         $bmh->mailhost = '127.0.0.1'; // your mail server
-    $bmh->mailboxUserName = 'testuser'; // your mailbox username
-    $bmh->mailboxPassword = 'applesauce'; // your mailbox password
-    $bmh->port = 993; // the port to access your mailbox, default is 143
-    $bmh->service = 'imap'; // the service to use (imap or pop3), default is 'imap'
-    $bmh->serviceOption = 'ssl/novalidate-cert'; // the service options (none, tls, notls, ssl, etc.), default is 'notls'
-    $bmh->boxname = 'INBOX'; // the mailbox to access, default is 'INBOX'
+        $bmh->mailboxUserName = 'testuser'; // your mailbox username
+        $bmh->mailboxPassword = 'applesauce'; // your mailbox password
+        $bmh->port = 993; // the port to access your mailbox, default is 143
+        $bmh->service = 'imap'; // the service to use (imap or pop3), default is 'imap'
+        $bmh->serviceOption = 'ssl/novalidate-cert'; // the service options (none, tls, notls, ssl, etc.), default is 'notls'
+        $bmh->boxname = 'INBOX'; // the mailbox to access, default is 'INBOX'
 
-    $bmh->moveHard = true; // default is false
-    $bmh->hardMailbox = 'INBOX.hardtest'; // default is 'INBOX.hard' - NOTE: must start with 'INBOX.'
-    $bmh->moveSoft = true; // default is false
-    $bmh->softMailbox = 'INBOX.softtest'; // default is 'INBOX.soft' - NOTE: must start with 'INBOX.'
-    //$bmh->deleteMsgDate      = date('Y-m-d', strtotime('last month')); // format must be as 'yyyy-mm-dd'
+        $bmh->moveHard = true; // default is false
+        $bmh->hardMailbox = 'INBOX.hardtest'; // default is 'INBOX.hard' - NOTE: must start with 'INBOX.'
+        $bmh->moveSoft = true; // default is false
+        $bmh->softMailbox = 'INBOX.softtest'; // default is 'INBOX.soft' - NOTE: must start with 'INBOX.'
+        //$bmh->deleteMsgDate      = date('Y-m-d', strtotime('last month')); // format must be as 'yyyy-mm-dd'
 
-    /*
-     * rest used regardless what type of connection it is
-     */
+        /*
+         * rest used regardless what type of connection it is
+         */
         $bmh->openMailbox();
         $bmh->processMailbox();
     }
@@ -95,28 +95,11 @@ class FullExampleDemo
      */
     public function callbackActionBounceHandler($msgnum, $bounceType, $email, $subject, /** @noinspection PhpUnusedParameterInspection */ $header, $remove, $ruleNo = false, $ruleCat = false, /** @noinspection PhpUnusedParameterInspection */ $totalFetched = 0, /** @noinspection PhpUnusedParameterInspection */ $body = '', /** @noinspection PhpUnusedParameterInspection */ $headerFull = '', /** @noinspection PhpUnusedParameterInspection */ $bodyFull = ''): bool
     {
-        // init
-        //$db = DB::getInstance();
-
         $displayData = $this->prepDataForCallbackActionBounceHandler($email, $bounceType, $remove);
         $bounceType = $displayData['bounce_type'];
         //$emailName = $displayData['emailName'];
         //$emailAddy = $displayData['emailAddy'];
         $remove = $displayData['remove'];
-
-        if ($bounceType == 'hard') {
-
-      // increase hard-bounce counter for this recipient
-      /*
-      $sqlUpdate = "UPDATE pmaauto_recipients
-        SET
-          recipient_hardbounce_counter = recipient_hardbounce_counter+1,
-          recipient_hardbounce_date = NOW()
-        WHERE recipient_email = '" . $db->escape($email) . "'
-      ";
-      $db->query($sqlUpdate);
-       */
-        }
 
         // debug-output
         $this->debug .= $msgnum . ': ' . $ruleNo . ' | ' . $ruleCat . ' | ' . $bounceType . ' | ' . $remove . ' | ' . $email . ' | ' . $subject . "<br />\n";

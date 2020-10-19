@@ -908,7 +908,8 @@ class BounceMailHandler
 
         /** @noinspection PhpUsageOfSilenceOperatorInspection */
         @\imap_expunge($this->mailboxLink);
-        \imap_close($this->mailboxLink);
+        /** @noinspection PhpUsageOfSilenceOperatorInspection */
+        @\imap_close($this->mailboxLink);
 
         $this->output('Read: ' . $fetchedCount . ' messages');
         $this->output($processedCount . ' action taken');
