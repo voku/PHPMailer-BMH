@@ -96,6 +96,7 @@ class FullExampleDemo
     public function callbackActionBounceHandler($msgnum, $bounceType, $email, $subject, /** @noinspection PhpUnusedParameterInspection */ $header, $remove, $ruleNo = false, $ruleCat = false, /** @noinspection PhpUnusedParameterInspection */ $totalFetched = 0, /** @noinspection PhpUnusedParameterInspection */ $body = '', /** @noinspection PhpUnusedParameterInspection */ $headerFull = '', /** @noinspection PhpUnusedParameterInspection */ $bodyFull = ''): bool
     {
         $displayData = $this->prepDataForCallbackActionBounceHandler($email, $bounceType, $remove);
+
         $bounceType = $displayData['bounce_type'];
         //$emailName = $displayData['emailName'];
         //$emailAddy = $displayData['emailAddy'];
@@ -149,24 +150,24 @@ class FullExampleDemo
 
         // change the remove flag from true or 1 to textual representation
         if (
-        \stripos($remove, 'moved') !== false
-        &&
-        \stripos($remove, 'hard') !== false
-    ) {
+            \stripos($remove, 'moved') !== false
+            &&
+            \stripos($remove, 'hard') !== false
+        ) {
             $data['removestat'] = 'moved (hard)';
             $data['remove'] = '<span style="color:red;">' . 'moved (hard)' . '</span>';
         } elseif (
-        \stripos($remove, 'moved') !== false
-        &&
-        \stripos($remove, 'soft') !== false
-    ) {
+            \stripos($remove, 'moved') !== false
+            &&
+            \stripos($remove, 'soft') !== false
+        ) {
             $data['removestat'] = 'moved (soft)';
             $data['remove'] = '<span style="color:gray;">' . 'moved (soft)' . '</span>';
         } elseif (
-        $remove == true
-        ||
-        $remove == '1'
-    ) {
+            $remove == true
+            ||
+            $remove == '1'
+        ) {
             $data['removestat'] = 'deleted';
             $data['remove'] = '<span style="color:red;">' . 'deleted' . '</span>';
         } else {
