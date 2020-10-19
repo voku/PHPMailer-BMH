@@ -342,20 +342,26 @@ class BounceMailHandler
                     }
 
                     \imap_expunge($mboxd);
+                    /** @noinspection UnusedFunctionResultInspection */
                     \imap_errors();
+                    /** @noinspection UnusedFunctionResultInspection */
                     \imap_alerts();
                     \imap_close($mboxd);
                 }
             }
 
+            /** @noinspection UnusedFunctionResultInspection */
             \imap_errors();
+            /** @noinspection UnusedFunctionResultInspection */
             \imap_alerts();
             \imap_close($mboxt);
 
             return true;
         }
 
+        /** @noinspection UnusedFunctionResultInspection */
         \imap_errors();
+        /** @noinspection UnusedFunctionResultInspection */
         \imap_alerts();
         \imap_close($mboxt);
 
@@ -427,21 +433,27 @@ class BounceMailHandler
             if ($mailboxFound === false && $create) {
                 /** @noinspection PhpUsageOfSilenceOperatorInspection */
                 @\imap_createmailbox($mbox, \imap_utf7_encode('{' . $this->mailhost . ':' . $port . '}' . $mailbox));
+                /** @noinspection UnusedFunctionResultInspection */
                 \imap_errors();
+                /** @noinspection UnusedFunctionResultInspection */
                 \imap_alerts();
                 \imap_close($mbox);
 
                 return true;
             }
 
+            /** @noinspection UnusedFunctionResultInspection */
             \imap_errors();
+            /** @noinspection UnusedFunctionResultInspection */
             \imap_alerts();
             \imap_close($mbox);
 
             return false;
         }
 
+        /** @noinspection UnusedFunctionResultInspection */
         \imap_errors();
+        /** @noinspection UnusedFunctionResultInspection */
         \imap_alerts();
         \imap_close($mbox);
 
@@ -460,9 +472,9 @@ class BounceMailHandler
         \set_time_limit(self::SECONDS_TIMEOUT);
 
         if (!$this->testMode) {
-            $this->mailboxLink = \imap_open($filePath, '', '', CL_EXPUNGE | ($this->testMode ? OP_READONLY : 0));
+            $this->mailboxLink = \imap_open($filePath, '', '', CL_EXPUNGE);
         } else {
-            $this->mailboxLink = \imap_open($filePath, '', '', ($this->testMode ? OP_READONLY : 0));
+            $this->mailboxLink = \imap_open($filePath, '', '', OP_READONLY);
         }
 
         if (!$this->mailboxLink) {
@@ -501,9 +513,9 @@ class BounceMailHandler
         \set_time_limit(self::SECONDS_TIMEOUT);
 
         if (!$this->testMode) {
-            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, CL_EXPUNGE | ($this->testMode ? OP_READONLY : 0));
+            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, CL_EXPUNGE);
         } else {
-            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, ($this->testMode ? OP_READONLY : 0));
+            $this->mailboxLink = \imap_open('{' . $this->mailhost . ':' . $port . '}' . $this->boxname, $this->mailboxUserName, $this->mailboxPassword, OP_READONLY);
         }
 
         if (!$this->mailboxLink) {
