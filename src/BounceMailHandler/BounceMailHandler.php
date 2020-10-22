@@ -262,6 +262,13 @@ class BounceMailHandler
      */
     public $hardMailbox = 'INBOX.hard';
 
+    /**
+     * determines if unprocessed bounces will be moved to another mailbox folder
+     *
+     * @var bool
+     */
+    public $moveUnprocessed = true;
+
     /*
      * Mailbox folder to move unprocessed mails
      * @var string
@@ -917,12 +924,14 @@ class BounceMailHandler
                     ++$deletedCount;
                 }
 
-                // check if the move directory exists, if not create it
-                $this->mailboxExist($this->unprocessedBox);
-                // move the message
-                /** @noinspection PhpUsageOfSilenceOperatorInspection */
-                @\imap_mail_move($this->mailboxLink, (string) $x, $this->unprocessedBox);
-                $moveFlag[$x] = true;
+                if ($this->moveUnprocessed) {
+                    // check if the move directory exists, if not create it
+                    $this->mailboxExist($this->unprocessedBox);
+                    // move the message
+                    /** @noinspection PhpUsageOfSilenceOperatorInspection */
+                    @\imap_mail_move($this->mailboxLink, (string)$x, $this->unprocessedBox);
+                    $moveFlag[$x] = true;
+                }
             }
 
             \flush();
