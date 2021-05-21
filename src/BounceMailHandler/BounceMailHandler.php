@@ -876,7 +876,7 @@ class BounceMailHandler
                     // delete the bounce if not in disableDelete mode
                     if (!$this->testMode) {
                         /** @noinspection PhpUsageOfSilenceOperatorInspection */
-                        @\imap_delete($this->mailboxLink, $x);
+                        @\imap_delete($this->mailboxLink, (string)$x);
                     }
 
                     $deleteFlag[$x] = true;
@@ -917,7 +917,7 @@ class BounceMailHandler
                     // delete this bounce if not in disableDelete mode, and the flag BOUNCE_PURGE_UNPROCESSED is set
                     if (!$this->testMode) {
                         /** @noinspection PhpUsageOfSilenceOperatorInspection */
-                        @\imap_delete($this->mailboxLink, $x);
+                        @\imap_delete($this->mailboxLink, (string)$x);
                     }
 
                     $deleteFlag[$x] = true;
