@@ -577,14 +577,14 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false): array
 
     // ======= parse $dsn_report ======
     // get the recipient email
-    if (\preg_match('/Original-Recipient: rfc822;(.*)/i', $dsn_report, $match)) {
+    if (\preg_match('/Original-Recipient:\s*rfc822;(.*)/i', $dsn_report, $match)) {
         $email = \trim($match[1], "<> \t\r\n\0\x0B");
         /** @noinspection PhpUsageOfSilenceOperatorInspection */
         $email_arr = @\imap_rfc822_parse_adrlist($email, 'default.domain.name');
         if (isset($email_arr[0]->host) && $email_arr[0]->host != '.SYNTAX-ERROR.' && $email_arr[0]->host != 'default.domain.name') {
             $result['email'] = $email_arr[0]->mailbox . '@' . $email_arr[0]->host;
         }
-    } elseif (\preg_match('/Final-Recipient: rfc822;(.*)/i', $dsn_report, $match)) {
+    } elseif (\preg_match('/Final-Recipient:\s*rfc822;(.*)/i', $dsn_report, $match)) {
         $email = \trim($match[1], "<> \t\r\n\0\x0B");
         /** @noinspection PhpUsageOfSilenceOperatorInspection */
         $email_arr = @\imap_rfc822_parse_adrlist($email, 'default.domain.name');
@@ -593,12 +593,12 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false): array
         }
     }
 
-    if (\preg_match('/Action: (.+)/i', $dsn_report, $match)) {
+    if (\preg_match('/Action:\s*(.+)/i', $dsn_report, $match)) {
         $action = \strtolower(\trim($match[1]));
         $result['action'] = $action;
     }
 
-    if (\preg_match("/Status: ([0-9\.]+)/i", $dsn_report, $match)) {
+    if (\preg_match("/Status:\s*([0-9\.]+)/i", $dsn_report, $match)) {
         $status_code = $match[1];
         $result['status_code'] = $status_code;
     }
