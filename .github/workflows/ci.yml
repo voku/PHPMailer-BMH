@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    name: Validate dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: shivammathur/setup-php@2.37.0
+        with:
+          php-version: '8.3'
+          coverage: none
+          extensions: imap
+          tools: composer:v2
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Install dependencies
+        run: composer update --no-interaction --prefer-dist
+
+      - name: Audit dependencies
+        run: composer audit
+
+  test:
+    name: PHPUnit (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - '7.2'
+          - '7.4'
+          - '8.3'
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: shivammathur/setup-php@2.37.0
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          extensions: imap
+          tools: composer:v2
+
+      - name: Prepare Dovecot mailbox fixture
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq -y install dovecot-imapd dovecot-pop3d
+          sudo touch /etc/dovecot/local.conf
+          sudo chmod 777 /etc/dovecot/local.conf
+          sudo sh -c "printf '%s\n' 'listen = *, [::]' >> /etc/dovecot/local.conf"
+          sudo sh -c "printf '%s\n' 'mail_location = maildir:/home/%u/Maildir' >> /etc/dovecot/local.conf"
+          sudo sh -c "printf '%s\n' 'disable_plaintext_auth = no' >> /etc/dovecot/local.conf"
+          sudo sh -c "printf '%s\n' 'mail_max_userip_connections = 10000' >> /etc/dovecot/local.conf"
+          sudo service dovecot restart
+          sudo useradd testuser -m -s /bin/bash
+          echo "testuser:applesauce" | sudo chpasswd
+          sudo service dovecot stop
+          sudo mkdir -p /home/testuser/
+          sudo cp -Rp tests/resources/Maildir /home/testuser/
+          sudo chown -R testuser:testuser /home/testuser/Maildir
+          sudo /bin/bash tests/resources/dovecotSsl.sh
+          sudo service dovecot start
+          sudo service dovecot restart
+
+      - name: Install dependencies
+        run: composer update --no-interaction --prefer-dist
+
+      - name: Run test suite
+        run: vendor/bin/phpunit -c phpunit.xml

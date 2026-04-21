@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
+         backupGlobals="false"
          colors="true"
          convertErrorsToExceptions="true"
-         convertWarningsToExceptions="true"
          convertNoticesToExceptions="false"
+         convertWarningsToExceptions="true"
+         bootstrap="tests/bootstrap.php"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="false"
-         bootstrap="tests/bootstrap.php"
-         verbose="true"
-         tap="true"
-         testdox="true"
->
-  <testsuite name="Project Test Suite">
-    <directory>tests</directory>
-  </testsuite>
-  <logging>
-    <log type="coverage-clover" target="build/logs/clover.xml"/>
-  </logging>
+         verbose="true">
+  <testsuites>
+    <testsuite name="Project Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>

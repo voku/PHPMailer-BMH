@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/voku/PHPMailer-BMH.svg?branch=master)](https://travis-ci.org/voku/PHPMailer-BMH)
+[![CI](https://github.com/voku/PHPMailer-BMH/actions/workflows/ci.yml/badge.svg)](https://github.com/voku/PHPMailer-BMH/actions/workflows/ci.yml)
 [![codecov.io](http://codecov.io/github/voku/PHPMailer-BMH/coverage.svg?branch=master)](http://codecov.io/github/voku/PHPMailer-BMH?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/voku/PHPMailer-BMH/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/voku/PHPMailer-BMH/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/64177eb1d95948789a1fb54b97e0ed21)](https://www.codacy.com/app/voku/PHPMailer-BMH)
@@ -9,7 +9,7 @@
 
 * PHP 7.0+ Support
 * Composer & PSR-0 Support
-* PHPUnit testing via Travis CI (TODO: more tests needed)
+* PHPUnit testing via GitHub Actions (TODO: more tests needed)
 * PHP-Quality testing via SensioLabsInsight (TODO: more fixes needed)
 
 # Bounce Mail Handler
