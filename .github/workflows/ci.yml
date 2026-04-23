@@ -31,16 +31,51 @@ jobs:
       - name: Audit dependencies
         run: composer audit
 
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: shivammathur/setup-php@2.37.0
+        with:
+          php-version: '8.3'
+          coverage: none
+          extensions: imap
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer update --no-interaction --prefer-dist
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --no-progress
+
   test:
     name: PHPUnit (PHP ${{ matrix.php-version }})
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
       matrix:
-        php-version:
-          - '7.2'
-          - '7.4'
-          - '8.3'
+        include:
+          - php-version: '7.2'
+            phpunit-config: 'phpunit.legacy.xml'
+          - php-version: '7.3'
+            phpunit-config: 'phpunit.xml'
+          - php-version: '7.4'
+            phpunit-config: 'phpunit.xml'
+          - php-version: '8.0'
+            phpunit-config: 'phpunit.xml'
+          - php-version: '8.1'
+            phpunit-config: 'phpunit.xml'
+          - php-version: '8.2'
+            phpunit-config: 'phpunit.xml'
+          - php-version: '8.3'
+            phpunit-config: 'phpunit.xml'
+          - php-version: '8.4'
+            phpunit-config: 'phpunit.xml'
+            experimental: true
 
     steps:
       - uses: actions/checkout@v6
@@ -77,4 +112,5 @@ jobs:
         run: composer update --no-interaction --prefer-dist
 
       - name: Run test suite
-        run: vendor/bin/phpunit -c phpunit.xml
+        run: vendor/bin/phpunit -c ${{ matrix.phpunit-config }}
+
