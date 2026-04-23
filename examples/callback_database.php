@@ -26,8 +26,7 @@
  */
 function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0, $body = '', $headerFull = '', $bodyFull = ''): bool
 {
-
-  // sample mysql code
+    // sample mysql code
     if ($remove == true || $remove == '1') {
         echo "note: sample code would have set the database to allowed='false'<br />";
         /*

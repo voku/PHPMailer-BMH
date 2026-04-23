@@ -796,7 +796,6 @@ class BounceMailHandler
         }
 
         for ($x = 1; $x <= $fetchedCount; ++$x) {
-
             // fetch the messages one at a time
             if ($this->useFetchstructure) {
                 /** @noinspection PhpUsageOfSilenceOperatorInspection */
