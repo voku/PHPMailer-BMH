@@ -7,7 +7,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/voku/bounce-mail-handler/v/unstable)](https://packagist.org/packages/voku/bounce-mail-handler)
 [![License](https://poser.pugx.org/voku/bounce-mail-handler/license)](https://packagist.org/packages/voku/bounce-mail-handler)
 
-* PHP 7.0+ Support
+* PHP 7.2+ Support
 * Composer & PSR-0 Support
 * PHPUnit testing via GitHub Actions (TODO: more tests needed)
 * PHP-Quality testing via SensioLabsInsight (TODO: more fixes needed)
