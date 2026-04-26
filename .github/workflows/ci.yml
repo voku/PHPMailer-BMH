@@ -61,20 +61,28 @@ jobs:
         include:
           - php-version: '7.2'
             phpunit-config: 'phpunit.legacy.xml'
+            phpunit-version: '8.5'
           - php-version: '7.3'
             phpunit-config: 'phpunit.xml'
+            phpunit-version: '9.6'
           - php-version: '7.4'
             phpunit-config: 'phpunit.xml'
+            phpunit-version: '9.6'
           - php-version: '8.0'
             phpunit-config: 'phpunit.xml'
+            phpunit-version: '9.6'
           - php-version: '8.1'
             phpunit-config: 'phpunit.xml'
+            phpunit-version: '9.6'
           - php-version: '8.2'
             phpunit-config: 'phpunit.xml'
+            phpunit-version: '9.6'
           - php-version: '8.3'
             phpunit-config: 'phpunit.xml'
+            phpunit-version: '9.6'
           - php-version: '8.4'
             phpunit-config: 'phpunit.xml'
+            phpunit-version: '9.6'
             experimental: true
 
     steps:
@@ -85,7 +93,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           coverage: none
           extensions: imap
-          tools: composer:v2
+          tools: composer:v2, phpunit:${{ matrix.phpunit-version }}
 
       - name: Prepare Dovecot mailbox fixture
         run: |
@@ -109,8 +117,7 @@ jobs:
           sudo service dovecot restart
 
       - name: Install dependencies
-        run: composer update --no-interaction --prefer-dist --ignore-platform-req=php
+        run: composer update --no-interaction --prefer-dist --no-dev
 
       - name: Run test suite
-        run: vendor/bin/phpunit -c ${{ matrix.phpunit-config }}
-
+        run: phpunit -c ${{ matrix.phpunit-config }}
