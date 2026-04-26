@@ -1,0 +1,1 @@
+{"version":1,"defects":{"FullExampleDemoTest::testBounceHandling":4},"times":{"FullExampleDemoTest::testBounceHandling":0.729,"MultipleMessageTest::testProcessMailbox":0.017,"Test\\BounceMailHandler\\SingleMessageTest::testProcessMailbox":0.011}}

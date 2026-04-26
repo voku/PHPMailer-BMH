@@ -1621,10 +1621,8 @@ function bmhDSNRules($dsn_msg, $dsn_report, $debug_mode = false): array
             echo $bmh_newline;
         }
     } else {
-        if ($result['bounce_type'] === false) {
-            $result['bounce_type'] = $rule_categories[$result['rule_cat']]['bounce_type'];
-            $result['remove'] = $rule_categories[$result['rule_cat']]['remove'];
-        }
+        $result['bounce_type'] = $rule_categories[$result['rule_cat']]['bounce_type'];
+        $result['remove'] = $rule_categories[$result['rule_cat']]['remove'];
     }
 
     return $result;

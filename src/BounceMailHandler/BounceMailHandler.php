@@ -291,7 +291,7 @@ class BounceMailHandler
      *
      * The resource handler for the opened mailbox (POP3/IMAP/NNTP/etc.)
      *
-     * @var resource
+     * @var resource|\IMAP\Connection|false
      */
     protected $mailboxLink = false;
 
@@ -709,7 +709,7 @@ class BounceMailHandler
             if ($this->testMode) {
                 $this->output('Match: ' . $ruleNumber . ':' . $ruleCategory . '; ' . $bounceType . '; ' . $email);
 
-                return true;
+                return $result;
             }
 
             $params = [
@@ -796,7 +796,6 @@ class BounceMailHandler
         }
 
         for ($x = 1; $x <= $fetchedCount; ++$x) {
-
             // fetch the messages one at a time
             if ($this->useFetchstructure) {
                 /** @noinspection PhpUsageOfSilenceOperatorInspection */
@@ -804,8 +803,6 @@ class BounceMailHandler
 
                 if (
                     $structure
-                    &&
-                    \is_object($structure)
                     &&
                     $structure->type == 1
                     &&
