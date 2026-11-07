@@ -84,6 +84,9 @@ jobs:
             phpunit-config: 'phpunit.xml'
             phpunit-version: '9.6'
             experimental: true
+          - php-version: '8.5'
+            phpunit-config: 'phpunit.xml'
+            phpunit-version: '13'
 
     steps:
       - uses: actions/checkout@v7
