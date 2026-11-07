@@ -53,7 +53,8 @@ jobs:
 
   test:
     name: PHPUnit (PHP ${{ matrix.php-version }})
-    runs-on: ubuntu-latest
+    # Dovecot 2.4 on ubuntu-latest no longer accepts the test fixture's 2.3 configuration.
+    runs-on: ubuntu-24.04
     continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
